@@ -1,12 +1,12 @@
 /*=============================================================================
         File: barray2d.cc
      Purpose:
-    Revision: $Id: barray2d_hpoint.cc,v 1.2 2002-05-09 17:44:47 philosophil Exp $
+    Revision: $Id: barray2d_hpoint.cc,v 1.3 2002-05-13 15:51:34 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
  Copyright notice:
-          Copyright (C) 1996-1997 Philippe Lavoie
+          Copyright (C) 1996-2002 Philippe Lavoie
  
 	  This library is free software; you can redistribute it and/or
 	  modify it under the terms of the GNU Library General Public
@@ -43,7 +43,6 @@ void initBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> >& a, const int r,const 
 	
   a.rz = r;	a.cz = c;
 
-  //a.m = new HPoint_nD<T,D> [a.rz*a.cz];
   a.created = 1 ;
 #ifdef COLUMN_ORDER
   a.vm = new HPoint_nD<T,D>* [a.cz] ;
@@ -60,7 +59,7 @@ void initBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> >& a, const int r,const 
   // and their created status is 0.
   // The following is done so that the data point to 
   // their proper place inside the consecutive memory
-  // array.
+  // array allocated inside dn.
 
 #ifdef COLUMN_ORDER
   const int sze = a.rz*a.cz ;
@@ -75,9 +74,13 @@ void initBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> >& a, const int r,const 
   }
 #endif 
 
-  //  a.m[0].created = 1 ;
   memset((void*)dn,0,(a.cz*a.rz*(D+1))*sizeof(T)) ;
 
+  // Ok so everyone points to the consecutive array
+  // but someone needs to delete it when the times
+  // come. That's the job of the first HPoint.
+  if((a.rz*a.cz)>0)
+    a.m[0].created = 1;
 
 #ifdef COLUMN_ORDER
   for(i=a.cz-1;i>=0;--i)
@@ -100,19 +103,12 @@ void resizeKeepBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> > &a, const int nr
 
   pn = 0 ;
 
-  mn = new HPoint_nD<T,D>[nr*nc] ;
-  
-  // we want to have all the data in a consecutive memory segment
-  // but it has to be in column order instead of row order
-  // i.e.
-  //   m1 m5 m9  m13
-  //   m2 m6 m10 m14
-  //   m3 m7 m11 m15
-  //   m4 m8 m12 m16
-  // This is done so that OpenGL can be used effectively
-  // since the data is column ordered.
-  // Note that the elements themselves are still ordered
-  // according to COLUMN_ORDER
+  mn = new NoInitHPoint_nD<T,D>[nr*nc] ;
+  // At this point the elements data pointer points to null
+  // and their created status is 0.
+  // The following is done so that the data point to 
+  // their proper place inside the consecutive memory
+  // array allocated inside dn.
 
   T* dn ;
   dn = new T[nr*nc*(D+1)] ;
@@ -121,8 +117,6 @@ void resizeKeepBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> > &a, const int nr
   int i,j ;
 #ifdef COLUMN_ORDER
   for(i=0;i<nr*nc;++i){
-    if(mn[i].created && mn[i].data)
-      delete [] mn[i].data ;
     mn[i].created = 0 ; 
     mn[i].data = &dn[i*(D+1)] ;
   }
@@ -143,8 +137,6 @@ void resizeKeepBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> > &a, const int nr
 #else
   for(i=0;i<nr;++i){
     for(j=0;j<nc;++j){
-      if(mn[i*nc+j].created && mn[i*nc+j].data)
-	delete [] mn[i*nc+j].data ;
       mn[i*nc+j].created = 0 ; 
       mn[i*nc+j].data = &dn[(nr*j+i)*(D+1)] ;
     }
@@ -173,6 +165,9 @@ void resizeKeepBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> > &a, const int nr
   }
   a.created = 1 ;
   a.m = mn ;
+  // Ok so everyone points to the consecutive array
+  // but someone needs to delete it when the times
+  // come. That's the job of the first HPoint.
   if((nr*nc)>0)
     a.m[0].created = 1 ;
   if(a.vm)
