@@ -1,7 +1,3 @@
-#include "plib_config.h"
-
-#ifdef HAS_CPPUNIT
-
 #include "nurbs.h"
 #include <cppunit/TestCase.h>
 #include <cppunit/extensions/HelperMacros.h>
@@ -112,7 +108,7 @@ namespace CppUnit {
   namespace TestAssert {
 
     // Test if it is GCC 3.0 or above
-    #if GNU_VERSION >= 30000
+    #if GCC_VERSION >= 30000
     template void assertEquals<int>(int const&, int const&, CppUnit::SourceLine, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&);
     #else
     template void CppUnit::TestAssert::assertEquals<int>(int const &, int const &, CppUnit::SourceLine, basic_string<char, string_char_traits<char>, __default_alloc_template<true, 0> > const &);
@@ -122,5 +118,3 @@ namespace CppUnit {
 
 #endif
 
-
-#endif

@@ -1,7 +1,7 @@
 /*============================================================================
         File: hpoint_nd.h
      Purpose: 
-    Revision: $Id: hpoint_nd.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: hpoint_nd.h,v 1.3 2002-05-22 17:06:47 philosophil Exp $
   Created by: Philippe Lavoie          (26 January 1999)
  Modified by: Martin Schuerch
 
@@ -36,7 +36,7 @@ namespace PLib {
     \brief A class for point in the homogeneous space
 
     When using B-splines, homogeneous points are used. They are 
-    defined with n+1 dimension points such as $(x,y,z,w)$. 
+    defined with n+1 dimension points such as $(wx,wy,wz,w)$. 
     In 3D space, a homogenouse point is equivalent to 
     \latexonly
     $(\frac{x}{w},\frac{y}{w},\frac{z}{w})$.

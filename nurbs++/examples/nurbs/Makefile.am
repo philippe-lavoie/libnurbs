@@ -12,16 +12,16 @@ MATRIX_INCLUDE = @matrix_include@
 MATRIX_LIB_FLAG = @matrix_lib_flag@
 MATRIXLIB = @matrix_lib_flag@ @matrix_lib@ @complex_lib@
 
-OPENGL_LIBS = $(GL_LFLAGS) $(GL_LIBS) $(X_EXTRA_LIBS)
+OPENGL_LIBS = -lglut $(GL_LFLAGS) $(GL_LIBS) $(X_EXTRA_LIBS)
 
 #INCLUDES = $(MAGICK_INCLUDE) $(GL_CFLAGS) @matrix_include@ @nurbs_include@
 INCLUDES = @matrix_include@ @nurbs_include@ @option_include@
 #EXTRALIBS = -lm -lc
 #ALLLIBS = @nurbs_libf@ $(MATRIXLIB) @option_libs@ $(EXTRALIBS)
-ALLLIBS = @nurbs_libf@ $(MATRIXLIB) @option_libs@
+ALLLIBS = -lglut @nurbs_libf@ $(MATRIXLIB) @option_libs@
 
-TESTS = tnurbs tnlength tnurbsS thnurbsS tnsSweep tmatrixRT tdrawAa  tnInterp tnApprox tnMovePoint tnsMovePoint tngl tleastS tnurbs_sp  tnurbsS_sp tclose tnurbsSub tmeasures trispline
-noinst_PROGRAMS = tnurbs tnlength tnurbsS thnurbsS tnsSweep tmatrixRT tdrawAa  tnInterp tnApprox tnMovePoint tnsMovePoint tngl tleastS tnurbs_sp  tnurbsS_sp tclose tnurbsSub tmeasures  trispline 
+TESTS = tnurbs tnlength tnurbsS thnurbsS tnsSweep tmatrixRT tdrawAa  tnInterp tnApprox tnMovePoint tnsMovePoint topengl tleastS tnurbs_sp  tnurbsS_sp tclose tnurbsSub tmeasures trispline
+noinst_PROGRAMS = tnurbs tnlength tnurbsS thnurbsS tnsSweep tmatrixRT tdrawAa  tnInterp tnApprox tnMovePoint tnsMovePoint topengl tleastS tnurbs_sp  tnurbsS_sp tclose tnurbsSub tmeasures  trispline 
 
 LDADD = $(ALLLIBS)
 #LDFLAGS = $(LIBSINC)
@@ -37,7 +37,7 @@ tnInterp_SOURCES = tnInterp.cpp
 tnApprox_SOURCES = tnApprox.cpp
 tnMovePoint_SOURCES = tnMovePoint.cpp
 tnsMovePoint_SOURCES = tnsMovePoint.cpp
-tngl_SOURCES = tngl.cpp
+topengl_SOURCES = topengl.cpp
 tleastS_SOURCES = tleastS.cpp
 tnurbs_sp_SOURCES = tnurbs_sp.cpp
 tnurbsS_sp_SOURCES = tnurbsS_sp.cpp

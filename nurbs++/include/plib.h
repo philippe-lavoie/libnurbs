@@ -1,7 +1,7 @@
 /*=============================================================================
         File: plib.h
      Purpose: Defines values needed by every module of NURBS++
-    Revision: $Id: plib.h,v 1.1 2002-05-21 22:14:36 philosophil Exp $
+    Revision: $Id: plib.h,v 1.2 2002-05-22 17:06:47 philosophil Exp $
   Created by: Philippe Lavoie          (21 May, 2002)
  Modified by: 
 
@@ -25,10 +25,10 @@
 #ifndef PLIB_HEADER
 #define PLIB_HEADER
 
-#include "plib_config.h"
-
 #define GCC_VERSION (__GNUC__ * 10000 \
                      + __GNUC_MINOR__ * 100 \
                      + __GNUC_PATCHLEVEL__)
+
+#include "plib_config.h"
 
 #endif

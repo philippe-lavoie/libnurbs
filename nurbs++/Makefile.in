@@ -103,6 +103,7 @@ ar = @ar@
 clean_list = @clean_list@
 complex_header = @complex_header@
 complex_lib = @complex_lib@
+has_cppunit = @has_cppunit@
 inside_mindseye = @inside_mindseye@
 install_sh = @install_sh@
 libcxx_flags = @libcxx_flags@
@@ -160,10 +161,9 @@ RECURSIVE_TARGETS = info-recursive dvi-recursive install-info-recursive \
 	install-exec-recursive installdirs-recursive install-recursive \
 	uninstall-recursive check-recursive installcheck-recursive
 DIST_COMMON = README AUTHORS COPYING ChangeLog Doxyfile.in INSTALL \
-	Makefile.am Makefile.in NEWS acconfig.h acinclude.m4 aclocal.m4 \
-	config.guess config.sub configure configure.in depcomp \
-	install-sh ltconfig ltmain.sh missing mkinstalldirs \
-	nurbs++-config.in
+	Makefile.am Makefile.in NEWS acconfig.h aclocal.m4 config.guess \
+	config.sub configure configure.in depcomp install-sh ltconfig \
+	ltmain.sh missing mkinstalldirs nurbs++-config.in
 all: all-recursive
 
 .SUFFIXES:
@@ -178,7 +178,7 @@ $(top_builddir)/config.status: $(srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 $(srcdir)/configure:  $(srcdir)/configure.in $(ACLOCAL_M4) $(CONFIGURE_DEPENDENCIES)
 	cd $(srcdir) && $(AUTOCONF)
 
-$(ACLOCAL_M4):  configure.in acinclude.m4 config/has_cppunit.m4 config/has_image_magick.m4 config/has_opengl.m4
+$(ACLOCAL_M4):  configure.in config/cxx_features.m4 config/has_cppunit.m4 config/has_image_magick.m4 config/has_opengl.m4 config/plib_extra.m4
 	cd $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 Doxyfile: $(top_builddir)/config.status Doxyfile.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@

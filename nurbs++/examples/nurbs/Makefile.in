@@ -103,6 +103,7 @@ ar = @ar@
 clean_list = @clean_list@
 complex_header = @complex_header@
 complex_lib = @complex_lib@
+has_cppunit = @has_cppunit@
 inside_mindseye = @inside_mindseye@
 install_sh = @install_sh@
 libcxx_flags = @libcxx_flags@
@@ -135,16 +136,16 @@ MATRIX_INCLUDE = @matrix_include@
 MATRIX_LIB_FLAG = @matrix_lib_flag@
 MATRIXLIB = @matrix_lib_flag@ @matrix_lib@ @complex_lib@
 
-OPENGL_LIBS = $(GL_LFLAGS) $(GL_LIBS) $(X_EXTRA_LIBS)
+OPENGL_LIBS = -lglut $(GL_LFLAGS) $(GL_LIBS) $(X_EXTRA_LIBS)
 
 #INCLUDES = $(MAGICK_INCLUDE) $(GL_CFLAGS) @matrix_include@ @nurbs_include@
 INCLUDES = @matrix_include@ @nurbs_include@ @option_include@
 #EXTRALIBS = -lm -lc
 #ALLLIBS = @nurbs_libf@ $(MATRIXLIB) @option_libs@ $(EXTRALIBS)
-ALLLIBS = @nurbs_libf@ $(MATRIXLIB) @option_libs@
+ALLLIBS = -lglut @nurbs_libf@ $(MATRIXLIB) @option_libs@
 
-TESTS = tnurbs tnlength tnurbsS thnurbsS tnsSweep tmatrixRT tdrawAa  tnInterp tnApprox tnMovePoint tnsMovePoint tngl tleastS tnurbs_sp  tnurbsS_sp tclose tnurbsSub tmeasures trispline
-noinst_PROGRAMS = tnurbs tnlength tnurbsS thnurbsS tnsSweep tmatrixRT tdrawAa  tnInterp tnApprox tnMovePoint tnsMovePoint tngl tleastS tnurbs_sp  tnurbsS_sp tclose tnurbsSub tmeasures  trispline 
+TESTS = tnurbs tnlength tnurbsS thnurbsS tnsSweep tmatrixRT tdrawAa  tnInterp tnApprox tnMovePoint tnsMovePoint topengl tleastS tnurbs_sp  tnurbsS_sp tclose tnurbsSub tmeasures trispline
+noinst_PROGRAMS = tnurbs tnlength tnurbsS thnurbsS tnsSweep tmatrixRT tdrawAa  tnInterp tnApprox tnMovePoint tnsMovePoint topengl tleastS tnurbs_sp  tnurbsS_sp tclose tnurbsSub tmeasures  trispline 
 
 LDADD = $(ALLLIBS)
 
@@ -160,7 +161,7 @@ tnInterp_SOURCES = tnInterp.cpp
 tnApprox_SOURCES = tnApprox.cpp
 tnMovePoint_SOURCES = tnMovePoint.cpp
 tnsMovePoint_SOURCES = tnsMovePoint.cpp
-tngl_SOURCES = tngl.cpp
+topengl_SOURCES = topengl.cpp
 tleastS_SOURCES = tleastS.cpp
 tnurbs_sp_SOURCES = tnurbs_sp.cpp
 tnurbsS_sp_SOURCES = tnurbsS_sp.cpp
@@ -175,7 +176,7 @@ CONFIG_CLEAN_FILES =
 noinst_PROGRAMS = tnurbs$(EXEEXT) tnlength$(EXEEXT) tnurbsS$(EXEEXT) \
 	thnurbsS$(EXEEXT) tnsSweep$(EXEEXT) tmatrixRT$(EXEEXT) \
 	tdrawAa$(EXEEXT) tnInterp$(EXEEXT) tnApprox$(EXEEXT) \
-	tnMovePoint$(EXEEXT) tnsMovePoint$(EXEEXT) tngl$(EXEEXT) \
+	tnMovePoint$(EXEEXT) tnsMovePoint$(EXEEXT) topengl$(EXEEXT) \
 	tleastS$(EXEEXT) tnurbs_sp$(EXEEXT) tnurbsS_sp$(EXEEXT) \
 	tclose$(EXEEXT) tnurbsSub$(EXEEXT) tmeasures$(EXEEXT) \
 	trispline$(EXEEXT)
@@ -226,11 +227,6 @@ tnMovePoint_OBJECTS = $(am_tnMovePoint_OBJECTS)
 tnMovePoint_LDADD = $(LDADD)
 tnMovePoint_DEPENDENCIES =
 tnMovePoint_LDFLAGS =
-am_tngl_OBJECTS = tngl.$(OBJEXT)
-tngl_OBJECTS = $(am_tngl_OBJECTS)
-tngl_LDADD = $(LDADD)
-tngl_DEPENDENCIES =
-tngl_LDFLAGS =
 am_tnlength_OBJECTS = tnlength.$(OBJEXT)
 tnlength_OBJECTS = $(am_tnlength_OBJECTS)
 tnlength_LDADD = $(LDADD)
@@ -271,6 +267,11 @@ tnurbs_sp_OBJECTS = $(am_tnurbs_sp_OBJECTS)
 tnurbs_sp_LDADD = $(LDADD)
 tnurbs_sp_DEPENDENCIES =
 tnurbs_sp_LDFLAGS =
+am_topengl_OBJECTS = topengl.$(OBJEXT)
+topengl_OBJECTS = $(am_topengl_OBJECTS)
+topengl_LDADD = $(LDADD)
+topengl_DEPENDENCIES =
+topengl_LDFLAGS =
 am_trispline_OBJECTS = trispline.$(OBJEXT)
 trispline_OBJECTS = $(am_trispline_OBJECTS)
 trispline_LDADD = $(LDADD)
@@ -288,11 +289,11 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	./$(DEPDIR)/thnurbsS.Po ./$(DEPDIR)/tleastS.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/tmatrixRT.Po ./$(DEPDIR)/tmeasures.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/tnApprox.Po ./$(DEPDIR)/tnInterp.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/tnMovePoint.Po ./$(DEPDIR)/tngl.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/tnlength.Po ./$(DEPDIR)/tnsMovePoint.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/tnsSweep.Po ./$(DEPDIR)/tnurbs.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/tnurbsS.Po ./$(DEPDIR)/tnurbsS_sp.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/tnurbsSub.Po ./$(DEPDIR)/tnurbs_sp.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/tnMovePoint.Po ./$(DEPDIR)/tnlength.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/tnsMovePoint.Po ./$(DEPDIR)/tnsSweep.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/tnurbs.Po ./$(DEPDIR)/tnurbsS.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/tnurbsS_sp.Po ./$(DEPDIR)/tnurbsSub.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/tnurbs_sp.Po ./$(DEPDIR)/topengl.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/trispline.Po
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
@@ -306,12 +307,12 @@ CXXFLAGS = @CXXFLAGS@
 DIST_SOURCES = $(tclose_SOURCES) $(tdrawAa_SOURCES) $(thnurbsS_SOURCES) \
 	$(tleastS_SOURCES) $(tmatrixRT_SOURCES) $(tmeasures_SOURCES) \
 	$(tnApprox_SOURCES) $(tnInterp_SOURCES) $(tnMovePoint_SOURCES) \
-	$(tngl_SOURCES) $(tnlength_SOURCES) $(tnsMovePoint_SOURCES) \
-	$(tnsSweep_SOURCES) $(tnurbs_SOURCES) $(tnurbsS_SOURCES) \
-	$(tnurbsS_sp_SOURCES) $(tnurbsSub_SOURCES) $(tnurbs_sp_SOURCES) \
+	$(tnlength_SOURCES) $(tnsMovePoint_SOURCES) $(tnsSweep_SOURCES) \
+	$(tnurbs_SOURCES) $(tnurbsS_SOURCES) $(tnurbsS_sp_SOURCES) \
+	$(tnurbsSub_SOURCES) $(tnurbs_sp_SOURCES) $(topengl_SOURCES) \
 	$(trispline_SOURCES)
 DIST_COMMON = Makefile.am Makefile.in
-SOURCES = $(tclose_SOURCES) $(tdrawAa_SOURCES) $(thnurbsS_SOURCES) $(tleastS_SOURCES) $(tmatrixRT_SOURCES) $(tmeasures_SOURCES) $(tnApprox_SOURCES) $(tnInterp_SOURCES) $(tnMovePoint_SOURCES) $(tngl_SOURCES) $(tnlength_SOURCES) $(tnsMovePoint_SOURCES) $(tnsSweep_SOURCES) $(tnurbs_SOURCES) $(tnurbsS_SOURCES) $(tnurbsS_sp_SOURCES) $(tnurbsSub_SOURCES) $(tnurbs_sp_SOURCES) $(trispline_SOURCES)
+SOURCES = $(tclose_SOURCES) $(tdrawAa_SOURCES) $(thnurbsS_SOURCES) $(tleastS_SOURCES) $(tmatrixRT_SOURCES) $(tmeasures_SOURCES) $(tnApprox_SOURCES) $(tnInterp_SOURCES) $(tnMovePoint_SOURCES) $(tnlength_SOURCES) $(tnsMovePoint_SOURCES) $(tnsSweep_SOURCES) $(tnurbs_SOURCES) $(tnurbsS_SOURCES) $(tnurbsS_sp_SOURCES) $(tnurbsSub_SOURCES) $(tnurbs_sp_SOURCES) $(topengl_SOURCES) $(trispline_SOURCES)
 
 all: all-am
 
@@ -352,9 +353,6 @@ tnInterp$(EXEEXT): $(tnInterp_OBJECTS) $(tnInterp_DEPENDENCIES)
 tnMovePoint$(EXEEXT): $(tnMovePoint_OBJECTS) $(tnMovePoint_DEPENDENCIES) 
 	@rm -f tnMovePoint$(EXEEXT)
 	$(CXXLINK) $(tnMovePoint_LDFLAGS) $(tnMovePoint_OBJECTS) $(tnMovePoint_LDADD) $(LIBS)
-tngl$(EXEEXT): $(tngl_OBJECTS) $(tngl_DEPENDENCIES) 
-	@rm -f tngl$(EXEEXT)
-	$(CXXLINK) $(tngl_LDFLAGS) $(tngl_OBJECTS) $(tngl_LDADD) $(LIBS)
 tnlength$(EXEEXT): $(tnlength_OBJECTS) $(tnlength_DEPENDENCIES) 
 	@rm -f tnlength$(EXEEXT)
 	$(CXXLINK) $(tnlength_LDFLAGS) $(tnlength_OBJECTS) $(tnlength_LDADD) $(LIBS)
@@ -379,6 +377,9 @@ tnurbsSub$(EXEEXT): $(tnurbsSub_OBJECTS) $(tnurbsSub_DEPENDENCIES)
 tnurbs_sp$(EXEEXT): $(tnurbs_sp_OBJECTS) $(tnurbs_sp_DEPENDENCIES) 
 	@rm -f tnurbs_sp$(EXEEXT)
 	$(CXXLINK) $(tnurbs_sp_LDFLAGS) $(tnurbs_sp_OBJECTS) $(tnurbs_sp_LDADD) $(LIBS)
+topengl$(EXEEXT): $(topengl_OBJECTS) $(topengl_DEPENDENCIES) 
+	@rm -f topengl$(EXEEXT)
+	$(CXXLINK) $(topengl_LDFLAGS) $(topengl_OBJECTS) $(topengl_LDADD) $(LIBS)
 trispline$(EXEEXT): $(trispline_OBJECTS) $(trispline_DEPENDENCIES) 
 	@rm -f trispline$(EXEEXT)
 	$(CXXLINK) $(trispline_LDFLAGS) $(trispline_OBJECTS) $(trispline_LDADD) $(LIBS)
@@ -398,7 +399,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tnApprox.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tnInterp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tnMovePoint.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tngl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tnlength.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tnsMovePoint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tnsSweep.Po@am__quote@
@@ -407,6 +407,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tnurbsS_sp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tnurbsSub.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tnurbs_sp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/topengl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/trispline.Po@am__quote@
 
 distclean-depend:

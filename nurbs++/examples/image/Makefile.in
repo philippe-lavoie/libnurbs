@@ -103,6 +103,7 @@ ar = @ar@
 clean_list = @clean_list@
 complex_header = @complex_header@
 complex_lib = @complex_lib@
+has_cppunit = @has_cppunit@
 inside_mindseye = @inside_mindseye@
 install_sh = @install_sh@
 libcxx_flags = @libcxx_flags@

@@ -8072,86 +8072,6 @@ test -z "$INSTALL_SCRIPT" && INSTALL_SCRIPT='${INSTALL}'
 
 test -z "$INSTALL_DATA" && INSTALL_DATA='${INSTALL} -m 644'
 
-if test -n "$ac_tool_prefix"; then
-  # Extract the first word of "${ac_tool_prefix}ranlib", so it can be a program name with args.
-set dummy ${ac_tool_prefix}ranlib; ac_word=$2
-echo "$as_me:$LINENO: checking for $ac_word" >&5
-echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6
-if test "${ac_cv_prog_RANLIB+set}" = set; then
-  echo $ECHO_N "(cached) $ECHO_C" >&6
-else
-  if test -n "$RANLIB"; then
-  ac_cv_prog_RANLIB="$RANLIB" # Let the user override the test.
-else
-as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
-for as_dir in $PATH
-do
-  IFS=$as_save_IFS
-  test -z "$as_dir" && as_dir=.
-  for ac_exec_ext in '' $ac_executable_extensions; do
-  if $as_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
-    ac_cv_prog_RANLIB="${ac_tool_prefix}ranlib"
-    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
-    break 2
-  fi
-done
-done
-
-fi
-fi
-RANLIB=$ac_cv_prog_RANLIB
-if test -n "$RANLIB"; then
-  echo "$as_me:$LINENO: result: $RANLIB" >&5
-echo "${ECHO_T}$RANLIB" >&6
-else
-  echo "$as_me:$LINENO: result: no" >&5
-echo "${ECHO_T}no" >&6
-fi
-
-fi
-if test -z "$ac_cv_prog_RANLIB"; then
-  ac_ct_RANLIB=$RANLIB
-  # Extract the first word of "ranlib", so it can be a program name with args.
-set dummy ranlib; ac_word=$2
-echo "$as_me:$LINENO: checking for $ac_word" >&5
-echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6
-if test "${ac_cv_prog_ac_ct_RANLIB+set}" = set; then
-  echo $ECHO_N "(cached) $ECHO_C" >&6
-else
-  if test -n "$ac_ct_RANLIB"; then
-  ac_cv_prog_ac_ct_RANLIB="$ac_ct_RANLIB" # Let the user override the test.
-else
-as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
-for as_dir in $PATH
-do
-  IFS=$as_save_IFS
-  test -z "$as_dir" && as_dir=.
-  for ac_exec_ext in '' $ac_executable_extensions; do
-  if $as_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
-    ac_cv_prog_ac_ct_RANLIB="ranlib"
-    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
-    break 2
-  fi
-done
-done
-
-  test -z "$ac_cv_prog_ac_ct_RANLIB" && ac_cv_prog_ac_ct_RANLIB=":"
-fi
-fi
-ac_ct_RANLIB=$ac_cv_prog_ac_ct_RANLIB
-if test -n "$ac_ct_RANLIB"; then
-  echo "$as_me:$LINENO: result: $ac_ct_RANLIB" >&5
-echo "${ECHO_T}$ac_ct_RANLIB" >&6
-else
-  echo "$as_me:$LINENO: result: no" >&5
-echo "${ECHO_T}no" >&6
-fi
-
-  RANLIB=$ac_ct_RANLIB
-else
-  RANLIB="$ac_cv_prog_RANLIB"
-fi
-
 
 # Add the stamp file to the list of files AC keeps track of,
 # along with our hook.
@@ -8318,33 +8238,75 @@ option_include=
 
 
 
-echo "$as_me:$LINENO: checking whether cppunit library is present" >&5
-echo $ECHO_N "checking whether cppunit library is present... $ECHO_C" >&6
 
 if test "${has_cppunit+set}" = set; then
   echo $ECHO_N "(cached) $ECHO_C" >&6
 else
 
+ # Extract the first word of "cppunit-config", so it can be a program name with args.
+set dummy cppunit-config; ac_word=$2
+echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6
+if test "${ac_cv_prog_has_cppunit+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  if test -n "$has_cppunit"; then
+  ac_cv_prog_has_cppunit="$has_cppunit" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if $as_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
+    ac_cv_prog_has_cppunit="yes"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+
+  test -z "$ac_cv_prog_has_cppunit" && ac_cv_prog_has_cppunit="no"
+fi
+fi
+has_cppunit=$ac_cv_prog_has_cppunit
+if test -n "$has_cppunit"; then
+  echo "$as_me:$LINENO: result: $has_cppunit" >&5
+echo "${ECHO_T}$has_cppunit" >&6
+else
+  echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6
+fi
+
+ if test "$has_cppunit" = no; then
+   echo "$as_me:$LINENO: result: $has_cppunit" >&5
+echo "${ECHO_T}$has_cppunit" >&6
+ fi
+
+ if test x"$has_cppunit" = xyes; then
+  echo "$as_me:$LINENO: checking whether you can use cppunit" >&5
+echo $ECHO_N "checking whether you can use cppunit... $ECHO_C" >&6
 
 
- ac_ext=cc
+  ac_ext=cc
 ac_cpp='$CXXCPP $CPPFLAGS'
 ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
 ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
 ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
- CPPUNIT_CPPFLAGS=`cppunit-config --cflags`
- CPPUNIT_LIBS=`cppunit-config --libs`
- SAVE_CPPFLAGS="$CPPFLAGS"
- CPPFLAGS="$CPPFLAGS $CPPUNIT_CPPFLAGS"
- SAVE_LIBS="$LIBS"
- LIBS="$LIBS $CPPUNIT_LIBS"
+  CPPUNIT_CPPFLAGS=`cppunit-config --cflags`
+  CPPUNIT_LIBS=`cppunit-config --libs`
+  SAVE_CPPFLAGS="$CPPFLAGS"
+  CPPFLAGS="$CPPFLAGS $CPPUNIT_CPPFLAGS"
+  SAVE_LIBS="$LIBS"
+  LIBS="$LIBS $CPPUNIT_LIBS"
 
- cat >conftest.$ac_ext <<_ACEOF
+  cat >conftest.$ac_ext <<_ACEOF
 #line $LINENO "configure"
 #include "confdefs.h"
 
- #include <cppunit/TestCase.h>
+	 #include <cppunit/TestCase.h>
 
 #ifdef F77_DUMMY_MAIN
 #  ifdef __cplusplus
@@ -8372,30 +8334,31 @@ if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
   ac_status=$?
   echo "$as_me:$LINENO: \$? = $ac_status" >&5
   (exit $ac_status); }; }; then
-  has_cppunit=yes
+   has_cppunit=yes
 else
   echo "$as_me: failed program was:" >&5
 cat conftest.$ac_ext >&5
-has_cppunit=no
+ has_cppunit=no
 fi
 rm -f conftest.$ac_objext conftest.$ac_ext
 
- CPPFLAGS="$SAVE_CPPFLAGS"
- LDFLAGS="$SAVE_LDFLAGS"
- LIBS="$SAVE_LIBS"
- ac_ext=c
+  CPPFLAGS="$SAVE_CPPFLAGS"
+  LDFLAGS="$SAVE_LDFLAGS"
+  LIBS="$SAVE_LIBS"
+  ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
 ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
 ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
 ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
+ fi
 
 fi
 
 
 echo "$as_me:$LINENO: result: $has_cppunit" >&5
 echo "${ECHO_T}$has_cppunit" >&6
-if test "$has_cppunit" = yes; then
+if test x"$has_cppunit" = xyes; then
    cat >>confdefs.h <<\_ACEOF
 #define HAS_CPPUNIT 1
 _ACEOF
@@ -8403,6 +8366,18 @@ _ACEOF
 
 
 fi
+
+
+
+if test x"$has_cppunit" = xyes; then
+  BUILD_CPPUNIT_TESTS_TRUE=
+  BUILD_CPPUNIT_TESTS_FALSE='#'
+else
+  BUILD_CPPUNIT_TESTS_TRUE='#'
+  BUILD_CPPUNIT_TESTS_FALSE=
+fi
+
+
 
 
 
@@ -9856,7 +9831,7 @@ if test $ac_cv_lib_GL_main = yes; then
         else
             GL_LFLAGS="-L${ac_cv_with_gl_lib}"
         fi
-	GL_LIBS="-lGLU -lGL -lXext -lm"
+	GL_LIBS="-lGLU -lGL $X_PRE_LIBS -lXext -lm"
 
 
 
@@ -10524,6 +10499,13 @@ echo "$as_me: error: conditional \"AMDEP\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
+if test -z "${BUILD_CPPUNIT_TESTS_TRUE}" && test -z "${BUILD_CPPUNIT_TESTS_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"BUILD_CPPUNIT_TESTS\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"BUILD_CPPUNIT_TESTS\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
 if test -z "${BUILD_FLOAT_DOUBLE_TRUE}" && test -z "${BUILD_FLOAT_DOUBLE_FALSE}"; then
   { { echo "$as_me:$LINENO: error: conditional \"BUILD_FLOAT_DOUBLE\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
@@ -11104,8 +11086,11 @@ s,@CXX@,$CXX,;t t
 s,@CXXFLAGS@,$CXXFLAGS,;t t
 s,@ac_ct_CXX@,$ac_ct_CXX,;t t
 s,@CXXDEPMODE@,$CXXDEPMODE,;t t
+s,@has_cppunit@,$has_cppunit,;t t
 s,@CPPUNIT_CPPFLAGS@,$CPPUNIT_CPPFLAGS,;t t
 s,@CPPUNIT_LIBS@,$CPPUNIT_LIBS,;t t
+s,@BUILD_CPPUNIT_TESTS_TRUE@,$BUILD_CPPUNIT_TESTS_TRUE,;t t
+s,@BUILD_CPPUNIT_TESTS_FALSE@,$BUILD_CPPUNIT_TESTS_FALSE,;t t
 s,@X_CFLAGS@,$X_CFLAGS,;t t
 s,@X_PRE_LIBS@,$X_PRE_LIBS,;t t
 s,@X_LIBS@,$X_LIBS,;t t
