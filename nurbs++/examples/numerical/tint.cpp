@@ -3,7 +3,7 @@
 #include <math.h>
 #include <stdio.h>
 
-#include "integrate.hh"
+#include "integrate.h"
 
 using namespace PLib ; 
 

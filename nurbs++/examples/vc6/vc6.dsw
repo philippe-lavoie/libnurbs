@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "TnAprox"=".\TnAprox\TnAprox.dsp" - Package Owner=<4>
+Project: "AllTests"=".\AllTests\AllTests.dsp" - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -12,25 +12,43 @@ Package=<5>
 Package=<4>
 {{{
     Begin Project Dependency
-    Project_Dep_Name nurbslib
+    Project_Dep_Name terr
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tint
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tint2
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tmatrix
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tmatrixMat
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name TnAprox
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tnclosed
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tnInterp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tnlength
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tnurbs
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name tvqsort
     End Project Dependency
 }}}
 
 ###############################################################################
 
-Project: "nurbslib"=".\nurbslib\nurbslib.dsp" - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "special"=".\special\special.dsp" - Package Owner=<4>
+Project: "TnAprox"=".\TnAprox\TnAprox.dsp" - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -62,9 +80,6 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name nurbslib
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -89,9 +104,6 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name nurbslib
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -116,9 +128,6 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name nurbslib
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -131,9 +140,6 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name nurbslib
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -146,44 +152,11 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name nurbslib
-    End Project Dependency
-}}}
-
-###############################################################################
-
-Project: "tntess"=".\tntess\tntess.dsp" - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name nurbslib
-    End Project Dependency
 }}}
 
 ###############################################################################
 
 Project: "tnurbs"=".\tnurbs\tnurbs.dsp" - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name nurbslib
-    End Project Dependency
-}}}
-
-###############################################################################
-
-Project: "tstatistic"=".\tstatistic\tstatistic.dsp" - Package Owner=<4>
 
 Package=<5>
 {{{

@@ -3,7 +3,7 @@
 // testing of interpolation and approximation
 
 int main(){
-  int i,j ;
+  int i ;
   // Initialize a NURBS curve and generate a list of points from it
   int deg = 3 ;
   Vector_HPoint3Df P(10) ;

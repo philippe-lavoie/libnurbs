@@ -2,7 +2,7 @@
 
 int main(){
   using namespace PLib ; 
-  int i,j ;
+  int i ;
   cout << "Testing NURBS interpolation and approximation\n" ;
 
   Vector_Point3Df points(10) ;

@@ -1,4 +1,4 @@
-#include <matrixMat.hh>
+#include <matrixMat.h>
 #include <stdlib.h>
 
 const double MaxRandom = 32768 ; // 2^15

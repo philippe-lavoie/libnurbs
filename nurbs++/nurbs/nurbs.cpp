@@ -1,7 +1,7 @@
 /*=====================================================================
         File: nurbs.cpp
      Purpose:       
-    Revision: $Id: nurbs.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbs.cpp,v 1.3 2002-05-24 17:27:24 philosophil Exp $
       Author: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -5905,7 +5905,6 @@ HPoint_nD<T,D> NurbsCurve<T,D>::firstD(T u, int span) const {
 template <class T, int N>
 Point_nD<T,N> NurbsCurve<T,N>::firstDn(T u) const {
   int span = findSpan(u) ; 
-  int i ; 
   Point_nD<T,N> Cp ; 
   HPoint_nD<T,N> Cd ; 
   Cd = firstD(u,span) ;

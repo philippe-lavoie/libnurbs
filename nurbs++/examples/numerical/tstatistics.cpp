@@ -1,4 +1,4 @@
-#include "../numerical/statistic.hh"
+#include "statistic.h"
 #include <iostream>
 
 int main(){

@@ -1,4 +1,4 @@
-#include "vector.hh"
+#include "vector.h"
 
 int main(){
   PLib::Vector<float> V(100) ;

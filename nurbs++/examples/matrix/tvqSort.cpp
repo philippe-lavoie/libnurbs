@@ -1,4 +1,4 @@
-#include <vector.hh>
+#include <vector.h>
 
 int main(){
   Vector_INT b(5) ;
