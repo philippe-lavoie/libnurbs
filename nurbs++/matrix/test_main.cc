@@ -1,3 +1,7 @@
+#include "plib_config.hh"
+
+#ifdef HAS_CPPUNIT
+
 #include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
@@ -31,3 +35,17 @@ main( int argc, char* argv[] )
 
   return result.wasSuccessful() ? 0 : 1;
 }
+
+#else
+
+#include <iostream>
+
+int
+main( int argc, char* argv[] )
+{
+  std::cout << "You really should install CppUnit on your system" << std::endl;
+  std::cout << "It really helps the quality and the speed of developement." << std::endl;
+  return 0;
+}
+
+#endif

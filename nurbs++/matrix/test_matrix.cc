@@ -1,3 +1,9 @@
+#include "plib_config.hh"
+
+#ifdef HAS_CPPUNIT
+
+
+
 #include "matrix.hh"
 #include <cppunit/TestCase.h>
 #include <cppunit/extensions/HelperMacros.h>
@@ -155,3 +161,4 @@ template CppUnit::TestCaller<TestMatrixDouble, CppUnit::NoExceptionExpected>;
 #endif
 
 
+#endif // HAS_CPPUNIT

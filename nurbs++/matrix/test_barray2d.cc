@@ -1,3 +1,7 @@
+#include "plib_config.hh"
+
+#ifdef HAS_CPPUNIT
+
 #include "matrix.hh"
 #include <cppunit/TestCase.h>
 #include <cppunit/extensions/HelperMacros.h>
@@ -195,4 +199,6 @@ template CppUnit::TestCaller<TestBasic2DArrayHPoint2Df, CppUnit::NoExceptionExpe
 template CppUnit::TestCaller<TestBasic2DArrayHPoint2Dd, CppUnit::NoExceptionExpected>;
 #endif
 
+
+#endif // HAS_CPPUNIT
 
