@@ -1,7 +1,7 @@
 AUTOMAKE_OPTIONS = 1.4
 ACLOCAL_AMFLAGS = -I config
 
-SUBDIRS= include matrix numerical image nurbs
+SUBDIRS= include matrix numerical image nurbs tests
 EXTRA_SUBDIRS = examples
 DIST_SUBDIRS = include matrix numerical image nurbs examples
 

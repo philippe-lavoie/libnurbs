@@ -3,10 +3,16 @@
 namespace PLib {
 
   template <>
-    int ParaSurface<float,2>::intersectWith(const ParaSurface<float,2> &S, Point_nD<float,2>& p, float& u, float& v, float& s, float& t, int maxI, float um, float uM, float vm, float vM) const{ cerr << "NOT DEFINED FOR 2D SURFACES.\n";}
+    int ParaSurface<float,2>::intersectWith(const ParaSurface<float,2> &S, Point_nD<float,2>& p, float& u, float& v, float& s, float& t, int maxI, float um, float uM, float vm, float vM) const { 
+    cerr << "NOT DEFINED FOR 2D SURFACES.\n";
+    return 0;
+  }
   
   template <>
-    int ParaSurface<float,2>::intersectWith(const ParaSurface<float,2> &S, struct InterPoint<float,2> &iter, int maxI, float um, float uM, float vm, float vM) const{cerr << "NOT DEFINED FOR 2D SURFACES.\n";}
+    int ParaSurface<float,2>::intersectWith(const ParaSurface<float,2> &S, struct InterPoint<float,2> &iter, int maxI, float um, float uM, float vm, float vM) const {
+    cerr << "NOT DEFINED FOR 2D SURFACES.\n";
+    return 0;
+  }
   
   template <>
     int ParaSurface<float,2>::writeVRML97(ostream &fout,const Color& color,int Nu,int Nv, float uS, float uE, float vS, float vE) const{

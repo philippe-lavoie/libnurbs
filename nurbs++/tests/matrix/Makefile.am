@@ -1,0 +1,7 @@
+INCLUDES = -I@top_srcdir@/matrix -I@top_srcdir@/include
+LDADD = @CPPUNIT_LIBS@ -ldl @top_srcdir@/matrix/libmatrix.la -lm -lc
+
+noinst_PROGRAMS = test_matrix
+test_matrix_SOURCES = test_main.cpp test_matrix.cpp test_barray2d.cpp
+
+
