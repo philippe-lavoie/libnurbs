@@ -1,2 +1,2 @@
-SUBDIRS= matrix nurbs image
+SUBDIRS= matrix nurbs image morph
 

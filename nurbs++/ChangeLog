@@ -1,3 +1,7 @@
+3.1.0: (2003-1-25)
+      - Added a mathematical morphology library.
+      - Added back support for Image Magick
+      - Fixed leaks in matrix library.
 3.0.11: (2002-5-13)
       - Fixed memory leak for barray2d of HPoint
       - Fixed compilation problems under gcc 2.96

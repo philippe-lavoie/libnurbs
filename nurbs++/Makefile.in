@@ -89,7 +89,13 @@ LTLIBOBJS = @LTLIBOBJS@
 MAGICK_CPPFLAGS = @MAGICK_CPPFLAGS@
 MAGICK_LDFLAGS = @MAGICK_LDFLAGS@
 MAGICK_LIBS = @MAGICK_LIBS@
+MAJOR_VERSION = @MAJOR_VERSION@
 MAKEINFO = @MAKEINFO@
+MICRO_VERSION = @MICRO_VERSION@
+MINOR_VERSION = @MINOR_VERSION@
+NURBS_DEP_CPPFLAGS = @NURBS_DEP_CPPFLAGS@
+NURBS_DEP_LDFLAGS = @NURBS_DEP_LDFLAGS@
+NURBS_DEP_LIBS = @NURBS_DEP_LIBS@
 OBJEXT = @OBJEXT@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
@@ -176,9 +182,9 @@ target_vendor = @target_vendor@
 AUTOMAKE_OPTIONS = dist-bzip2 dist-zip
 ACLOCAL_AMFLAGS = -I config
 
-SUBDIRS = include matrix numerical image nurbs tests
+SUBDIRS = include matrix numerical image morph nurbs tests
 #EXTRA_SUBDIRS = examples
-DIST_SUBDIRS = include matrix numerical image nurbs examples tests config
+DIST_SUBDIRS = include matrix numerical image morph nurbs examples tests config
 
 bin_SCRIPTS = nurbs++-config
 man_MANS = nurbs++-config.1

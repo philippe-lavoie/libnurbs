@@ -4,8 +4,8 @@ AC_INIT(Makefile.am)
 
 # Set version
 MAJOR_VERSION=3
-MINOR_VERSION=0
-MICRO_VERSION=12
+MINOR_VERSION=1
+MICRO_VERSION=0
 echo "configuring Nurbs++ $MAJOR_VERSION.$MINOR_VERSION.$MICRO_VERSION"
 AC_CANONICAL_SYSTEM
 AC_SUBST(MAJOR_VERSION)dnl
@@ -381,6 +381,7 @@ AC_OUTPUT(Makefile
 		   numerical/Makefile 
 		   image/Makefile 
 		   nurbs/Makefile 
+		   morph/Makefile
 		   examples/Makefile 
 		   examples/matrix/Makefile 
 		   examples/image/Makefile 
@@ -390,6 +391,7 @@ AC_OUTPUT(Makefile
 		   tests/matrix/Makefile
 		   tests/nurbs/Makefile
 		   tests/image/Makefile
+		   tests/morph/Makefile
 		   )
 
 echo

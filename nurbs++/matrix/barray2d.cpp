@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray2d.cpp
      Purpose:
-    Revision: $Id: barray2d.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: barray2d.cpp,v 1.3 2003-01-27 11:37:35 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -43,12 +43,14 @@ template <class T>
 void 
 initBasic2DArray(Basic2DArray<T> &a, const int r,const int c)
 {
+  a.rz = r;	a.cz = c;
+  a.created = 0;
+
   if ( r <= 0  || c <= 0 )
     {
       return ;
     }
 	
-  a.rz = r;	a.cz = c;
 
   a.m = new T [a.rz*a.cz];
   a.created = 1 ;
@@ -89,7 +91,7 @@ Basic2DArray<T>::Basic2DArray() {
   created = 1 ;
   m = 0; 
   vm = 0 ;
-  init(); 
+  init(0,0); 
 }
 
 /*!

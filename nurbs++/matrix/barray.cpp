@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray.cpp
      Purpose:       
-    Revision: $Id: barray.cpp,v 1.3 2002-05-14 19:14:28 philosophil Exp $
+    Revision: $Id: barray.cpp,v 1.4 2003-01-27 11:37:35 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -43,11 +43,11 @@ namespace PLib {
   \date 24 January 1997
 */
 template<class T>
-BasicArray<T>::BasicArray() : rsize(1), wdth(1),sze(1)
+BasicArray<T>::BasicArray() : rsize(0), wdth(0), sze(0)
 {
-  x = new T [1];
-  x[0] = (T) 0 ;
-  destruct = 1 ;
+  x = 0 ; // new T [1];
+  //x[0] = (T) 0 ;
+  destruct = 0 ;
 }
 
 /*!
@@ -438,7 +438,7 @@ operator==(const BasicArray<T> &a,const BasicArray<T> &b)
 
 #ifdef DEBUG_PLIB
 template <class T>
-T& BasicArray<T>::operator[](const int i) {
+T& BasicArray<T>::elem(const int i) {
   if(i<0 || i>=sze){
 #ifdef USE_EXCEPTION
     throw OutOfBound(i,0,n()-1) ;
@@ -454,7 +454,7 @@ T& BasicArray<T>::operator[](const int i) {
 }
 
 template <class T>
-T  BasicArray<T>::operator[](const int i) const {
+T  BasicArray<T>::elem(const int i) const {
   if(i<0 || i>=n()){
 #ifdef USE_EXCEPTION
     throw OutOfBound(i,0,n()-1) ;
@@ -500,7 +500,8 @@ T& BasicArray<T>::push_back(const T i, int end_buffer, double end_mult){
     }
   }
   x[sze] = i ; 
-  return x[sze];
+  ++sze;
+  return x[sze-1];
 }
 
 }

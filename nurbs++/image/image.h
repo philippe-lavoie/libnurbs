@@ -2,7 +2,7 @@
         File: image.h
      Purpose: To add some basic image processing capabilities to the 
               matrix class
-    Revision: $Id: image.h,v 1.4 2003-01-13 19:41:07 philosophil Exp $
+    Revision: $Id: image.h,v 1.5 2003-01-27 11:37:35 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -104,6 +104,12 @@ namespace PLib{
       
       int read(const std::string &filename);
       int write(const std::string &filename);
+
+      IM_ImageT<T>& operator=(const Basic2DArray<T>& image){
+	((Basic2DArray<T>&)*this) = image;
+	return *this;
+      }
+
       
     protected:
       std::string file_name ;

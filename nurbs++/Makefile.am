@@ -1,9 +1,9 @@
 AUTOMAKE_OPTIONS = dist-bzip2 dist-zip
 ACLOCAL_AMFLAGS = -I config
 
-SUBDIRS= include matrix numerical image nurbs tests
+SUBDIRS= include matrix numerical image morph nurbs tests
 #EXTRA_SUBDIRS = examples
-DIST_SUBDIRS = include matrix numerical image nurbs examples tests config
+DIST_SUBDIRS = include matrix numerical image morph nurbs examples tests config
 
 bin_SCRIPTS = nurbs++-config
 man_MANS = nurbs++-config.1

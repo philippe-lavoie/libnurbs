@@ -1,7 +1,7 @@
 /*=====================================================================
         File: nurbs.cpp
      Purpose:       
-    Revision: $Id: nurbs.cpp,v 1.4 2003-01-13 19:41:40 philosophil Exp $
+    Revision: $Id: nurbs.cpp,v 1.5 2003-01-27 11:37:36 philosophil Exp $
       Author: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -2380,23 +2380,28 @@ void NurbsCurve<T,N>::globalApproxErrBnd3(Vector< Point_nD<T,N> >& Q,
 
   \author Philippe Lavoie 
   \date 24 January 1997
+
+  \fix Modified to return the best try when the loop ends and not the last try.
 */
 template <class T, int N>
 void NurbsCurve<T,N>::projectTo(const Point_nD<T,N>& p, T guess, T& u, Point_nD<T,N>& r, T e1, T e2,int maxTry) const{
   T un ;
   T c1, c2;
   Vector< Point_nD<T,N> > Cd ;
-  Point_nD<T,N> c, cd,cdd ;
+  Point_nD<T,N> c, cd,cdd,best ;
+  T best_e ;
   int t = 0 ;
   u = guess ;
 
   if(u<U[0]) u = U[0] ;
   if(u>U[U.n()-1]) u = U[U.n()-1] ;
 
+  best = pointAt(u);
+
   while(1) {
     ++t ;
     if(t>maxTry){
-      r = c ;
+      r = best ;
       return ;
     }
     c = pointAt(u) ;
@@ -2404,10 +2409,22 @@ void NurbsCurve<T,N>::projectTo(const Point_nD<T,N>& p, T guess, T& u, Point_nD<
     cd = Cd[1] ;
     cdd = Cd[2] ;
     c1 = norm2(c-p) ;
+
+    if(t==0){
+      best_e = c1+1;
+    }
+
     if(c1<e1*e1){
       r = c ;
       return ;
     }
+    else{
+      if(c1<best_e){
+	best = c;
+	best_e = c1;
+      }
+    }
+
     c2 = norm((Point_nD<T,N>)(cd*(c-p))) ;
     //c2 *= c2 ;
     c2 /= norm(cd)*norm(c-p) ;
@@ -5202,6 +5219,8 @@ int findSpan(T u, const Vector<T>& U, int deg) {
 
   \author Philippe Lavoie
   \date 17 October 1997
+
+  \fix Solved for the problem where U[0] wasn't starting at 0.
 */
 template <class T, int N>
 BasicList<Point_nD<T,N> > NurbsCurve<T,N>::tesselate(T tolerance,BasicList<T> *uk) const {
@@ -5212,7 +5231,7 @@ BasicList<Point_nD<T,N> > NurbsCurve<T,N>::tesselate(T tolerance,BasicList<T> *u
 
   if(ca.n()==1){
     // get the number of steps 
-    T u = 0 ;
+    T u = U[0] ;
     Point_nD<T,N> maxD(0) ;
     Point_nD<T,N> prev ;
 
@@ -5224,7 +5243,7 @@ BasicList<Point_nD<T,N> > NurbsCurve<T,N>::tesselate(T tolerance,BasicList<T> *u
 
     int i ;
     for(i=1;i<11;++i){
-      u = T(i)/T(10) ;
+      u = T(i)/T(10)*(U[U.n()-1]-U[0]) + U[0] ;
       deriveAt(u,1,ders) ;
       Point_nD<T,N> delta = ders[1]-prev ;
       delta.x() = absolute(delta.x()) ;

@@ -11,7 +11,7 @@ endif
 
 noinst_PROGRAMS = $(test_program)
 
-test_matrix_SOURCES = test_main.cpp test_matrix.cpp test_barray2d.cpp
+test_matrix_SOURCES = test_main.cpp test_matrix.cpp test_barray2d.cpp test_barray.cpp
 
 
 

@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray.h
      Purpose:      
-    Revision: $Id: barray.h,v 1.3 2002-05-24 17:08:34 philosophil Exp $
+    Revision: $Id: barray.h,v 1.4 2003-01-27 11:37:35 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -88,13 +88,19 @@ public:
   T operator=(const T val) //!< set all elements of the vector to val
     { reset(val); return val; } 
   
+
+  T& operator[](const int i) 
+    { return elem(i); } 
+  T  operator[](const int i) const  
+    { return elem(i); } 
+
 #ifdef DEBUG_PLIB
-  T& operator[](const int i) ; //!< checks that i is in the proper range and returns x[i]
-  T  operator[](const int i) const ; //!< checks that i is in the proper range and returns x[i]
+  T& elem(const int i) ; //!< checks that i is in the proper range and returns x[i]
+  T  elem(const int i) const ; //!< checks that i is in the proper range and returns x[i]
 #else
-  T& operator[](const int i) //!< no range checks are performed
+  T& elem(const int i) //!< no range checks are performed
     { return x[i]; } 
-  T  operator[](const int i) const  //!< no range checks are performed 
+  T  elem(const int i) const  //!< no range checks are performed 
     { return x[i]; } 
 #endif
   T* memory() const //!< returns the data pointer 

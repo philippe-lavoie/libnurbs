@@ -127,6 +127,10 @@ void TestBasic2DArray<T>::testInit(){
       CPPUNIT_ASSERT_EQUAL( value, (*array)(i,j) );	
     }
   }
+
+  Basic2DArray<T> a;
+  CPPUNIT_ASSERT_EQUAL(0,a.rows());
+  CPPUNIT_ASSERT_EQUAL(0,a.cols());
 }
 
 template <class T>
