@@ -1,7 +1,7 @@
 /*=============================================================================
         File: curve.cpp
      Purpose:       
-    Revision: $Id: curve.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: curve.cpp,v 1.3 2003-01-13 19:41:21 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,6 +22,11 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
+
+#ifndef PLIB_NURBS_CURVE_SOURCE
+#define PLIB_NURBS_CURVE_SOURCE
+
+
 #include <curve.h>
 
 /*!
@@ -430,3 +435,5 @@ T ParaCurve<T,N>::extremum(int findMin, CoordinateType coord, T minDu, int sep, 
 }
 
 } // end namespace
+
+#endif // #define PLIB_NURBS_CURVE_SOURCE

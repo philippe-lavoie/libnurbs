@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsS.cpp
      Purpose:       
-    Revision: $Id: nurbsS.cpp,v 1.3 2002-05-27 19:57:45 philosophil Exp $
+    Revision: $Id: nurbsS.cpp,v 1.4 2003-01-13 19:42:01 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -23,6 +23,11 @@
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
 
+#ifndef PLIB_NURBS_NURBSS_SOURCE
+#define PLIB_NURBS_NURBSS_SOURCE
+
+
+#include <nurbs.h>
 #include <string.h>
 #include <matrixRT.h>
 #include <math.h>
@@ -5046,3 +5051,4 @@ void NurbsSurface<T,N>::makeTorus(const Point_nD<T,N>& O, T R, T r) {
 
 } // end namespace
 
+#endif // #define PLIB_NURBS_NURBSS_SOURCE

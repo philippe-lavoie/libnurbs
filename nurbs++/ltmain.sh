@@ -56,7 +56,7 @@ modename="$progname"
 PROGRAM=ltmain.sh
 PACKAGE=libtool
 VERSION=1.4.2
-TIMESTAMP=" (1.922.2.54 2001/09/11 03:33:37)"
+TIMESTAMP=" (1.922.2.53 2001/09/11 03:18:52)"
 
 default_mode=
 help="Try \`$progname --help' for more information."
@@ -4610,7 +4610,7 @@ relink_command=\"$relink_command\""
       fi
 
       # Now prepare to actually exec the command.
-      exec_cmd="$cmd"$args
+      exec_cmd='"$cmd"$args'
     else
       # Display what would be done.
       if test -n "$shlibpath_var"; then

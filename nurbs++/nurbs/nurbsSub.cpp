@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsSub.cpp
      Purpose:       
-    Revision: $Id: nurbsSub.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbsSub.cpp,v 1.3 2003-01-13 19:42:10 philosophil Exp $
   Created by: Philippe Lavoie          (20 Januray, 1999)
  Modified by: 
 
@@ -22,6 +22,10 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
+
+#ifndef PLIB_NURBS_NURBSSUB_SOURCE
+#define PLIB_NURBS_NURBSSUB_SOURCE
+
 #include "nurbsSub.h"
 #include <iostream>
 #include <cstdio>
@@ -1914,3 +1918,5 @@ void NurbsCurveTess::tesselate(T tol){
 */
 
 }
+
+#endif // #define PLIB_NURBS_NURBSSUB_SOURCE

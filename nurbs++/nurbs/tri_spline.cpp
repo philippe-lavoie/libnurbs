@@ -1,7 +1,7 @@
 /*=====================================================================
         File: tri_spline.cpp
      Purpose:       
-    Revision: $Id: tri_spline.cpp,v 1.3 2002-05-17 18:24:21 philosophil Exp $
+    Revision: $Id: tri_spline.cpp,v 1.4 2003-01-13 19:42:33 philosophil Exp $
       Author: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,6 +22,9 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =====================================================================*/
+
+#ifndef PLIB_NURBS_TRI_SPLINE_SOURCE
+#define PLIB_NURBS_TRI_SPLINE_SOURCE
 
 #include "tri_spline.h"
 
@@ -437,3 +440,5 @@ namespace PLib {
   }
 
 }
+
+#endif // #define PLIB_NURBS_TRI_SPLINE_SOURCE

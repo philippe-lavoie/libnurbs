@@ -1,7 +1,7 @@
 /*=====================================================================
         File: nurbs_sp.cpp
      Purpose:       
-    Revision: $Id: nurbs_sp.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbs_sp.cpp,v 1.3 2003-01-13 19:42:25 philosophil Exp $
   Created by: Philippe Lavoie          (7 May, 1998)
  Modified by: 
 
@@ -22,6 +22,12 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =====================================================================*/
+
+#ifndef PLIB_NURBS_NURBS_SP_SOURCE
+#define PLIB_NURBS_NURBS_SP_SOURCE
+
+
+
 #include <nurbs_sp.h>
 
 /*!
@@ -123,3 +129,8 @@ void NurbsCurveSP<T,N>::modOnlySurfCPby(int i, const HPoint_nD<T,N>& a){
 }
 
 } // end namespace
+
+
+#endif // #define PLIB_NURBS_NURBS_SP_SOURCE
+
+

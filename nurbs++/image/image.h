@@ -2,7 +2,7 @@
         File: image.h
      Purpose: To add some basic image processing capabilities to the 
               matrix class
-    Revision: $Id: image.h,v 1.3 2002-05-31 17:39:34 philosophil Exp $
+    Revision: $Id: image.h,v 1.4 2003-01-13 19:41:07 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -24,8 +24,8 @@
 	  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
 
-#ifndef _Matrix_image_h_
-#define _Matrix_image_h_
+#ifndef _PLIB_image_h_
+#define _PLIB_image_h_
 
 #include "matrix.h"
 #include "color.h"
@@ -68,7 +68,9 @@ typedef PLib::MatrixImage<PLib::Color> Image_Color ;
 
 #ifdef WITH_IMAGE_MAGICK
 
-#include <Magick++.h>
+#include <magick/magick_config.h>
+#include <stdio.h>
+#include <magick/api.h>
 
 namespace PLib{
 
@@ -106,7 +108,6 @@ namespace PLib{
     protected:
       std::string file_name ;
       int autoSave ;
-      Magick::Image image ;
       
       void setImage() ;
       void setMatrix() ;
@@ -116,6 +117,10 @@ namespace PLib{
 
 typedef PLib::IM_ImageT<unsigned char> IM_Image ;
 typedef PLib::IM_ImageT<PLib::Color> IM_ColorImage ;
+
+#ifdef INCLUDE_TEMPLATE_SOURCE
+#include "image_.cpp"
+#endif
 
 #endif // WITH_IMAGE_MAGICK
 

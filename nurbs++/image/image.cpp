@@ -1,7 +1,7 @@
 /*=============================================================================
         File: image.cpp
      Purpose:
-    Revision: $Id: image.cpp,v 1.3 2002-05-31 17:39:34 philosophil Exp $
+    Revision: $Id: image.cpp,v 1.4 2003-01-13 19:41:03 philosophil Exp $
   Created by:    Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,6 +22,9 @@
 	  License along with this library; if not, write to the Free
 	  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
+
+#ifndef _PLIB_IMAGE_SOURCE
+#define _PLIB_IMAGE_SOURCE
 
 #include "image.h"
 #include <stdio.h>
@@ -205,7 +208,7 @@ IM_ImageT<T>::IM_ImageT(): MatrixImage<T>(){
 template <class T>
 IM_ImageT<T>::IM_ImageT(const std::string &filename, int save): MatrixImage<T>(){
   autoSave = save ;
-  image.read(file_name);
+  //image.read(file_name);
   file_name=filename;
 }
 
@@ -346,11 +349,25 @@ void IM_ImageT<T>::setImage(){
 */
 template <class T>
 IM_ImageT<T>::~IM_ImageT(){
-  if(autoSave && file_name.length()>0)
-    image.write(file_name) ;
+  if(autoSave && file_name.length()>0){
+    //image.write(file_name) ;
+  }
 }
 
 #endif
 
 
+#ifdef NO_IMPLICIT_TEMPLATES
+  template class MatrixImage<int> ;
+  template class MatrixImage<float> ;
+  template class MatrixImage<double> ;
+  template class MatrixImage<char> ;
+  template class MatrixImage<unsigned char> ;
+  template class MatrixImage<Color> ;
+#endif
+
+
 } // end namespace
+
+
+#endif

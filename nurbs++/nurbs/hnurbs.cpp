@@ -1,7 +1,7 @@
 /*=============================================================================
         File: hnurbs.cpp
      Purpose:       
-    Revision: $Id: hnurbs.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: hnurbs.cpp,v 1.3 2003-01-13 19:41:27 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,6 +22,10 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
+
+#ifndef PLIB_NURBS_HNURBS_SOURCE
+#define PLIB_NURBS_HNURBS_SOURCE
+
 #include <hnurbs.h>
 
 HNurbsCurveNode::HNurbsCurveNode():u0(u0_),u1(u1_){
@@ -438,3 +442,6 @@ void HNurbsCurve::interpolate(const Vector< Point_nD<T,N> > &Pts, int deg, T acc
   }
 
 }
+
+
+#endif // #define PLIB_NURBS_HNURBS_SOURCE

@@ -1,7 +1,7 @@
 /*=============================================================================
         File: hnurbsS.h
      Purpose:       
-    Revision: $Id: hnurbsS.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: hnurbsS.h,v 1.3 2003-01-13 19:41:31 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,9 +22,10 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
-#ifndef _nurbs_hnurbs_h_
-#define _nurbs_hnurbs_h_
+#ifndef _nurbs_hnurbsS_h_
+#define _nurbs_hnurbsS_h_
 
+#include "nurbs.h"
 #include "nurbsS.h"
 #include "vector.h"
 
@@ -165,4 +166,4 @@ typedef PLib::HNurbsSurface<float,3> PlHNurbsSurfacef ;
 typedef PLib::HNurbsSurface<double,3> PlHNurbsSurfaced ;
 
 
-#endif // _nurbs_hnurbs_h_
+#endif // _nurbs_hnurbsS_h_

@@ -1,7 +1,7 @@
 /*=============================================================================
         File: surface.cpp
      Purpose:       
-    Revision: $Id: surface.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: surface.cpp,v 1.3 2003-01-13 19:42:29 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,6 +22,11 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
+
+#ifndef PLIB_NURBS_SURFACE_SOURCE
+#define PLIB_NURBS_SURFACE_SOURCE
+
+
 #include <surface.h>
 #include "matrixMat.h"
 #include <math.h>
@@ -1321,3 +1326,5 @@ int ParaSurface<T,N>::writeVRML97(ostream &fout,const Color& color,int Nu,int Nv
 
 
 } // end namespace
+
+#endif // #define PLIB_NURBS_SURFACE_SOURCE

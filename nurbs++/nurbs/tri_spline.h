@@ -1,7 +1,7 @@
 /*=====================================================================
         File: nurbs.cpp
      Purpose:       
-    Revision: $Id: tri_spline.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: tri_spline.h,v 1.3 2003-01-13 19:42:34 philosophil Exp $
       Author: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -31,6 +31,7 @@
 #include "hpoint_nd.h"
 #include "barray.h"
 
+#include "nurbs.h"
 #include "nurbsS.h"
 
 /*!

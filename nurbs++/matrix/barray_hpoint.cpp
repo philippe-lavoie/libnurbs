@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray_hpoint.cpp
      Purpose:       
-    Revision: $Id: barray_hpoint.cpp,v 1.4 2002-05-21 15:52:03 philosophil Exp $
+    Revision: $Id: barray_hpoint.cpp,v 1.5 2003-01-13 19:41:15 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,6 +22,9 @@
 	  License along with this library; if not, write to the Free
 	  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
+
+#ifndef PLIB_BARRAY_HPOINT_SOURCE
+#define PLIB_BARRAY_HPOINT_SOURCE
 
 #include "barray.cpp"
 
@@ -133,3 +136,6 @@ void resizeBasicArrayHPoint(BasicArray<HPoint_nD<T,D> >& a, int nsize){
 #endif
 
 }
+
+#endif // PLIB_BARRAY_HPOINT_SOURCE
+

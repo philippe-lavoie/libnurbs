@@ -1,7 +1,7 @@
 /*============================================================================
         File: color.h
      Purpose: 
-    Revision: $Id: color.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: color.h,v 1.3 2003-01-13 19:40:57 philosophil Exp $
   Created by: Philippe Lavoie          (26 January 1999)
  Modified by: Martin Schuerch
 
@@ -234,9 +234,9 @@ namespace PLib {
     \date 14 May 1999
   */
   inline void Color::toYIQ(double &y, double &i, double &q){
-    double R= double(R)/255.0 ;
-    double G= double(R)/255.0 ;
-    double B= double(R)/255.0 ;
+    double R= double(r)/255.0 ;
+    double G= double(g)/255.0 ;
+    double B= double(b)/255.0 ;
     y = 0.299*R + 0.587*G + 0.114*B ;
     i = 0.596*R - 0.275*G - 0.321*B ;
     q = 0.212*R - 0.528*G + 0.311*B ;

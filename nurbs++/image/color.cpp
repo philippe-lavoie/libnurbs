@@ -1,7 +1,7 @@
 /*=============================================================================
         File: color.cpp
      Purpose:
-    Revision: $Id: color.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: color.cpp,v 1.3 2003-01-13 19:40:54 philosophil Exp $
   Created by: Philippe Lavoie          (26 January, 1999)
  Modified by: Martin Schuerch
 
@@ -61,6 +61,31 @@ namespace PLib {
 #endif
     return 0 ;
   }
+
+  Matrix<Color>& Matrix<Color>::operator+=(double a)
+  {
+#ifdef USE_EXCEPTION
+    throw MatrixErr();
+#else
+    Error error("Matrix<Color>::operator+=()") ;
+    error << "ERROR: you can't increment by a double a Color matrix\n" ;
+    error.fatal() ;
+#endif
+    return *this ;
+  }
+
+  Matrix<Color>& Matrix<Color>::operator-=(double a)
+  {
+#ifdef USE_EXCEPTION
+    throw MatrixErr();
+#else
+    Error error("Matrix<Color>::operator+=()") ;
+    error << "ERROR: you can't decrement by a double a Color matrix\n" ;
+    error.fatal() ;
+#endif
+    return *this ;
+  }
+
 
 #ifndef USING_VCC
   int Matrix<Color>::read(char* filename,int r, int c) {

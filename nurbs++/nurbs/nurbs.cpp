@@ -1,7 +1,7 @@
 /*=====================================================================
         File: nurbs.cpp
      Purpose:       
-    Revision: $Id: nurbs.cpp,v 1.3 2002-05-24 17:27:24 philosophil Exp $
+    Revision: $Id: nurbs.cpp,v 1.4 2003-01-13 19:41:40 philosophil Exp $
       Author: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,6 +22,9 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =====================================================================*/
+#ifndef PLIB_NURBS_NURBS_SOURCE
+#define PLIB_NURBS_NURBS_SOURCE
+
 #include <nurbs.h>
 #include <fstream>
 #include <string.h>
@@ -7209,3 +7212,6 @@ void NurbsCurve<T,N>::unclamp(){
 }
 
 } // end namespace
+
+
+#endif //  PLIB_NURBS_SOURCE

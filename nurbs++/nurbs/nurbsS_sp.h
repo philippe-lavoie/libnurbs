@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsS_sp.h
      Purpose:       
-    Revision: $Id: nurbsS_sp.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbsS_sp.h,v 1.3 2003-01-13 19:42:05 philosophil Exp $
   Created by: Philippe Lavoie          (8 May, 1998)
  Modified by: 
 
@@ -25,6 +25,7 @@
 #ifndef _nurbs_nurbsS_sp_h_
 #define _nurbs_nurbsS_sp_h_
 
+#include "nurbs.h"
 #include "nurbsS.h"
 
 /*!

@@ -8,6 +8,8 @@ class TestMagick : public CppUnit::TestCase {
   CPPUNIT_TEST_SUITE( TestMagick );
   CPPUNIT_TEST( testColorReadWrite );
   CPPUNIT_TEST( testGrayReadWrite );
+  CPPUNIT_TEST( testReadGrayFromColor );
+  CPPUNIT_TEST( testReadColorFromGray );
   CPPUNIT_TEST_SUITE_END();
 public:  
   TestMagick() : TestCase("TestMagick") {;}
@@ -17,6 +19,8 @@ public:
 
   void testColorReadWrite();
   void testGrayReadWrite();
+  void testReadGrayFromColor();
+  void testReadColorFromGray();
 
 protected:
  
@@ -31,37 +35,121 @@ void TestMagick::setUp(){
 void TestMagick::tearDown(){
 }
 
-/** \brief test the read/write featur of Magick++
+/** \brief test the read/write featur of Image Magick
  */
 void TestMagick::testColorReadWrite(){
-  IM_ColorImage imageA;
+  PLib::IM_ImageT<PLib::Color> imageA;
   IM_ColorImage imageB;
 
-  imageA.resize(5,3);
+  imageA.resize(300,500);
   imageA.reset(Color(0,0,0));
 
   for(int i=0;i<imageA.rows();i+=3)
     for(int j=0;j<imageA.cols();j++){
-      imageA(i,j) = Color(255,0,255);
+      imageA(i,j) = Color(200,0,255);
+      if(i==j){
+	imageA(i,j) = Color(255,255,255);
+      }
     }
 
   imageA.write("testColor.png");
-
   imageB.read("testColor.png");
+
   CPPUNIT_ASSERT_EQUAL(imageA.rows(),imageB.rows());
   CPPUNIT_ASSERT_EQUAL(imageB.cols(),imageB.cols());
 
   for(int i=0;i<imageA.rows();i++ )
     for(int j=0;j<imageB.cols();j++){
-      CPPUNIT_ASSERT_EQUAL(imageA(i,j),imageB(i,j));
+      CPPUNIT_ASSERT_EQUAL((int)imageA(i,j).r,(int)imageB(i,j).r);
+      CPPUNIT_ASSERT_EQUAL((int)imageA(i,j).g,(int)imageB(i,j).g);
+      CPPUNIT_ASSERT_EQUAL((int)imageA(i,j).b,(int)imageB(i,j).b);
     }
-		       
+  
 }
 
 /** \brief test the read/write featur of Magick++
  */
 void TestMagick::testGrayReadWrite(){
-  
+  IM_Image imageA;
+  IM_Image imageB;
+
+  imageA.resize(300,500);
+  imageA.reset(0);
+
+  for(int i=0;i<imageA.rows();i+=3)
+    for(int j=0;j<imageA.cols();j++){
+      imageA(i,j) = 200;
+      if(i==j){
+	imageA(i,j) = 255;
+      }
+    }
+
+  imageA.write("testGray.png");
+  imageB.read("testGray.png");
+
+  CPPUNIT_ASSERT_EQUAL(imageA.rows(),imageB.rows());
+  CPPUNIT_ASSERT_EQUAL(imageB.cols(),imageB.cols());
+
+  for(int i=0;i<imageA.rows();i++ )
+    for(int j=0;j<imageB.cols();j++){
+      CPPUNIT_ASSERT_EQUAL((int)imageA(i,j),(int)imageB(i,j));
+    }
+}
+
+void TestMagick::testReadGrayFromColor(){
+  IM_ColorImage imageA;
+  IM_Image imageB;
+
+  imageA.resize(300,500);
+  imageA.reset(0);
+
+  for(int i=0;i<imageA.rows();i+=3)
+    for(int j=0;j<imageA.cols();j++){
+      imageA(i,j) = Color(200,200,200);
+      if(i==j){
+	imageA(i,j) = Color(255,255,255);
+      }
+    }
+
+  imageA.write("testColor2.png");
+  imageB.read("testColor2.png");
+
+  CPPUNIT_ASSERT_EQUAL(imageA.rows(),imageB.rows());
+  CPPUNIT_ASSERT_EQUAL(imageB.cols(),imageB.cols());
+
+  for(int i=0;i<imageA.rows();i++ )
+    for(int j=0;j<imageB.cols();j++){
+      CPPUNIT_ASSERT_EQUAL((int)imageA(i,j).r,(int)imageB(i,j));
+    }
+}
+
+void TestMagick::testReadColorFromGray(){
+  IM_Image imageA;
+  IM_ColorImage imageB;
+
+  imageA.resize(300,500);
+  imageA.reset(0);
+
+  for(int i=0;i<imageA.rows();i+=3)
+    for(int j=0;j<imageA.cols();j++){
+      imageA(i,j) = 200;
+      if(i==j){
+	imageA(i,j) = 255;
+      }
+    }
+
+  imageA.write("testGray2.png");
+  imageB.read("testGray2.png");
+
+  CPPUNIT_ASSERT_EQUAL(imageA.rows(),imageB.rows());
+  CPPUNIT_ASSERT_EQUAL(imageB.cols(),imageB.cols());
+
+  for(int i=0;i<imageA.rows();i++ )
+    for(int j=0;j<imageB.cols();j++){
+      CPPUNIT_ASSERT_EQUAL((int)imageA(i,j),(int)imageB(i,j).r);
+      CPPUNIT_ASSERT_EQUAL((int)imageA(i,j),(int)imageB(i,j).g);
+      CPPUNIT_ASSERT_EQUAL((int)imageA(i,j),(int)imageB(i,j).b);
+    }
 }
 
 

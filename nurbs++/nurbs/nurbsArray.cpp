@@ -1,7 +1,7 @@
 /*=====================================================================
         File: nurbsArray.h
      Purpose:       
-    Revision: $Id: nurbsArray.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbsArray.cpp,v 1.3 2003-01-13 19:41:48 philosophil Exp $
   Created by: Philippe Lavoie          (7 Oct, 1997)
   
 
@@ -22,6 +22,10 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =====================================================================*/
+
+#ifndef PLIB_NURBS_NURBSARRAY_SOURCE
+#define PLIB_NURBS_NURBSARRAY_SOURCE
+
 
 #include <nurbs.h>
 #include <nurbsS.h>
@@ -683,3 +687,6 @@ int NurbsCurveArray<T,N>::writePSp(const char* filename,const Vector< Point_nD<T
 }
 
 } // end namespace
+
+
+#endif //  PLIB_NURBS_NURBSARRAY_SOURCE

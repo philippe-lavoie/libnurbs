@@ -1,7 +1,7 @@
 /*=============================================================================
         File: image.cpp
      Purpose:
-    Revision: $Id: image_.cpp,v 1.3 2002-05-31 17:39:34 philosophil Exp $
+    Revision: $Id: image_.cpp,v 1.4 2003-01-13 19:41:11 philosophil Exp $
   Created by: Philippe Lavoie          (18 February 1999)
  Modified by: 
 
@@ -23,130 +23,195 @@
 	  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
 
+#ifndef _PLIB_IMAGE_IMAGEMAGICK_SOURCE
+#define _PLIB_IMAGE_IMAGEMAGICK_SOURCE
+
 #include "image.cpp"
 
-namespace PLib {
 
 #ifdef WITH_IMAGE_MAGICK
 
+
+
+namespace PLib { 
+
+  /*! @brief Sets the matrix data from the image
+   * 
+   * This operation is expensive as it reads from the file each time.
+   * You have been warned, so it's ok now.
+   */
   void IM_ImageT<Color>::setMatrix(){
-    if (image.rows() != rows() || image.columns() != cols()){
-      resize(image.rows(),image.columns());
+    Image *image;
+    ImageInfo image_info;
+    ExceptionInfo exception;
+
+    InitializeMagick((char *) NULL);
+    GetExceptionInfo( &exception );
+    GetImageInfo(&image_info);
+    strcpy(image_info.filename,file_name.c_str());
+
+    image = ReadImage(&image_info,&exception);
+    if(image){
+      SetImageType(image,TrueColorType);
+      resize(image->rows,image->columns);
+
+      const PixelPacket* pixels = AcquireImagePixels(image,0,0,cols(),rows(),&exception);
+
+      for(int i=0;i<rows();++i)
+	for(int j=0;j<cols();++j){
+	  elem(i,j).r = pixels->red;
+	  elem(i,j).g = pixels->green;
+	  elem(i,j).b = pixels->blue;
+	  ++pixels;
+	}
+
+      DestroyImage(image);
     }
-    for(int i=0;i<rows();++i)
-      for(int j=0;j<cols();++j){
-	Magick::Color color = image.pixelColor(i,j);	
-	elem(i,j).r = color.redQuantum();
-	elem(i,j).g = color.greenQuantum();
-	elem(i,j).b = color.blueQuantum();
-      }
+    DestroyExceptionInfo(&exception);
+    DestroyImageInfo(&image_info);
+    DestroyMagick();
   }
-  
+
+
   void IM_ImageT<unsigned char>::setMatrix(){
-    if (image.rows() != rows() || image.columns() != cols()){
-      resize(image.rows(),image.columns());
+    Image *image;
+    ImageInfo image_info;
+    ExceptionInfo exception;
+
+    InitializeMagick((char *) NULL);
+    GetExceptionInfo( &exception );
+    GetImageInfo(&image_info);
+    strcpy(image_info.filename,file_name.c_str());
+
+    image = ReadImage(&image_info,&exception);
+    if(image){
+      SetImageType(image,GrayscaleType);
+      resize(image->rows,image->columns);
+
+      const PixelPacket* pixels = AcquireImagePixels(image,0,0,cols(),rows(),&exception);
+
+      for(int i=0;i<rows();++i)
+	for(int j=0;j<cols();++j){
+	  elem(i,j) = pixels->red;
+	  ++pixels;
+	}
+
+      DestroyImage(image);
     }
-    for(int i=0;i<rows();++i)
-      for(int j=0;j<cols();++j){
-	Magick::Color color = image.pixelColor(i,j);	
-	elem(i,j) = color.redQuantum();
-      }
+    DestroyExceptionInfo(&exception);
+    DestroyImageInfo(&image_info);
+    DestroyMagick();
   }
 
  
   void IM_ImageT<Color>::setImage(){
-    if (image.rows() != rows() || image.columns() != cols()){
-      Magick::Geometry geometry(cols(),rows());
-      image.size(geometry);
+    Image *image;
+    ImageInfo image_info;
+    ExceptionInfo exception;
+    char size[MaxTextExtent];
+
+    unsigned char *buffer;
+    buffer = new unsigned char[cols()*rows()*3];
+    for(int i=0;i<rows();++i){
+      for(int j=0;j<cols();++j){
+	int offset = i*cols()*3+j*3;
+	buffer[offset]=elem(i,j).r;
+	buffer[offset+1]=elem(i,j).g;
+	buffer[offset+2]=elem(i,j).b;
+      }
     }
 
-    Magick::PixelPacket *pixels = image.setPixels(0,0,cols(),rows());
 
-    for(int i=0;i<rows();++i)
-      for(int j=0;j<cols();++j){
-	Color in_color = elem(i,j);
-	Magick::Color color(in_color.r,in_color.b,in_color.g);
-	Magick::PixelPacket *pixel = pixels+i*cols()*sizeof(Magick::PixelPacket)+j;
-	*pixel = color;
-      }
+    InitializeMagick((char *) NULL);
+    GetExceptionInfo( &exception );
+    GetImageInfo(&image_info);
 
-    image.syncPixels();
+    image = ConstituteImage(cols(),rows(),"RGB",CharPixel,buffer,&exception);
+    
+    if(image){
+      strcpy(image->filename,file_name.c_str());
+      int result = WriteImage(&image_info,image);
+    }
+
+    DestroyImage(image);
+    delete []buffer;
+    DestroyExceptionInfo(&exception);
+    DestroyImageInfo(&image_info);
+    DestroyMagick();
   }
   
   void IM_ImageT<unsigned char>::setImage(){
-    if (image.rows() != rows() || image.columns() != cols()){
-      Magick::Geometry geometry(cols(),rows());
-      image.size(geometry);
+    Image *image;
+    ImageInfo image_info;
+    ExceptionInfo exception;
+    char size[MaxTextExtent];
+
+    unsigned char *buffer;
+    buffer = new unsigned char[cols()*rows()];
+    for(int i=0;i<rows();++i){
+      for(int j=0;j<cols();++j){
+	int offset = i*cols()+j;
+	buffer[offset]=elem(i,j);
+      }
     }
 
-    Magick::PixelPacket *pixels = image.setPixels(0,0,cols(),rows());
 
-    for(int i=0;i<rows();++i)
-      for(int j=0;j<cols();++j){
-	Color in_color = elem(i,j);
-	Magick::Color color(in_color.r,in_color.b,in_color.g);
-	Magick::PixelPacket *pixel = pixels+i*cols()*sizeof(Magick::PixelPacket)+j;
-	*pixel = color;
-      }
+    InitializeMagick((char *) NULL);
+    GetExceptionInfo( &exception );
+    GetImageInfo(&image_info);
 
-    image.syncPixels();
+    image = ConstituteImage(cols(),rows(),"I",CharPixel,buffer,&exception);
+    
+    if(image){
+      strcpy(image->filename,file_name.c_str());
+      int result = WriteImage(&image_info,image);
+    }
+
+    DestroyImage(image);
+    delete []buffer;
+    DestroyExceptionInfo(&exception);
+    DestroyImageInfo(&image_info);
+    DestroyMagick();
   }
   
   
-  
   int IM_ImageT<Color>::read(const std::string &filename) {
-    image.read(filename);
-    if(image.rows()==0 || image.columns() == 0){
-      return 0;
-    }
+    file_name = filename;    
     setMatrix() ;
-    
     return 1 ;
   }
   
   int IM_ImageT<unsigned char>::read(const std::string& filename) {
-    image.read(filename);
-    if(image.rows()==0 || image.columns() == 0){
-      return 0;
-    }
+    file_name = filename;    
     setMatrix() ;
-    
     return 1 ;
   }
-  
+
+
   int IM_ImageT<Color>::write(const std::string& filename) {
-    
+    file_name = filename;    
     setImage() ;
-    image.write(filename);
     
     return 1;
   }
   
   int IM_ImageT<unsigned char>::write(const std::string& filename) {
+    file_name = filename;
     setImage() ;
-    image.type(Magick::GrayscaleType );
-    image.write(filename);
     
     return 1;
   }
 
-
 #ifdef NO_IMPLICIT_TEMPLATES
   template class IM_ImageT<unsigned char> ;
   template class IM_ImageT<Color> ;
-#endif
-
 
 #endif
 
+} // end namespace 
 
-#ifdef NO_IMPLICIT_TEMPLATES
-  template class MatrixImage<int> ;
-  template class MatrixImage<float> ;
-  template class MatrixImage<double> ;
-  template class MatrixImage<char> ;
-  template class MatrixImage<unsigned char> ;
-  template class MatrixImage<Color> ;
-#endif
-  
-}
+#endif // WITH_IMAGE_MAGICK
+
+ 
+
+#endif // IMAGE_IMAGEMAGICK_SOURCE

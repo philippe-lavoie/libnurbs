@@ -2,9 +2,9 @@ EXTRA_DIST = tleastS.png
 
 XINCLUDE = @X_CFLAGS@
 XLIBS = @X_PRE_LIBS@ @X_LIBS@ -lXt -lX11
-MAGICK_INCLUDE =  $(XINCLUDE) @magick_include@
-MAGICK_LIB = @magick_lib@
-MAGICK_LIBS = @magick_libs@ 
+#MAGICK_INCLUDE =  $(XINCLUDE) @magick_include@
+#MAGICK_LIB = @magick_lib@
+#MAGICK_LIBS = @magick_libs@ 
 
 COMPLEXLIB = @complex_lib@
 
@@ -15,7 +15,7 @@ MATRIXLIB = @matrix_lib_flag@ @matrix_lib@ @complex_lib@
 OPENGL_LIBS = -lglut $(GL_LFLAGS) $(GL_LIBS) $(X_EXTRA_LIBS)
 
 #INCLUDES = $(MAGICK_INCLUDE) $(GL_CFLAGS) @matrix_include@ @nurbs_include@
-INCLUDES = @matrix_include@ @nurbs_include@ @option_include@
+INCLUDES = @matrix_include@ @nurbs_include@ @option_cflags@
 #EXTRALIBS = -lm -lc
 #ALLLIBS = @nurbs_libf@ $(MATRIXLIB) @option_libs@ $(EXTRALIBS)
 ALLLIBS = -lglut @nurbs_libf@ $(MATRIXLIB) @option_libs@

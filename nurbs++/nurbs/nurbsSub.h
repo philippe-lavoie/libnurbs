@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsSub.h
      Purpose:       
-    Revision: $Id: nurbsSub.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbsSub.h,v 1.3 2003-01-13 19:42:15 philosophil Exp $
   Created by: Philippe Lavoie          (20 January, 1999)
  Modified by: 
 
@@ -26,6 +26,7 @@
 #ifndef _NURBS_SURFACE_SUBDIVISION_
 #define _NURBS_SURFACE_SUBDIVISION_
 
+#include "nurbs.h"
 #include "nurbsS.h"
 #include <vector>
 #include <iostream>
