@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsS.cpp
      Purpose:       
-    Revision: $Id: nurbsS.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbsS.cpp,v 1.3 2002-05-27 19:57:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -156,7 +156,7 @@ NurbsSurface<T,N>::NurbsSurface(int DegU, int DegV, Vector<T>& Uk, Vector<T>& Vk
     throw NurbsInputError(W.rows(),Cp.rows()) ;
 #else
     Error err("NurbsSurface<T,N> constructor") ;
-    err << "The dimension of the weights are incompatible with the dimension of the control poitns\n" ;
+    err << "The dimension of the weights are incompatible with the dimension of the control points\n" ;
     err << "W( " << W.rows() << ", " << W.cols() << ") and P( " << P.rows() << ", " << P.cols() << ") \n" ;
     bad = 1 ;
     err.fatal() ;
@@ -469,6 +469,34 @@ int NurbsSurface<T,N>::ok() {
   if(P.cols() != V.n()+degV+1)
     return 0 ;
   return 1 ;
+}
+/*! 
+  \brief Reset the surface
+
+  <p>
+  Reset the surface to new control points and new knot vectors. The degree
+  in U and V is computed based on the size of the control points matrix
+  and the size of the U and V knot vectors.</p>
+
+  <p>
+  Degree U is set to $U1.n-Pts.rows-1$ and degree V is set 
+  to $V1.n-Pts.cols-1$.
+  </p>
+
+  \param  Pts  the new control points
+  \param  U1  the new U knot vector
+  \param  V1 the new V knot vector
+
+  \author Philippe Lavoie 
+  \date May 27, 2002
+*/
+template <class T, int N>
+void NurbsSurface<T,N>::reset(const Matrix< HPoint_nD<T,N> >& Pts, const Vector<T> &U1, const Vector<T> &V1){
+  P = Pts;
+  U = U1;
+  V = V1;
+  degU = U.size()-P.rows()-1;
+  degV = V.size()-P.cols()-1;
 }
 
 /*! 

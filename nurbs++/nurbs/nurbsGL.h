@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsGL.H
      Purpose: Describes all OpenGL related classes.
-    Revision: $Id: nurbsGL.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbsGL.h,v 1.3 2002-05-27 19:57:45 philosophil Exp $
   Created by: Philippe Lavoie          (28 September, 1997)
  Modified by: 
 
@@ -69,11 +69,12 @@ extern const int NURBS_FLAGS_AFFECT_ACTIVE_ONLY  ;
 extern const int NURBS_FLAGS_AFFECT_SELECTED_ONLY  ;
 extern const int NURBS_FLAGS_VIEW_BBOX ; 
 		 
-extern const int NURBS_DISPLAY_NORMAL ;
-extern const int NURBS_DISPLAY_ISOCURVES ;
-extern const int NURBS_DISPLAY_SHADED ;
-extern const int NURBS_DISPLAY_HIDDEN_LINES ; 
-extern const int NURBS_DISPLAY_TESSELATION ;
+  extern const int NURBS_DISPLAY_NORMAL ;
+  extern const int NURBS_DISPLAY_ISOCURVES ;
+  extern const int NURBS_DISPLAY_SHADED ;
+  extern const int NURBS_DISPLAY_HIDDEN_LINES ; 
+  extern const int NURBS_DISPLAY_TESSELATION ;
+  extern const int NURBS_DISPLAY_SOLID ;
 		 
 extern const int NURBSLIST_DELETE_AT_RESET ;
 extern const int NURBSLIST_KEEP_AT_RESET ;
@@ -108,7 +109,7 @@ extern Point3Df ZAxis_3D ;
   \date 23 September 1997
 */
 inline void glColor(const Color& color){
-   glColor3f(GLfloat(color.r)/255.0,GLfloat(color.g)/255.0,GLfloat(color.b)/255.0) ;
+  //glColor3f(GLfloat(color.r)/255.0,GLfloat(color.g)/255.0,GLfloat(color.b)/255.0) ;
 }
 
 /*!
@@ -908,10 +909,15 @@ public:
 
   std::list<NurbsCurve_2Df*> trimmedCurves ; 
 
+private:
+  void displaySolid() const;
+  void displayWireframe() const;
+
 protected:
   GLubyte *image ;
   GLint imgW, imgH ;
   //NurbsCurveArray<float> ca ; 
+
 };
 
 /*!

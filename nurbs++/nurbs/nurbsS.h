@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsS.h
      Purpose:       
-    Revision: $Id: nurbsS.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbsS.h,v 1.3 2002-05-27 19:57:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -69,7 +69,7 @@ public:
   NurbsSurface(int DegU, int DegV, Vector<T>& Uk, Vector<T>& Vk, Matrix< Point_nD<T,N> >& Cp, Matrix<T>& W) ;
   virtual ~NurbsSurface() //!< Empty desctructor
     {;}
-  
+
 public:  
   // Reference to internal data
   const Vector<T>& knotU() const //!< A reference to the U knot vector
@@ -91,6 +91,7 @@ public:
   
   // Basic operators
   virtual NurbsSurface<T,N>& operator=(const NurbsSurface<T,N>&) ;
+  virtual void reset(const Matrix< HPoint_nD<T,N> >& Pts, const Vector<T> &U1, const Vector<T> &V1) ;
   void resize(int Pu, int Pv, int DegU, int DegV) ;
   virtual void resizeKeep(int Pu, int Pv, int DegU, int DegV) ;
   int ok();

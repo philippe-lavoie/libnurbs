@@ -15,6 +15,8 @@ public:
   void init();
   void display();
 
+  void showControlPoints(int show);
+
 protected:
   void initNurbsObjects(GLUnurbsObj* renderer);
 
@@ -25,6 +27,15 @@ protected:
 
 NurbsViewer viewer;
 
+void NurbsViewer::showControlPoints(int show){
+  if(show){
+    surface.viewCPoints();
+  }
+  else{
+    surface.hideCPoints();
+  }
+}
+
 /*
  *  Initializes the control points of the surface to a small hill.
  *  The control points range from -3 to +3 in x, y, and z
@@ -32,12 +43,40 @@ NurbsViewer viewer;
 void NurbsViewer::initNurbsObjects(GLUnurbsObj *renderer)
 {
   Color color(200,200,200);
-  curve.ObjectGL::read("testCurve.nc");
-  curve.setNurbsRenderer(renderer);
-  curve.setObjectColor(color,color,color);
-  surface.ObjectGL::read("testSurvaface.nc");
+  //curve.ObjectGL::read("testCurve.nc");
+  //curve.setNurbsRenderer(renderer);
+  //curve.setObjectColor(color,color,color);
+
+  NurbsDisplayMode = NURBS_DISPLAY_SOLID;
+ 
   surface.setNurbsRenderer(renderer);
   surface.setObjectColor(color,color,color);
+  surface.hideCPoints();
+
+  Matrix_HPoint3Df ctrl_points(4,4);
+  
+  for (int u = 0; u < 4; u++) {
+    for (int v = 0; v < 4; v++) {
+      ctrl_points(u,v) = HPoint3Df(float(2.0*((double)u - 1.5)),
+				   float(2.0*((double)v - 1.5)),
+				   float(0.0),
+				   float(1.0));
+      if ( (u == 1 || u == 2) && (v == 1 || v == 2))
+	ctrl_points(u,v).z() = 7.0;
+      else
+	ctrl_points(u,v).z() = -3.0;
+    }
+  }
+
+  Vector_FLOAT U(8);
+  Vector_FLOAT V(8);
+  U[0] = U[1] = U[2] = U[3] = 0;
+  U[4] = U[5] = U[6] = U[7] = 1;
+  
+  V = U;
+
+  surface.reset(ctrl_points,U,V);
+  
 }
 
 /*  Initialize material property and depth buffer.
@@ -72,7 +111,7 @@ void NurbsViewer::init()
 }
 
 void NurbsViewer::display(){
-  surface.gluNurbs();
+  surface.glObject();
 }
 
 void display(void)
@@ -87,18 +126,6 @@ void display(void)
     glScalef (0.25, 0.25, 0.25);
 
     viewer.display();
-    /*
-    gluBeginSurface(theNurb);
-    gluNurbsSurface(theNurb,
-	    8, knots,
-	    8, knots,
-	    4 * 3,
-	    3,
-	    &ctlpoints[0][0][0],
-	    4, 4,
-	    GL_MAP2_VERTEX_3);
-    gluEndSurface(theNurb);
-    */
 
     /*
     if(showPoints) {
@@ -136,14 +163,16 @@ menu(int value)
     switch (value) {
     case 0:
     case 1:
-        showPoints = value;
-	break;
+      viewer.showControlPoints(value);
+      break;
     case 2:
+      NurbsDisplayMode = NURBS_DISPLAY_SOLID;
       //gluNurbsProperty(nurbs_renderer, GLU_DISPLAY_MODE, GLU_FILL);
-	break;
-    case 3:
+      break;
+    case 3: 
+      NurbsDisplayMode = NURBS_DISPLAY_NORMAL;
       //gluNurbsProperty(nurbs_renderer, GLU_DISPLAY_MODE, GLU_OUTLINE_POLYGON);
-	break;
+      break;
     }
     glutPostRedisplay();
 }
