@@ -2,7 +2,8 @@ INCLUDES = 	-I@top_srcdir@/matrix \
 		-I@top_srcdir@/include \
 		-I@top_srcdir@/nurbs \
 		-I@top_srcdir@/image \
-		-I@top_srcdir@/numerical	
+		-I@top_srcdir@/numerical \
+		@CPPUNIT_CPPFLAGS@
 
 OPENGL_LIBS = @X_LIBS@ @GL_LIBS@
 
