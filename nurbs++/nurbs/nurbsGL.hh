@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsGL.H
      Purpose: Describes all OpenGL related classes.
-    Revision: $Id: nurbsGL.hh,v 1.1.1.1 2001-11-02 01:53:41 philosophil Exp $
+    Revision: $Id: nurbsGL.hh,v 1.2 2002-05-07 23:37:33 philosophil Exp $
   Created by: Philippe Lavoie          (28 September, 1997)
  Modified by: 
 
@@ -906,7 +906,7 @@ public:
   void setSym(int set, int uDir, float x, float y, float z, float w) ;
 
 
-  list<NurbsCurve_2Df*> trimmedCurves ; 
+  std::list<NurbsCurve_2Df*> trimmedCurves ; 
 
 protected:
   GLubyte *image ;
@@ -1035,9 +1035,9 @@ public:
   void modifyPoint(float u, float v, float dx, float dy, float dz) { }
   void setSym(int set, int uDir, float x, float y, float z, float w) { }
 
-  friend NurbsCurveGL ; 
-  friend NurbsSurfaceGL ; 
-  friend HNurbsSurfaceGL ; 
+  friend class NurbsCurveGL ; 
+  friend class NurbsSurfaceGL ; 
+  friend class HNurbsSurfaceGL ; 
 
 };
 

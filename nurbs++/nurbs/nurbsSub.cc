@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsSub.cc
      Purpose:       
-    Revision: $Id: nurbsSub.cc,v 1.1.1.1 2001-11-02 01:53:52 philosophil Exp $
+    Revision: $Id: nurbsSub.cc,v 1.2 2002-05-07 23:37:33 philosophil Exp $
   Created by: Philippe Lavoie          (20 Januray, 1999)
  Modified by: 
 
@@ -446,16 +446,15 @@ namespace PLib {
     \date 20 January 1999
   */
   template <class T>
-    void RenderMeshPS<T>::drawHeader(){
-    out << "%!PS-Adobe-2.1
-%%Title: code5_0.ps (20)
-%%Creator: color_grid_generator 
-%%BoundingBox: 0 0 500 500
-%%Pages: 0
-%%EndComments
-
-0 setlinewidth
-0 0 0 setrgbcolor\n" ;
+  void RenderMeshPS<T>::drawHeader(){
+    out << "%!PS-Adobe-2.1\n";
+    out << "%%Title: code5_0.ps (20)\n" ;
+    out << "%%Creator: color_grid_generator\n" ; 
+    out << "%%BoundingBox: 0 0 500 500\n" ;
+    out << "%%Pages: 0\n" ;
+    out << "%%EndComments\n" ;
+    out << "0 setlinewidth\n" ;
+    out << "0 0 0 setrgbcolor\n" ;
   }
 
   /*!

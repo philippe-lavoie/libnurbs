@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsGL.cc
      Purpose:       
-    Revision: $Id: nurbsGL.cc,v 1.1.1.1 2001-11-02 01:53:39 philosophil Exp $
+    Revision: $Id: nurbsGL.cc,v 1.2 2002-05-07 23:37:33 philosophil Exp $
   Created by: Philippe Lavoie          (28 September 1997)
  Modified by: 
 
@@ -26,9 +26,9 @@
 #include <nurbsGL.hh>
 #include <string.h>
 #include <stdio.h>
+#include <iostream.h> 
 
 #ifdef WITH_OPENGL
-
 
 /*!
  */
@@ -2250,7 +2250,7 @@ void NurbsSurfaceGL::gluNurbs() const{
       glColor() ;
       gluNurbsSurface(nurbsRenderer, U.n(), U.memory(), V.n(), V.memory(),4,4*P.rows(), P[0]->data, degU+1, degV+1, t) ;
       
-      for(list<NurbsCurve_2Df*>::const_iterator it = trimmedCurves.begin() ;
+      for(std::list<NurbsCurve_2Df*>::const_iterator it = trimmedCurves.begin() ;
 	  it != trimmedCurves.end(); ++it){
 	NurbsCurve_2Df *tc = *it ; 
 	gluBeginTrim(nurbsRenderer) ;
@@ -3912,19 +3912,19 @@ void NurbsSubSurfaceGL::drawSubdivisionGL(float tolerance)
 
 #ifdef NO_IMPLICIT_TEMPLATES
 
-template class list<NurbsCurve_2Df*> ;
-template class list<NurbsCurve_2Df*>::iterator ;
+template class std::list<NurbsCurve_2Df*> ;
+template class std::list<NurbsCurve_2Df*>::iterator ;
 
 template class RenderMeshGL<float> ;
 
-template class allocator<PLib::NurbsCurve<float, 2> *>;
+template class std::allocator<PLib::NurbsCurve<float, 2> *>;
 
-template void  _List_base<PLib::NurbsCurve<float, 2> *, allocator<PLib::NurbsCurve<float, 2> *> >::clear(void);
+template void  std::_List_base<PLib::NurbsCurve<float, 2> *, std::allocator<PLib::NurbsCurve<float, 2> *> >::clear(void);
 
-template void list<NurbsCurve_2Df*>::clear(void);
+template void std::list<NurbsCurve_2Df*>::clear(void);
 
-template void list<PLib::NurbsCurve<float, 2> *, allocator<PLib::NurbsCurve<float, 2> *> >::_M_insert_dispatch<_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *> >(_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *&, PLib::NurbsCurve<float, 2> **>, _List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float,
-2> *const &, PLib::NurbsCurve<float, 2> *const *>, _List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *>, __false_type);
+template void std::list<PLib::NurbsCurve<float, 2> *, std::allocator<PLib::NurbsCurve<float, 2> *> >::_M_insert_dispatch<std::_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *> >(std::_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *&, PLib::NurbsCurve<float, 2> **>, std::_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float,
+2> *const &, PLib::NurbsCurve<float, 2> *const *>, std::_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *>, __false_type);
 
 /*
 template void list<PLib::NurbsCurve<float, 2> *, __default_alloc_template<0, 0> >::insert<__list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *> >(__list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *&, PLib::NurbsCurve<float, 2> **>, __list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *>, __list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *>) ;
