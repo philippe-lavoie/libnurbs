@@ -145,19 +145,30 @@ void TestMatrix<T>::testTranspose(){
 
 #ifdef NO_IMPLICIT_TEMPLATES
 
+
 template TestMatrix<int>;
 template TestMatrix<float>;
 template TestMatrix<double>;
-template void CppUnit::TestAssert::assertEquals<double>(double const&, double const&, CppUnit::SourceLine, std::string const&);
-template void CppUnit::TestAssert::assertEquals<float>(float const&, float const&, CppUnit::SourceLine, std::string const&);
-template void CppUnit::TestAssert::assertEquals<int>(int const&, int const&, CppUnit::SourceLine, std::string const&);
 
-template CppUnit::TestSuiteFactory<TestMatrixInt>;
-template CppUnit::TestSuiteFactory<TestMatrixFloat>;
-template CppUnit::TestSuiteFactory<TestMatrixDouble>;
-template CppUnit::TestCaller<TestMatrixInt, CppUnit::NoExceptionExpected>;
-template CppUnit::TestCaller<TestMatrixFloat, CppUnit::NoExceptionExpected>;
-template CppUnit::TestCaller<TestMatrixDouble, CppUnit::NoExceptionExpected>;
+namespace CppUnit{
+  namespace TestAssert{
+
+    template void assertEquals<double>(double const&, double const&, CppUnit::SourceLine, std::string const&);
+    template void assertEquals<float>(float const&, float const&, CppUnit::SourceLine, std::string const&);
+    template void assertEquals<int>(int const&, int const&, CppUnit::SourceLine, std::string const&);
+  }
+
+  template TestCaller<TestMatrixInt, CppUnit::NoExceptionExpected>;
+  template TestCaller<TestMatrixFloat, CppUnit::NoExceptionExpected>;
+  template TestCaller<TestMatrixDouble, CppUnit::NoExceptionExpected>;
+
+  template TestSuiteFactory<TestMatrixInt>;
+  template TestSuiteFactory<TestMatrixFloat>;
+  template TestSuiteFactory<TestMatrixDouble>;
+}
+
+
+
 #endif
 
 

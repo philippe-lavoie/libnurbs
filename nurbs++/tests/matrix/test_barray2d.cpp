@@ -168,6 +168,7 @@ void TestBasic2DArray<T>::testResizeKeep(){
 
 #ifdef NO_IMPLICIT_TEMPLATES
 
+
 template TestBasic2DArray<int>;
 template TestBasic2DArray<float>;
 template TestBasic2DArray<double>;
@@ -175,28 +176,37 @@ template TestBasic2DArray<HPoint_nD<float,3> >;
 template TestBasic2DArray<HPoint3Dd >;
 template TestBasic2DArray<HPoint2Df >;
 template TestBasic2DArray<HPoint2Dd >;
-template void CppUnit::TestAssert::assertEquals<double>(double const&, double const&, CppUnit::SourceLine, std::string const&);
-template void CppUnit::TestAssert::assertEquals<float>(float const&, float const&, CppUnit::SourceLine, std::string const&);
-template void CppUnit::TestAssert::assertEquals<int>(int const&, int const&, CppUnit::SourceLine, std::string const&);
-template void CppUnit::TestAssert::assertEquals<PLib::HPoint_nD<float, 3> >(PLib::HPoint_nD<float, 3> const&, PLib::HPoint_nD<float, 3> const&, CppUnit::SourceLine, std::string const&);
-template void CppUnit::TestAssert::assertEquals<PLib::HPoint_nD<float, 2> >(PLib::HPoint_nD<float, 2> const&, PLib::HPoint_nD<float, 2> const&, CppUnit::SourceLine, std::string const&);
-template void CppUnit::TestAssert::assertEquals<PLib::HPoint_nD<double, 3> >(PLib::HPoint_nD<double, 3> const&, PLib::HPoint_nD<double, 3> const&, CppUnit::SourceLine, std::string const&);
-template void CppUnit::TestAssert::assertEquals<PLib::HPoint_nD<double, 2> >(PLib::HPoint_nD<double, 2> const&, PLib::HPoint_nD<double, 2> const&, CppUnit::SourceLine, std::string const&);
 
-template CppUnit::TestSuiteFactory<TestBasic2DArrayInt>;
-template CppUnit::TestSuiteFactory<TestBasic2DArrayFloat>;
-template CppUnit::TestSuiteFactory<TestBasic2DArrayDouble>;
-template CppUnit::TestSuiteFactory<TestBasic2DArrayHPoint3Df>;
-template CppUnit::TestSuiteFactory<TestBasic2DArrayHPoint3Dd>;
-template CppUnit::TestSuiteFactory<TestBasic2DArrayHPoint2Df>;
-template CppUnit::TestSuiteFactory<TestBasic2DArrayHPoint2Dd>;
-template CppUnit::TestCaller<TestBasic2DArrayInt, CppUnit::NoExceptionExpected>;
-template CppUnit::TestCaller<TestBasic2DArrayFloat, CppUnit::NoExceptionExpected>;
-template CppUnit::TestCaller<TestBasic2DArrayDouble, CppUnit::NoExceptionExpected>;
-template CppUnit::TestCaller<TestBasic2DArrayHPoint3Df, CppUnit::NoExceptionExpected>;
-template CppUnit::TestCaller<TestBasic2DArrayHPoint3Dd, CppUnit::NoExceptionExpected>;
-template CppUnit::TestCaller<TestBasic2DArrayHPoint2Df, CppUnit::NoExceptionExpected>;
-template CppUnit::TestCaller<TestBasic2DArrayHPoint2Dd, CppUnit::NoExceptionExpected>;
+namespace CppUnit{
+  namespace TestAssert{
+    
+    template void assertEquals<double>(double const&, double const&, CppUnit::SourceLine, std::string const&);
+    template void assertEquals<float>(float const&, float const&, CppUnit::SourceLine, std::string const&);
+    template void assertEquals<int>(int const&, int const&, CppUnit::SourceLine, std::string const&);
+    template void assertEquals<PLib::HPoint_nD<float, 3> >(PLib::HPoint_nD<float, 3> const&, PLib::HPoint_nD<float, 3> const&, CppUnit::SourceLine, std::string const&);
+    template void assertEquals<PLib::HPoint_nD<float, 2> >(PLib::HPoint_nD<float, 2> const&, PLib::HPoint_nD<float, 2> const&, CppUnit::SourceLine, std::string const&);
+    template void assertEquals<PLib::HPoint_nD<double, 3> >(PLib::HPoint_nD<double, 3> const&, PLib::HPoint_nD<double, 3> const&, CppUnit::SourceLine, std::string const&);
+    template void assertEquals<PLib::HPoint_nD<double, 2> >(PLib::HPoint_nD<double, 2> const&, PLib::HPoint_nD<double, 2> const&, CppUnit::SourceLine, std::string const&);
+    
+  }
+
+  template TestSuiteFactory<TestBasic2DArrayInt>;
+  template TestSuiteFactory<TestBasic2DArrayFloat>;
+  template TestSuiteFactory<TestBasic2DArrayDouble>;
+  template TestSuiteFactory<TestBasic2DArrayHPoint3Df>;
+  template TestSuiteFactory<TestBasic2DArrayHPoint3Dd>;
+  template TestSuiteFactory<TestBasic2DArrayHPoint2Df>;
+  template TestSuiteFactory<TestBasic2DArrayHPoint2Dd>;
+  template TestCaller<TestBasic2DArrayInt, CppUnit::NoExceptionExpected>;
+  template TestCaller<TestBasic2DArrayFloat, CppUnit::NoExceptionExpected>;
+  template TestCaller<TestBasic2DArrayDouble, CppUnit::NoExceptionExpected>;
+  template TestCaller<TestBasic2DArrayHPoint3Df, CppUnit::NoExceptionExpected>;
+  template TestCaller<TestBasic2DArrayHPoint3Dd, CppUnit::NoExceptionExpected>;
+  template TestCaller<TestBasic2DArrayHPoint2Df, CppUnit::NoExceptionExpected>;
+  template TestCaller<TestBasic2DArrayHPoint2Dd, CppUnit::NoExceptionExpected>;
+}
+
+
 #endif
 
 
