@@ -1,7 +1,7 @@
 /*=============================================================================
         File: matrix.h
      Purpose:       
-    Revision: $Id: matrix.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: matrix.h,v 1.3 2002-05-24 17:08:34 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,7 +26,6 @@
 
 #ifndef _Matrix_matrix_h_
 #define _Matrix_matrix_h_
-
 
 #include <iostream>
 #include "matrix_global.h"

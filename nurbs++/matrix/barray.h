@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray.h
      Purpose:      
-    Revision: $Id: barray.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: barray.h,v 1.3 2002-05-24 17:08:34 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -158,6 +158,7 @@ typedef PLib::BasicArray<PLib::Coordinate> BasicArray_Coordinate ;
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
 #include "barray.cpp"
+#include "barray_hpoint.cpp"
 #endif
 
 

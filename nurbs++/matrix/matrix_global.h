@@ -2,7 +2,7 @@
         File: global.h
      Purpose: Define and include some general definitions valid for all 
               matrix header files
-    Revision: $Id: matrix_global.h,v 1.4 2002-05-21 22:15:30 philosophil Exp $
+    Revision: $Id: matrix_global.h,v 1.5 2002-05-24 17:08:34 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -65,6 +65,19 @@ namespace PLib {
 //typedef double_complex Complex ;
 //#else
 typedef std::complex<double> Complex ;
+
+
+#ifndef HAS_COMPLEX_CONJ
+Complex conj(Complex &value){
+	return Complex(value.real(),-value.imag());
+}
+#endif
+
+#ifndef HAS_COMPLEX_ABS
+double abs(Complex &value){
+	return sqrt(value.real()*value.real()+value.imag()*value.imag());
+}
+#endif
 
 
 //#ifdef __sgi

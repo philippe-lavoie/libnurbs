@@ -1,7 +1,7 @@
 /*=============================================================================
         File: matrix.cpp
      Purpose:       
-    Revision: $Id: matrix_complex.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: matrix_complex.cpp,v 1.3 2002-05-24 17:08:34 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -91,11 +91,10 @@ namespace PLib {
       Matrix<Complex> adj(r,c);
       
       for (i = 0; i < r; ++i)
-	for (j = 0; j < c; ++j)
-	  adj.elem(i,j) = conj(elem(j,i)) ;
-      
-      return adj;
-      
+        for (j = 0; j < c; ++j)
+	      adj.elem(i,j) = conj(elem(j,i)) ;
+  
+      return adj;    
     }
   
   
