@@ -1,7 +1,7 @@
 /*=============================================================================
         File: image.cpp
      Purpose:
-    Revision: $Id: image_.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: image_.cpp,v 1.3 2002-05-31 17:39:34 philosophil Exp $
   Created by: Philippe Lavoie          (18 February 1999)
  Modified by: 
 
@@ -27,177 +27,107 @@
 
 namespace PLib {
 
-#if defined(WITH_IMAGE_MAGICK)
+#ifdef WITH_IMAGE_MAGICK
 
   void IM_ImageT<Color>::setMatrix(){
-#ifdef COLUMN_ORDER
+    if (image.rows() != rows() || image.columns() != cols()){
+      resize(image.rows(),image.columns());
+    }
     for(int i=0;i<rows();++i)
       for(int j=0;j<cols();++j){
-	vm[j][i].r = image->pixels[i*cols()+j].red ;
-	vm[j][i].g = image->pixels[i*cols()+j].green ;
-	vm[j][i].b = image->pixels[i*cols()+j].blue ;
+	Magick::Color color = image.pixelColor(i,j);	
+	elem(i,j).r = color.redQuantum();
+	elem(i,j).g = color.greenQuantum();
+	elem(i,j).b = color.blueQuantum();
       }
-#else
-    int size=rows()*cols() ;
-    for(int i=0;i<size;++i){
-      m[i].r = image->pixels[i].red ;
-      m[i].g = image->pixels[i].green ;
-      m[i].b = image->pixels[i].blue;
-    }
-#endif
   }
   
   void IM_ImageT<unsigned char>::setMatrix(){
-#ifdef COLUMN_ORDER
-    for(int i=0;i<rows();++i)
-      for(int j=0;j<cols();++j)
-	vm[j][i] = image->pixels[i*cols()+j].red ;
-#else
-    int size=rows()*cols() ;
-    for(int i=0;i<size;++i){
-      m[i] = image->pixels[i].red ;
+    if (image.rows() != rows() || image.columns() != cols()){
+      resize(image.rows(),image.columns());
     }
-#endif
+    for(int i=0;i<rows();++i)
+      for(int j=0;j<cols();++j){
+	Magick::Color color = image.pixelColor(i,j);	
+	elem(i,j) = color.redQuantum();
+      }
   }
 
  
   void IM_ImageT<Color>::setImage(){
-    if(image->rows != (unsigned int)rows() || image->columns != (unsigned int)cols()){
-      image->rows = rows() ;
-      image->columns = cols() ;
-      image->packets = rows()*cols() ;
-      if(image->pixels)
-	delete []image->pixels ;
-      image->pixels = (RunlengthPacket*)malloc(sizeof(RunlengthPacket)*image->packets) ;
+    if (image.rows() != rows() || image.columns() != cols()){
+      Magick::Geometry geometry(cols(),rows());
+      image.size(geometry);
     }
-    
-#ifdef COLUMN_ORDER
+
+    Magick::PixelPacket *pixels = image.setPixels(0,0,cols(),rows());
+
     for(int i=0;i<rows();++i)
       for(int j=0;j<cols();++j){
-	image->pixels[i*cols()+j].red = vm[j][i].r ;
-	image->pixels[i*cols()+j].green = vm[j][i].g ; 
-	image->pixels[i*cols()+j].blue =  vm[j][i].b ; 
-	image->pixels[i*cols()+j].index =  0;
-	image->pixels[i*cols()+j].length = 0 ;
+	Color in_color = elem(i,j);
+	Magick::Color color(in_color.r,in_color.b,in_color.g);
+	Magick::PixelPacket *pixel = pixels+i*cols()*sizeof(Magick::PixelPacket)+j;
+	*pixel = color;
       }
-#else
-    int size=rows()*cols() ;
-    for(int i=0;i<size;++i){
-      image->pixels[i].red = m[i].r ;
-      image->pixels[i].green = m[i].g ; 
-      image->pixels[i].blue =  m[i].b ; 
-      image->pixels[i].index =  0;
-      image->pixels[i].length = 0 ;
-    }
-#endif
+
+    image.syncPixels();
   }
   
   void IM_ImageT<unsigned char>::setImage(){
-    if(image->rows != (unsigned int)rows() || image->columns != (unsigned int)cols()){
-      image->rows = rows() ;
-      image->columns = cols() ;
-      image->packets = rows()*cols() ;
-      if(image->pixels)
-	delete []image->pixels ;
-      image->pixels = (RunlengthPacket*)malloc(sizeof(RunlengthPacket)*image->packets) ;
+    if (image.rows() != rows() || image.columns() != cols()){
+      Magick::Geometry geometry(cols(),rows());
+      image.size(geometry);
     }
-    
-#ifdef COLUMN_ORDER
+
+    Magick::PixelPacket *pixels = image.setPixels(0,0,cols(),rows());
+
     for(int i=0;i<rows();++i)
       for(int j=0;j<cols();++j){
-	image->pixels[i*cols()+j].red = vm[j][i] ;
-	image->pixels[i*cols()+j].green = vm[j][i] ; 
-	image->pixels[i*cols()+j].blue =  vm[j][i] ; 
-	image->pixels[i*cols()+j].index =  vm[j][i] ;
-	image->pixels[i*cols()+j].length = 0 ;
+	Color in_color = elem(i,j);
+	Magick::Color color(in_color.r,in_color.b,in_color.g);
+	Magick::PixelPacket *pixel = pixels+i*cols()*sizeof(Magick::PixelPacket)+j;
+	*pixel = color;
       }
-#else
-    int size=rows()*cols() ;
-    for(int i=0;i<size;++i){
-      image->pixels[i].red = m[i] ;
-      image->pixels[i].green = m[i] ;
-      image->pixels[i].blue = m[i] ;
-      image->pixels[i].index = m[i] ; 
-      image->pixels[i].length = 0 ;
+
+    image.syncPixels();
+  }
+  
+  
+  
+  int IM_ImageT<Color>::read(const std::string &filename) {
+    image.read(filename);
+    if(image.rows()==0 || image.columns() == 0){
+      return 0;
     }
-#endif
-  }
-  
-  
-  
-  int IM_ImageT<Color>::read(const char* filename) {
-    (void)strcpy(image_info.filename,filename) ;
-    if(image)
-      DestroyImage(image) ;
-    image=ReadImage(&image_info) ;
-    if(!image)
-      return 0 ;
-    UncondenseImage(image) ;
-    resize(image->rows,image->columns) ;
-    
     setMatrix() ;
     
     return 1 ;
   }
   
-  int IM_ImageT<unsigned char>::read(const char* filename) {
-    (void)strcpy(image_info.filename,filename) ;
-    image_info.monochrome = 1 ;
-    if(image)
-      DestroyImage(image) ;
-    image=ReadImage(&image_info) ;
-    if(!image)
-      return 0 ;
-    UncondenseImage(image) ;
-    resize(image->rows,image->columns) ;
-    
+  int IM_ImageT<unsigned char>::read(const std::string& filename) {
+    image.read(filename);
+    if(image.rows()==0 || image.columns() == 0){
+      return 0;
+    }
     setMatrix() ;
     
     return 1 ;
   }
   
-  int IM_ImageT<Color>::write(const char* filename) {
-    
-    if(image)
-      DestroyImage(image) ;
-    
-    image=AllocateImage(&image_info) ;
-    
-    if(!image)
-      return 0 ;
-    
-    (void)strcpy(image->filename,filename) ;
-    
-    image->rows = rows() ;
-    image->columns = cols() ;
-    image->packets=rows()*cols() ;
-    image->pixels = (RunlengthPacket*)malloc(sizeof(RunlengthPacket)*image->packets) ;
+  int IM_ImageT<Color>::write(const std::string& filename) {
     
     setImage() ;
+    image.write(filename);
     
-    return WriteImage(&image_info,image) ;
+    return 1;
   }
   
-  int IM_ImageT<unsigned char>::write(const char* filename) {
-    if(image)
-      DestroyImage(image) ;
-    
-    image=AllocateImage(&image_info) ;
-    
-    if(!image)
-      return 0 ;
-    
-    (void)strcpy(image->filename,filename) ;
-    
-    image->rows = rows() ;
-    image->columns = cols() ;
-    image->packets=rows()*cols() ;
-    image->pixels = (RunlengthPacket*)malloc(sizeof(RunlengthPacket)*image->packets) ;
-    
+  int IM_ImageT<unsigned char>::write(const std::string& filename) {
     setImage() ;
+    image.type(Magick::GrayscaleType );
+    image.write(filename);
     
-    image_info.monochrome = 1 ;  
-    return WriteImage(&image_info,image) ;
+    return 1;
   }
 
 

@@ -126,10 +126,10 @@ dnl Optional library support
 dnl
 
 option_libs=
-option_include=
+option_cflags=
 
 dnl
-dnl Addin CppUnit Support
+dnl Adding CppUnit Support
 dnl
 
 WITH_CPPUNIT
@@ -143,18 +143,17 @@ test_magick=yes
 AC_ARG_WITH(magick,[  --with-magick[=/magickdir]     
                           supports a limited set of the Image Magick library 
                           functionnality with the IM_ImageT class [default=yes]],
-if test "$with_magick" != no; then
-	test_magick=yes
-else
+if test "$with_magick" = no; then
 	test_magick=no
+else
+	test_magick=yes
 fi)
 
-
-
-dnl has_image_magick=no
-dnl if test "$test_magick" = yes; then
-	dnl WITH_IMAGE_MAGICK
-dnl fi
+if test x"$test_magick" = xyes; then
+	HAS_IMAGE_MAGICK
+	option_cflags=$option_cflags' $(MAGICK_CPPFLAGS)'
+	option_libs=$option_libs' $(MAGICK_LDFLAGS) $(MAGICK_LIBS)'
+fi
 
 
 dnl if test "$has_image_magick" = yes; then
@@ -185,7 +184,7 @@ if test "$use_opengl" = yes; then
 AC_DEFINE(WITH_OPENGL)
 AC_DEFINE(COLUMN_ORDER)
 option_libs=$option_libs' $(GL_LIBS)'
-option_include=$option_include' $(GL_CFLAGS)'
+option_cflags=$option_cflags' $(GL_CFLAGS)'
 fi
 
 AC_ARG_WITH(sunopengl,[  --with-sunopengl                Sun's version of OpenGL has some particularities...],
@@ -200,7 +199,7 @@ dnl
 if test "$option_libs" != ''; then
 echo 'option is defined'
 option_libs='$(XLIBS)'$option_libs
-option_include=$option_include' $(XINCLUDE)'
+option_cflags=$option_cflags' $(XINCLUDE)'
 fi
 
 
@@ -317,14 +316,15 @@ AC_DEFINE(VERSION)
 AC_SUBST(VERSION)
 
 AC_SUBST(packagedir)
+AC_SUBST(nurbs_cflags)
 AC_SUBST(nurbs_libf) 
 AC_SUBST(nurbs_libd) 
 AC_SUBST(libld)
 AC_SUBST(libld_options)
 AC_SUBST(libcxx_flags)
-AC_SUBST(MAGICK_CPPFLAGS)
-AC_SUBST(MAGICK_LDFLAGS)
-AC_SUBST(MAGICK_LIBS)
+dnl AC_SUBST(MAGICK_CPPFLAGS)
+dnl AC_SUBST(MAGICK_LDFLAGS)
+dnl AC_SUBST(MAGICK_LIBS)
 AC_SUBST(complex_lib)
 AC_SUBST(matrix_lib)
 AC_SUBST(matrix_lib_flag)
@@ -338,9 +338,9 @@ AC_SUBST(nurbs_lib)
 AC_SUBST(nurbs_demo_lib)
 AC_SUBST(libs_inc)
 AC_SUBST(option_libs)
-AC_SUBST(option_include)
-AC_SUBST(CPPUNIT_CPPFLAGS)
-AC_SUBST(CPPUNIT_LIBS)
+AC_SUBST(option_cflags)
+dnl AC_SUBST(CPPUNIT_CPPFLAGS)
+dnl AC_SUBST(CPPUNIT_LIBS)
 
 PL_PROG_PERL
 
@@ -361,6 +361,7 @@ AC_OUTPUT(Makefile
 		   tests/Makefile
 		   tests/matrix/Makefile
 		   tests/nurbs/Makefile
+		   tests/image/Makefile
 		   )
 
 echo

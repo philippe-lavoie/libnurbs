@@ -82,15 +82,16 @@ fi
 
 if test "$echo_cflags" = "yes"; then
       if test "$includedir" != "/usr/include" ; then
-            echo -I$includedir
+            my_include_flag= -I$includedir
       fi
+      echo @option_cflags@ ${my_include_flag}
 fi
 
 if test "$echo_libs" = "yes"; then
       if test @libdir@ != /usr/lib ; then
             my_linker_flags="-L@libdir@"
       fi
-      echo ${my_linker_flags} -lcppunit
+      echo @option_libs@ ${my_linker_flags} -lmatrix -lmatrixI -lmatrixN @nurbs_lib@
 fi      
 
 

@@ -1,7 +1,7 @@
 /*=============================================================================
         File: image.cpp
      Purpose:
-    Revision: $Id: image.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: image.cpp,v 1.3 2002-05-31 17:39:34 philosophil Exp $
   Created by:    Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -174,14 +174,11 @@ void MatrixImage<T>::store(Matrix<T>& a){
                \a unsigned \a char.
 
   \author Philippe Lavoie 
-  \date 24 January 1997
+  \date 30 May 2002
 */
 template <class T>
 IM_ImageT<T>::IM_ImageT(): MatrixImage<T>(){
   autoSave = 0 ;
-  file_name = 0 ;
-  image = 0 ;
-  GetImageInfo(&image_info) ;
 }
 
 /*!
@@ -203,15 +200,13 @@ IM_ImageT<T>::IM_ImageT(): MatrixImage<T>(){
 	       be readable from the Image Magick library.
 
   \author Philippe Lavoie 
-  \date 24 January 1997
+  \date 30 May 2002
 */
 template <class T>
-IM_ImageT<T>::IM_ImageT(const char* filename, int save): MatrixImage<T>(){
+IM_ImageT<T>::IM_ImageT(const std::string &filename, int save): MatrixImage<T>(){
   autoSave = save ;
-  file_name = new char[1024] ; // 1024 characters for the name of a file, should be enough
-  (void)strcpy(file_name,filename) ;
-  GetImageInfo(&image_info) ;
-  read(filename) ;
+  image.read(file_name);
+  file_name=filename;
 }
 
 /*!
@@ -224,14 +219,11 @@ IM_ImageT<T>::IM_ImageT(const char* filename, int save): MatrixImage<T>(){
            unsigned char.
 
   \author Philippe Lavoie 
-  \date 24 January 1997
+  \date 30 May 2002
 */
 template <class T>
 IM_ImageT<T>::IM_ImageT(const int r, const int c): MatrixImage<T>(r,c){
   autoSave = 0 ;
-  file_name = 0 ;
-  image = 0 ;
-  GetImageInfo(&image_info) ;
 }
 
 /*!
@@ -250,7 +242,7 @@ IM_ImageT<T>::IM_ImageT(const int r, const int c): MatrixImage<T>(r,c){
   \date 24 January 1997
 */
 template <class T>
-int IM_ImageT<T>::read(const char* filename) {
+int IM_ImageT<T>::read(const std::string& filename) {
 #ifdef USE_EXCEPTION
   throw MatrixErr() ;
 #else
@@ -277,7 +269,7 @@ int IM_ImageT<T>::read(const char* filename) {
   \date 24 January 1997
 */
 template <class T>
-int IM_ImageT<T>::write(const char* filename) {
+int IM_ImageT<T>::write(const std::string& filename) {
 #ifdef USE_EXCEPTION
   throw MatrixErr() ;
 #else
@@ -350,19 +342,12 @@ void IM_ImageT<T>::setImage(){
   \warning
 
   \author Philippe Lavoie 
-  \date 24 January 1997
+  \date 30 May 2002
 */
 template <class T>
 IM_ImageT<T>::~IM_ImageT(){
-  if(autoSave && file_name)
-    write(file_name) ;
-  if(image)
-    DestroyImage(image) ;
-
-  DestroyImageInfo(&image_info) ;
-  if(file_name){
-    delete []file_name ;
-  }
+  if(autoSave && file_name.length()>0)
+    image.write(file_name) ;
 }
 
 #endif

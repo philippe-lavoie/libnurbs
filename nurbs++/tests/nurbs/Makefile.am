@@ -1,15 +1,11 @@
 EXTRA_DIST = nurbs.dsp
 
-INCLUDES = 	-I@top_srcdir@/matrix \
-		-I@top_srcdir@/include \
-		-I@top_srcdir@/nurbs \
-		-I@top_srcdir@/image \
-		-I@top_srcdir@/numerical \
+INCLUDES = 	@matrix_include@ \
+		@nurbs_include@ \
+		@option_cflags@ \
 		@CPPUNIT_CPPFLAGS@
 
-OPENGL_LIBS = @X_LIBS@ @GL_LIBS@
-
-LDADD = @CPPUNIT_LIBS@ -ldl @top_srcdir@/matrix/libmatrix.la @top_srcdir@/image/libmatrixI.la @top_srcdir@/numerical/libmatrixN.la @top_srcdir@/nurbs/libnurbsf.la $(OPENGL_LIBS) -lm -lc
+LDADD = @CPPUNIT_LIBS@ @option_libs@ -ldl @matrix_lib_flag@ @matrix_lib@ @top_srcdir@/nurbs/libnurbsf.la -lm -lc
 
 if BUILD_CPPUNIT_TESTS
 test_program = test_nurbs

@@ -76,7 +76,6 @@ void NurbsViewer::initNurbsObjects(GLUnurbsObj *renderer)
   V = U;
 
   surface.reset(ctrl_points,U,V);
-  
 }
 
 /*  Initialize material property and depth buffer.

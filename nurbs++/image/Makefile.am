@@ -1,7 +1,7 @@
 EXTRA_DIST = rec_filter.cpp filter.cpp image.cpp
 
 MAGICK_INCLUDE =  @MAGICK_CPPFLAGS@
-INCLUDES = $(MAGICK_INCLUDE) -I@top_srcdir@/include -I@top_srcdir@/matrix
+INCLUDES = @option_cflags@ -I@top_srcdir@/include -I@top_srcdir@/matrix
 
 CXXFLAGS = @CXXFLAGS@
 

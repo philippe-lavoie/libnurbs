@@ -2,7 +2,7 @@
         File: image.h
      Purpose: To add some basic image processing capabilities to the 
               matrix class
-    Revision: $Id: image.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: image.h,v 1.3 2002-05-31 17:39:34 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -68,10 +68,7 @@ typedef PLib::MatrixImage<PLib::Color> Image_Color ;
 
 #ifdef WITH_IMAGE_MAGICK
 
-#include <magick/magick.h>
-#if defined(__cplusplus) || defined(c_plusplus)
-#undef class
-#endif
+#include <Magick++.h>
 
 namespace PLib{
 
@@ -98,27 +95,18 @@ namespace PLib{
   template <class T>
     class IM_ImageT: public MatrixImage<T> {
     public:
-      IM_ImageT(const char *filename, int save=0);
+      IM_ImageT(const std::string &filename, int save=0);
       IM_ImageT() ;
       IM_ImageT(const int r, const int c) ;
       ~IM_ImageT() ;
       
-      int read(const char* filename) ;
-      int write(const char* filename) ;
-      
-      //Image processing functions offered by ImageMagick
-      void despeckle() { setImage() ; image=DespeckleImage(image); setMatrix() ;}
-      void emboss() {  setImage() ; image=EmbossImage(image) ; setMatrix() ;}
-      void enhance() {  setImage() ; image=EnhanceImage(image) ; setMatrix() ;}
-      void blur(double b) {  setImage() ; image=BlurImage(image,b) ; setMatrix() ;}
-      void oilPaint(const unsigned int a) { setImage() ; image=OilPaintImage(image,a) ; setMatrix() ;}
-      
+      int read(const std::string &filename);
+      int write(const std::string &filename);
       
     protected:
-      char* file_name ;
+      std::string file_name ;
       int autoSave ;
-      Image *image ;
-      ImageInfo image_info ;
+      Magick::Image image ;
       
       void setImage() ;
       void setMatrix() ;
