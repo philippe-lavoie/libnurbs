@@ -55,6 +55,11 @@
 // Specify if you have CppUnit installed
 #undef HAS_CPPUNIT
 
+// Specify if you have abs defined for the Complex type
+#undef HAS_COMPLEX_ABS
+
+// Specify if you have conf defined for the Complex type
+#undef HAS_COMPLEX_CONJ
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #undef HAVE_DLFCN_H

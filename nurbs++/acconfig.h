@@ -54,3 +54,8 @@
 // Specify if you have CppUnit installed
 #undef HAS_CPPUNIT
 
+// Specify if you have abs defined for the Complex type
+#undef HAS_COMPLEX_ABS
+
+// Specify if you have conf defined for the Complex type
+#undef HAS_COMPLEX_CONJ

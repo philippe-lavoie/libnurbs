@@ -126,3 +126,65 @@ AC_DEFINE(HAVE_ISO_FRIEND_DECL)
 fi
 ])dnl
 
+
+
+dnl CXX_HAVE_ISO_FRIEND_DECL
+dnl ---------------------------------------
+dnl
+dnl If the C++ compiler supports templates of templates,
+dnl define `HAVE_ISO_FRIEND_DECL'.
+dnl
+AC_DEFUN(CXX_HAVE_COMPLEX_FCNS,
+[
+AC_REQUIRE([AC_PROG_CXX])
+
+AC_MSG_CHECKING(whether ${CXX} defines abs for the Complex type)
+AC_CACHE_VAL(cxx_have_complex_abs,
+[
+AC_LANG_SAVE
+AC_LANG_CPLUSPLUS
+AC_TRY_COMPILE([
+#include <complex>
+using std::complex;
+typedef std::complex<double> Complex ;
+void f(){
+  Complex c;
+  double a=abs(c);
+};
+], [/* empty */],
+cxx_have_complex_abs=yes,
+cxx_have_complex_abs=no)
+AC_LANG_RESTORE
+])
+AC_MSG_RESULT($cxx_have_complex_abs)
+if test "$cxx_have_complex_abs" = yes; then
+AC_DEFINE(HAS_COMPLEX_ABS)
+fi
+
+AC_MSG_CHECKING(whether ${CXX} defines conj for the Complex type)
+AC_CACHE_VAL(cxx_have_complex_conj,
+[
+AC_LANG_SAVE
+AC_LANG_CPLUSPLUS
+AC_TRY_COMPILE([
+#include <complex>
+using std::complex;
+typedef std::complex<double> Complex ;
+void f(){
+  Complex c;
+  Complex a=conj(c);
+};
+], [/* empty */],
+cxx_have_complex_conj=yes,
+cxx_have_complex_conj=no)
+AC_LANG_RESTORE
+])
+AC_MSG_RESULT($cxx_have_complex_conj)
+if test "$cxx_have_complex_conj" = yes; then
+AC_DEFINE(HAS_COMPLEX_CONJ)
+fi
+
+
+
+])dnl
+

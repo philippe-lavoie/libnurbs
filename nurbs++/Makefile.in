@@ -123,7 +123,7 @@ option_include = @option_include@
 option_libs = @option_libs@
 packagedir = @packagedir@
 perl = @perl@
-AUTOMAKE_OPTIONS = dist-bzip2
+AUTOMAKE_OPTIONS = dist-bzip2 dist-zip
 ACLOCAL_AMFLAGS = -I config
 
 SUBDIRS = include matrix numerical image nurbs tests
@@ -416,9 +416,16 @@ dist-bzip2: distdir
 	$(AMTAR) chof - $(distdir) | bzip2 -9 -c >$(distdir).tar.bz2
 	$(am__remove_distdir)
 
+dist-zip: distdir
+	-rm -f $(distdir).zip
+	zip -rq $(distdir).zip $(distdir)
+	$(am__remove_distdir)
+
 dist dist-all: distdir
 	$(AMTAR) chof - $(distdir) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz
 	$(AMTAR) chof - $(distdir) | bzip2 -9 -c >$(distdir).tar.bz2
+	-rm -f $(distdir).zip
+	zip -rq $(distdir).zip $(distdir)
 	$(am__remove_distdir)
 
 # This target untars the dist file and tries a VPATH configuration.  Then
@@ -534,16 +541,17 @@ uninstall-man: uninstall-man1
 
 .PHONY: $(RECURSIVE_TARGETS) GTAGS all all-am check check-am clean \
 	clean-generic clean-libtool clean-recursive dist dist-all \
-	dist-bzip2 dist-gzip distcheck distclean distclean-generic \
-	distclean-libtool distclean-recursive distclean-tags \
-	distcleancheck distdir dvi dvi-am dvi-recursive info info-am \
-	info-recursive install install-am install-binSCRIPTS \
-	install-data install-data-am install-data-recursive \
-	install-exec install-exec-am install-exec-recursive \
-	install-info install-info-am install-info-recursive install-man \
-	install-man1 install-recursive install-strip installcheck \
-	installcheck-am installdirs installdirs-am \
-	installdirs-recursive maintainer-clean maintainer-clean-generic \
+	dist-bzip2 dist-gzip dist-zip distcheck distclean \
+	distclean-generic distclean-libtool distclean-recursive \
+	distclean-tags distcleancheck distdir dvi dvi-am dvi-recursive \
+	info info-am info-recursive install install-am \
+	install-binSCRIPTS install-data install-data-am \
+	install-data-recursive install-exec install-exec-am \
+	install-exec-recursive install-info install-info-am \
+	install-info-recursive install-man install-man1 \
+	install-recursive install-strip installcheck installcheck-am \
+	installdirs installdirs-am installdirs-recursive \
+	maintainer-clean maintainer-clean-generic \
 	maintainer-clean-recursive mostlyclean mostlyclean-generic \
 	mostlyclean-libtool mostlyclean-recursive tags tags-recursive \
 	uninstall uninstall-am uninstall-binSCRIPTS uninstall-info-am \

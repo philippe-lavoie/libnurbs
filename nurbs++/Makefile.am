@@ -1,4 +1,4 @@
-AUTOMAKE_OPTIONS = dist-bzip2
+AUTOMAKE_OPTIONS = dist-bzip2 dist-zip
 ACLOCAL_AMFLAGS = -I config
 
 SUBDIRS= include matrix numerical image nurbs tests
