@@ -5,7 +5,14 @@ INCLUDES = 	@matrix_include@ \
 		@option_cflags@ \
 		@CPPUNIT_CPPFLAGS@
 
-LDADD = @CPPUNIT_LIBS@ @option_libs@ -ldl @matrix_lib_flag@ @matrix_lib@ @top_srcdir@/nurbs/libnurbsf.la -lm -lc
+LDADD = @CPPUNIT_LIBS@ \
+	@top_srcdir@/nurbs/libnurbsf.la \
+	@top_srcdir@/numerical/libmatrixN.la \
+	@top_srcdir@/image/libmatrixI.la \
+	@top_srcdir@/matrix/libmatrix.la \
+	@option_libs@ \
+	-ldl -lm -lc
+
 
 if BUILD_CPPUNIT_TESTS
 test_program = test_nurbs
