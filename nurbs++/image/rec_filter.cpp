@@ -1,7 +1,7 @@
 /*=============================================================================
         File: rec_filter.cpp
      Purpose:
-    Revision: $Id: rec_filter.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: rec_filter.cpp,v 1.3 2003-05-15 02:34:55 philosophil Exp $
   Created by: Philippe Lavoie          (18 February 1999)
  Modified by: 
 
@@ -418,10 +418,12 @@ int findSubEdge(const Basic2DArray<double>& dx, const Basic2DArray<double>& dy, 
 	    di *= -1 ;
 	  if(m>0 && dx(i,j)*dy(i,j)<0)
 	    di *= -1 ;
+	  /*
 	  for(int k=0;k<zoom;++k)
 	    for(int l=0;l<zoom;l++)
 	      edge(i*zoom+k-zoom2,j*zoom+l-zoom2) = 255;
-	  edge(i*zoom+di,j*zoom+dj) = 254 ; 
+	  */
+	  edge(i*zoom+di,j*zoom+dj) = 0 ; 
 	}
       }
       else{
@@ -439,10 +441,12 @@ int findSubEdge(const Basic2DArray<double>& dx, const Basic2DArray<double>& dy, 
 	  if(m>0 && dx(i,j)*dy(i,j)<0)
 	    dj *= -1 ; 
 	  di = zoom*m*absolute(dy(i,j))/gradN(i,j) ; 
+	  /*
 	  for(int k=0;k<zoom;++k)
 	    for(int l=0;l<zoom;l++)
 	      edge(i*zoom+k-zoom2,j*zoom+l-zoom2) = 255 ;
-	  edge(i*zoom+di,j*zoom+dj) = 254 ; 
+	  */
+	  edge(i*zoom+di,j*zoom+dj) = 0 ; 
 	}
       }
     }

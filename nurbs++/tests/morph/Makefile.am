@@ -16,7 +16,12 @@ endif
 
 noinst_PROGRAMS = $(test_program)
 
-test_morph_SOURCES = test_main.cpp test_basicTransform.cpp test_kernels.cpp
+test_morph_SOURCES = test_main.cpp \
+			test_basicTransform.cpp \
+			test_kernels.cpp \
+			test_watershed.cpp
+
+
 
 
 

@@ -8,7 +8,7 @@ LDADD = @CPPUNIT_LIBS@ \
 	-ldl -lm -lc
 
 if BUILD_CPPUNIT_TESTS
-test_program = test_image
+test_program = test_image xsection general
 else
 test_program = 
 endif
@@ -16,6 +16,9 @@ endif
 noinst_PROGRAMS = $(test_program)
 
 test_image_SOURCES = test_main.cpp test_magick.cpp
+xsection_SOURCES = xsection.cpp
+general_SOURCES = general.cpp
+
 
 
 

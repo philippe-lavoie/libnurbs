@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray2d.cpp
      Purpose:
-    Revision: $Id: barray2d_double.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: barray2d_double.cpp,v 1.3 2003-05-15 02:34:55 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,6 +26,12 @@
 #include "barray2d.cpp"
 
 namespace PLib {
+
+  template <>
+  inline void initMemory<double>(double* pointer, int size){
+    initMemoryWithMemset(pointer,size);
+  }
+
 
 #ifdef NO_IMPLICIT_TEMPLATES
 

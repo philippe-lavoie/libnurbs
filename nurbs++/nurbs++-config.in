@@ -102,7 +102,7 @@ if test "$echo_libs" = "yes"; then
       if test @libdir@ != /usr/lib ; then
             my_linker_flags="-L$libdir"
       fi
-      echo @NURBS_DEP_LIBS@ -lnurbsf -lnurbsd -lmatrixI -lmatrixN -lmatrix 
+      echo -lnurbsf -lnurbsd -lmatrixI -lmatrixN -lmatrix @NURBS_DEP_LIBS@ 
 fi      
 
 

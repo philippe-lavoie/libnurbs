@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray.cpp
      Purpose:       
-    Revision: $Id: barray.cpp,v 1.4 2003-01-27 11:37:35 philosophil Exp $
+    Revision: $Id: barray.cpp,v 1.5 2003-05-15 02:34:55 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -45,8 +45,7 @@ namespace PLib {
 template<class T>
 BasicArray<T>::BasicArray() : rsize(0), wdth(0), sze(0)
 {
-  x = 0 ; // new T [1];
-  //x[0] = (T) 0 ;
+  x = 0;
   destruct = 0 ;
 }
 
@@ -485,23 +484,23 @@ T  BasicArray<T>::elem(const int i) const {
 */
 template<class T>  
 T& BasicArray<T>::push_back(const T i, int end_buffer, double end_mult){
+  int old_size = sze;
   if(sze>=rsize){
-    int n = sze ; 
+    int n=sze; 
     if(end_mult>1.0){
-      sze = (int)( double(rsize)*end_mult) ;
-      resize(sze);
-      resize(n);
+      n = (int)( double(rsize)*end_mult) ;
+    }
+    else if(end_buffer<0){
+      n++;
     }
     else{
-      if(end_buffer<1)
-	end_buffer = 1 ; 
-      resize(sze+end_buffer);
-      resize(n);
+      n += end_buffer;
     }
+    resize(n); // allocate new memory, set rsze
   }
-  x[sze] = i ; 
-  ++sze;
-  return x[sze-1];
+  resize(old_size+1); // set sze
+  x[old_size] = i ; 
+  return x[old_size];
 }
 
 }

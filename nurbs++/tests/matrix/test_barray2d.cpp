@@ -119,6 +119,11 @@ void TestBasic2DArray<T>::tearDown(){
 }
 
 /** \brief verify that the matrix is initialize properly
+ *
+ * This tests makes sure that a reset will set everything to the
+ * proper value.
+ * It also tests that the default size is 0,0 and that
+ * upon initialization every thing is set to 0.
  */
 template <class T>
 void TestBasic2DArray<T>::testInit(){
@@ -131,6 +136,16 @@ void TestBasic2DArray<T>::testInit(){
   Basic2DArray<T> a;
   CPPUNIT_ASSERT_EQUAL(0,a.rows());
   CPPUNIT_ASSERT_EQUAL(0,a.cols());
+
+  a.resize(n_rows,n_cols);
+  T empty;
+  empty = 0;
+
+  for(int i=0;i<n_rows;i++){
+    for(int j=0;j<n_cols;j++){
+      CPPUNIT_ASSERT_EQUAL( empty, a(i,j) );	
+    }
+  }
 }
 
 template <class T>

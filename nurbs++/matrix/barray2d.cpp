@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray2d.cpp
      Purpose:
-    Revision: $Id: barray2d.cpp,v 1.3 2003-01-27 11:37:35 philosophil Exp $
+    Revision: $Id: barray2d.cpp,v 1.4 2003-05-15 02:34:55 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -34,6 +34,46 @@
  */
 namespace PLib {
 
+
+  /*!
+    \brief initialize the memory
+
+    This will initialize the memory to the empty constructor for
+    each element.
+
+    This was added so that basic integer types can benefit from
+    memset instead of having to loop through the whole array.
+    For these types, simply redefine initMemory appropriately.
+    Tip, use initMemoryWithSet.
+
+    \author Philippe Lavoie
+    \date 29 Jan 2003
+  */
+  template <class T>
+  inline void initMemory(T* pointer, int size){
+    T* p1;
+    p1 = pointer-1;
+    for(int i = size; i > 0; --i)
+      *(++p1) = T() ;  
+  }
+
+  /*!
+    \brief initialize the memory with memset
+
+    Some types can benefit from using a memset instead of
+    calling the empty constructor for every elements.
+
+    Just overwrite initMemory with a call to
+    initMemoryWithMemset.
+
+    \author Philippe Lavoie
+    \date 29 Jan 2003
+  */
+  template <class T>
+  inline void initMemoryWithMemset(T* pointer, int size){
+    memset((void*)pointer,0,sizeof(T)*size);
+  }
+
 /*!
   \brief initialize the 2D array
 
@@ -60,13 +100,11 @@ initBasic2DArray(Basic2DArray<T> &a, const int r,const int c)
   a.vm = new T*[a.rz] ;
 #endif
   
-  T *p1 ;
   const int sze = a.rz*a.cz ;
-  p1 = a.m-1 ;
   
+  initMemory(a.m,sze);
+
   int i ;
-  for(i = sze; i > 0; --i)
-      *(++p1) = T() ;
 #ifdef COLUMN_ORDER
   for(i=a.cz-1;i>=0;--i)
     a.vm[i] = &a.m[i*a.rz] ;
