@@ -1,0 +1,563 @@
+# Makefile.in generated automatically by automake 1.4-p5 from Makefile.am
+
+# Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
+# This Makefile.in is free software; the Free Software Foundation
+# gives unlimited permission to copy and/or distribute it,
+# with or without modifications, as long as this notice is preserved.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
+# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+#CXXFLAGS = @CXXFLAGS@ -DMATRIX_TEMPLATE_INSTANTIATION
+
+
+SHELL = @SHELL@
+
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+VPATH = @srcdir@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+includedir = @includedir@
+oldincludedir = /usr/include
+
+DESTDIR =
+
+pkgdatadir = $(datadir)/@PACKAGE@
+pkglibdir = $(libdir)/@PACKAGE@
+pkgincludedir = $(includedir)/@PACKAGE@
+
+top_builddir = ..
+
+ACLOCAL = @ACLOCAL@
+AUTOCONF = @AUTOCONF@
+AUTOMAKE = @AUTOMAKE@
+AUTOHEADER = @AUTOHEADER@
+
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@ $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_SCRIPT = @INSTALL_SCRIPT@
+transform = @program_transform_name@
+
+NORMAL_INSTALL = :
+PRE_INSTALL = :
+POST_INSTALL = :
+NORMAL_UNINSTALL = :
+PRE_UNINSTALL = :
+POST_UNINSTALL = :
+build_alias = @build_alias@
+build_triplet = @build@
+host_alias = @host_alias@
+host_triplet = @host@
+target_alias = @target_alias@
+target_triplet = @target@
+AS = @AS@
+CC = @CC@
+CPP = @CPP@
+CXX = @CXX@
+DLLTOOL = @DLLTOOL@
+ECHO = @ECHO@
+EXEEXT = @EXEEXT@
+GL_CFLAGS = @GL_CFLAGS@
+GL_LFLAGS = @GL_LFLAGS@
+GL_LIBS = @GL_LIBS@
+LIBTOOL = @LIBTOOL@
+LN_S = @LN_S@
+MAGICK_CPPFLAGS = @MAGICK_CPPFLAGS@
+MAGICK_LDFLAGS = @MAGICK_LDFLAGS@
+MAGICK_LIBS = @MAGICK_LIBS@
+MAKEINFO = @MAKEINFO@
+OBJDUMP = @OBJDUMP@
+OBJEXT = @OBJEXT@
+PACKAGE = @PACKAGE@
+RANLIB = @RANLIB@
+STRIP = @STRIP@
+VERSION = @VERSION@
+ar = @ar@
+clean_list = @clean_list@
+complex_header = @complex_header@
+complex_lib = @complex_lib@
+includedir = @includedir@
+inside_mindseye = @inside_mindseye@
+libcxx_flags = @libcxx_flags@
+libld = @libld@
+libld_options = @libld_options@
+libs_inc = @libs_inc@
+matrix_include = @matrix_include@
+matrix_lib = @matrix_lib@
+matrix_lib_flag = @matrix_lib_flag@
+nurbs_demo_lib = @nurbs_demo_lib@
+nurbs_include = @nurbs_include@
+nurbs_lib = @nurbs_lib@
+nurbs_libd = @nurbs_libd@
+nurbs_libf = @nurbs_libf@
+nurbs_libs = @nurbs_libs@
+option_include = @option_include@
+option_libs = @option_libs@
+packagedir = @packagedir@
+perl = @perl@
+prefix = @prefix@
+
+EXTRA_DIST = barray.cc   barray2d.cc  matrix.cc  vector.cc  
+
+pkginclude_HEADERS = barray.hh galloc2d.hh barray2d.hh hpoint_nd.hh matrixTool.hh coordinate.hh point_nd.hh cvector.hh specialType.hh error.hh list.hh specialVcc.hh galloc.hh matrix.hh vector.hh matrix_global.hh
+
+#pkginclude_SOURCES = barray.cc   barray2d.cc  error.cc   cvector.cc  matrix.cc  vector.cc  list.cc point_nd.cc hpoint_nd.cc coordinate.cc matrixTool.cc
+
+INCLUDES = -I../include
+
+lib_LTLIBRARIES = libmatrix.la
+libmatrix_la_SOURCES = error.cc   cvector.cc list.cc point_nd.cc hpoint_nd.cc coordinate.cc matrixTool.cc barray_int.cc   barray2d_int.cc  matrix_int.cc  vector_int.cc  barray_float.cc   barray2d_float.cc  matrix_float.cc  vector_float.cc  barray_double.cc   barray2d_double.cc  matrix_double.cc  vector_double.cc  barray_uchar.cc   barray2d_uchar.cc  matrix_uchar.cc  vector_uchar.cc  barray_char.cc   barray2d_char.cc  matrix_char.cc  vector_char.cc  barray_point.cc   barray2d_point.cc  matrix_point.cc  vector_point.cc  barray_hpoint.cc   barray2d_hpoint.cc  matrix_hpoint.cc  vector_hpoint.cc  barray_complex.cc   barray2d_complex.cc  matrix_complex.cc  vector_complex.cc  barray_coordinate.cc   barray2d_coordinate.cc  barray_void.cc
+
+libmatrix_la_LDFLAGS = -version-info 1:0:0
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+CONFIG_HEADER = ../include/plib_config.hh
+CONFIG_CLEAN_FILES = 
+LTLIBRARIES =  $(lib_LTLIBRARIES)
+
+
+DEFS = @DEFS@ -I. -I$(srcdir) -I../include
+CPPFLAGS = @CPPFLAGS@
+LDFLAGS = @LDFLAGS@
+LIBS = @LIBS@
+X_CFLAGS = @X_CFLAGS@
+X_LIBS = @X_LIBS@
+X_EXTRA_LIBS = @X_EXTRA_LIBS@
+X_PRE_LIBS = @X_PRE_LIBS@
+libmatrix_la_LIBADD = 
+libmatrix_la_OBJECTS =  error.lo cvector.lo list.lo point_nd.lo \
+hpoint_nd.lo coordinate.lo matrixTool.lo barray_int.lo barray2d_int.lo \
+matrix_int.lo vector_int.lo barray_float.lo barray2d_float.lo \
+matrix_float.lo vector_float.lo barray_double.lo barray2d_double.lo \
+matrix_double.lo vector_double.lo barray_uchar.lo barray2d_uchar.lo \
+matrix_uchar.lo vector_uchar.lo barray_char.lo barray2d_char.lo \
+matrix_char.lo vector_char.lo barray_point.lo barray2d_point.lo \
+matrix_point.lo vector_point.lo barray_hpoint.lo barray2d_hpoint.lo \
+matrix_hpoint.lo vector_hpoint.lo barray_complex.lo barray2d_complex.lo \
+matrix_complex.lo vector_complex.lo barray_coordinate.lo \
+barray2d_coordinate.lo barray_void.lo
+CXXFLAGS = @CXXFLAGS@
+CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+CXXLD = $(CXX)
+CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
+HEADERS =  $(pkginclude_HEADERS)
+
+DIST_COMMON =  Makefile.am Makefile.in
+
+
+DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
+
+TAR = gtar
+GZIP_ENV = --best
+SOURCES = $(libmatrix_la_SOURCES)
+OBJECTS = $(libmatrix_la_OBJECTS)
+
+all: all-redirect
+.SUFFIXES:
+.SUFFIXES: .S .c .cc .lo .o .obj .s
+$(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
+	cd $(top_srcdir) && $(AUTOMAKE) --gnu --include-deps matrix/Makefile
+
+Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status
+	cd $(top_builddir) \
+	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+
+
+mostlyclean-libLTLIBRARIES:
+
+clean-libLTLIBRARIES:
+	-test -z "$(lib_LTLIBRARIES)" || rm -f $(lib_LTLIBRARIES)
+
+distclean-libLTLIBRARIES:
+
+maintainer-clean-libLTLIBRARIES:
+
+install-libLTLIBRARIES: $(lib_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)$(libdir)
+	@list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+	  if test -f $$p; then \
+	    echo "$(LIBTOOL)  --mode=install $(INSTALL) $$p $(DESTDIR)$(libdir)/$$p"; \
+	    $(LIBTOOL)  --mode=install $(INSTALL) $$p $(DESTDIR)$(libdir)/$$p; \
+	  else :; fi; \
+	done
+
+uninstall-libLTLIBRARIES:
+	@$(NORMAL_UNINSTALL)
+	list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+	  $(LIBTOOL)  --mode=uninstall rm -f $(DESTDIR)$(libdir)/$$p; \
+	done
+
+.c.o:
+	$(COMPILE) -c $<
+
+# FIXME: We should only use cygpath when building on Windows,
+# and only if it is available.
+.c.obj:
+	$(COMPILE) -c `cygpath -w $<`
+
+.s.o:
+	$(COMPILE) -c $<
+
+.S.o:
+	$(COMPILE) -c $<
+
+mostlyclean-compile:
+	-rm -f *.o core *.core
+	-rm -f *.$(OBJEXT)
+
+clean-compile:
+
+distclean-compile:
+	-rm -f *.tab.c
+
+maintainer-clean-compile:
+
+.c.lo:
+	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
+
+.s.lo:
+	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
+
+.S.lo:
+	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
+
+distclean-libtool:
+
+maintainer-clean-libtool:
+
+libmatrix.la: $(libmatrix_la_OBJECTS) $(libmatrix_la_DEPENDENCIES)
+	$(CXXLINK) -rpath $(libdir) $(libmatrix_la_LDFLAGS) $(libmatrix_la_OBJECTS) $(libmatrix_la_LIBADD) $(LIBS)
+.cc.o:
+	$(CXXCOMPILE) -c $<
+.cc.obj:
+	$(CXXCOMPILE) -c `cygpath -w $<`
+.cc.lo:
+	$(LTCXXCOMPILE) -c $<
+
+install-pkgincludeHEADERS: $(pkginclude_HEADERS)
+	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)$(pkgincludedir)
+	@list='$(pkginclude_HEADERS)'; for p in $$list; do \
+	  if test -f "$$p"; then d= ; else d="$(srcdir)/"; fi; \
+	  echo " $(INSTALL_DATA) $$d$$p $(DESTDIR)$(pkgincludedir)/$$p"; \
+	  $(INSTALL_DATA) $$d$$p $(DESTDIR)$(pkgincludedir)/$$p; \
+	done
+
+uninstall-pkgincludeHEADERS:
+	@$(NORMAL_UNINSTALL)
+	list='$(pkginclude_HEADERS)'; for p in $$list; do \
+	  rm -f $(DESTDIR)$(pkgincludedir)/$$p; \
+	done
+
+tags: TAGS
+
+ID: $(HEADERS) $(SOURCES) $(LISP)
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	here=`pwd` && cd $(srcdir) \
+	  && mkid -f$$here/ID $$unique $(LISP)
+
+TAGS:  $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) $(LISP)
+	tags=; \
+	here=`pwd`; \
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	test -z "$(ETAGS_ARGS)$$unique$(LISP)$$tags" \
+	  || (cd $(srcdir) && etags $(ETAGS_ARGS) $$tags  $$unique $(LISP) -o $$here/TAGS)
+
+mostlyclean-tags:
+
+clean-tags:
+
+distclean-tags:
+	-rm -f TAGS ID
+
+maintainer-clean-tags:
+
+distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
+
+subdir = matrix
+
+distdir: $(DISTFILES)
+	@for file in $(DISTFILES); do \
+	  d=$(srcdir); \
+	  if test -d $$d/$$file; then \
+	    cp -pr $$d/$$file $(distdir)/$$file; \
+	  else \
+	    test -f $(distdir)/$$file \
+	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \
+	    || cp -p $$d/$$file $(distdir)/$$file || :; \
+	  fi; \
+	done
+barray2d_char.lo barray2d_char.o : barray2d_char.cc barray2d.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh
+barray2d_complex.lo barray2d_complex.o : barray2d_complex.cc barray2d.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh
+barray2d_coordinate.lo barray2d_coordinate.o : barray2d_coordinate.cc \
+	barray2d.cc matrix_global.hh ../include/plib_config.hh error.hh \
+	barray2d.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh galloc2d.hh
+barray2d_double.lo barray2d_double.o : barray2d_double.cc barray2d.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh
+barray2d_float.lo barray2d_float.o : barray2d_float.cc barray2d.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh
+barray2d_hpoint.lo barray2d_hpoint.o : barray2d_hpoint.cc barray2d.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh
+barray2d_int.lo barray2d_int.o : barray2d_int.cc barray2d.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh
+barray2d_point.lo barray2d_point.o : barray2d_point.cc barray2d.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh
+barray2d_uchar.lo barray2d_uchar.o : barray2d_uchar.cc barray2d.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh
+barray_char.lo barray_char.o : barray_char.cc barray.cc matrix_global.hh \
+	../include/plib_config.hh error.hh barray.hh specialType.hh \
+	matrixTool.hh coordinate.hh point_nd.hh hpoint_nd.hh list.hh \
+	galloc.hh
+barray_complex.lo barray_complex.o : barray_complex.cc barray.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh list.hh galloc.hh
+barray_coordinate.lo barray_coordinate.o : barray_coordinate.cc \
+	barray.cc matrix_global.hh ../include/plib_config.hh error.hh \
+	barray.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh list.hh galloc.hh
+barray_double.lo barray_double.o : barray_double.cc barray.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh list.hh galloc.hh
+barray_float.lo barray_float.o : barray_float.cc barray.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh list.hh galloc.hh
+barray_hpoint.lo barray_hpoint.o : barray_hpoint.cc barray.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh list.hh galloc.hh
+barray_int.lo barray_int.o : barray_int.cc barray.cc matrix_global.hh \
+	../include/plib_config.hh error.hh barray.hh specialType.hh \
+	matrixTool.hh coordinate.hh point_nd.hh hpoint_nd.hh list.hh \
+	galloc.hh
+barray_point.lo barray_point.o : barray_point.cc barray.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh list.hh galloc.hh
+barray_uchar.lo barray_uchar.o : barray_uchar.cc barray.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh barray.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh list.hh galloc.hh
+barray_void.lo barray_void.o : barray_void.cc barray.cc matrix_global.hh \
+	../include/plib_config.hh error.hh barray.hh specialType.hh \
+	matrixTool.hh coordinate.hh point_nd.hh hpoint_nd.hh list.hh \
+	galloc.hh
+coordinate.lo coordinate.o : coordinate.cc coordinate.hh \
+	matrix_global.hh ../include/plib_config.hh error.hh \
+	matrixTool.hh
+cvector.lo cvector.o : cvector.cc matrix_global.hh \
+	../include/plib_config.hh error.hh cvector.hh vector.hh \
+	barray.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh list.hh galloc.hh
+error.lo error.o : error.cc error.hh matrix_global.hh \
+	../include/plib_config.hh
+hpoint_nd.lo hpoint_nd.o : hpoint_nd.cc hpoint_nd.hh matrix_global.hh \
+	../include/plib_config.hh error.hh point_nd.hh
+list.lo list.o : list.cc list.hh specialType.hh matrix_global.hh \
+	../include/plib_config.hh error.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh
+matrix_char.lo matrix_char.o : matrix_char.cc matrix.cc matrix_global.hh \
+	../include/plib_config.hh error.hh matrix.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh vector.hh barray.hh list.hh galloc.hh
+matrix_complex.lo matrix_complex.o : matrix_complex.cc matrix.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh matrix.hh \
+	barray2d.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh galloc2d.hh vector.hh barray.hh \
+	list.hh galloc.hh
+matrix_double.lo matrix_double.o : matrix_double.cc matrix.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh matrix.hh \
+	barray2d.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh galloc2d.hh vector.hh barray.hh \
+	list.hh galloc.hh
+matrix_float.lo matrix_float.o : matrix_float.cc matrix.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh matrix.hh \
+	barray2d.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh galloc2d.hh vector.hh barray.hh \
+	list.hh galloc.hh
+matrix_hpoint.lo matrix_hpoint.o : matrix_hpoint.cc matrix.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh matrix.hh \
+	barray2d.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh galloc2d.hh vector.hh barray.hh \
+	list.hh galloc.hh
+matrix_int.lo matrix_int.o : matrix_int.cc matrix.cc matrix_global.hh \
+	../include/plib_config.hh error.hh matrix.hh barray2d.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh galloc2d.hh vector.hh barray.hh list.hh galloc.hh
+matrix_point.lo matrix_point.o : matrix_point.cc matrix.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh matrix.hh \
+	barray2d.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh galloc2d.hh vector.hh barray.hh \
+	list.hh galloc.hh
+matrix_uchar.lo matrix_uchar.o : matrix_uchar.cc matrix.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh matrix.hh \
+	barray2d.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh galloc2d.hh vector.hh barray.hh \
+	list.hh galloc.hh
+matrixTool.lo matrixTool.o : matrixTool.cc matrixTool.hh \
+	matrix_global.hh ../include/plib_config.hh error.hh
+point_nd.lo point_nd.o : point_nd.cc point_nd.hh matrix_global.hh \
+	../include/plib_config.hh error.hh
+vector_char.lo vector_char.o : vector_char.cc vector.cc matrix_global.hh \
+	../include/plib_config.hh error.hh vector.hh barray.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh list.hh galloc.hh
+vector_complex.lo vector_complex.o : vector_complex.cc vector.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh vector.hh \
+	barray.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh list.hh galloc.hh
+vector_double.lo vector_double.o : vector_double.cc vector.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh vector.hh \
+	barray.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh list.hh galloc.hh
+vector_float.lo vector_float.o : vector_float.cc vector.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh vector.hh \
+	barray.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh list.hh galloc.hh
+vector_hpoint.lo vector_hpoint.o : vector_hpoint.cc vector.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh vector.hh \
+	barray.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh list.hh galloc.hh
+vector_int.lo vector_int.o : vector_int.cc vector.cc matrix_global.hh \
+	../include/plib_config.hh error.hh vector.hh barray.hh \
+	specialType.hh matrixTool.hh coordinate.hh point_nd.hh \
+	hpoint_nd.hh list.hh galloc.hh
+vector_point.lo vector_point.o : vector_point.cc vector.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh vector.hh \
+	barray.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh list.hh galloc.hh
+vector_uchar.lo vector_uchar.o : vector_uchar.cc vector.cc \
+	matrix_global.hh ../include/plib_config.hh error.hh vector.hh \
+	barray.hh specialType.hh matrixTool.hh coordinate.hh \
+	point_nd.hh hpoint_nd.hh list.hh galloc.hh
+
+info-am:
+info: info-am
+dvi-am:
+dvi: dvi-am
+check-am: all-am
+check: check-am
+installcheck-am:
+installcheck: installcheck-am
+install-exec-am: install-libLTLIBRARIES
+install-exec: install-exec-am
+
+install-data-am: install-pkgincludeHEADERS
+install-data: install-data-am
+
+install-am: all-am
+	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
+install: install-am
+uninstall-am: uninstall-libLTLIBRARIES uninstall-pkgincludeHEADERS
+uninstall: uninstall-am
+all-am: Makefile $(LTLIBRARIES) $(HEADERS)
+all-redirect: all-am
+install-strip:
+	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
+installdirs:
+	$(mkinstalldirs)  $(DESTDIR)$(libdir) $(DESTDIR)$(pkgincludedir)
+
+
+mostlyclean-generic:
+
+clean-generic:
+
+distclean-generic:
+	-rm -f Makefile $(CONFIG_CLEAN_FILES)
+	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
+
+maintainer-clean-generic:
+mostlyclean-am:  mostlyclean-libLTLIBRARIES mostlyclean-compile \
+		mostlyclean-libtool mostlyclean-tags \
+		mostlyclean-generic
+
+mostlyclean: mostlyclean-am
+
+clean-am:  clean-libLTLIBRARIES clean-compile clean-libtool clean-tags \
+		clean-generic mostlyclean-am
+
+clean: clean-am
+
+distclean-am:  distclean-libLTLIBRARIES distclean-compile \
+		distclean-libtool distclean-tags distclean-generic \
+		clean-am
+	-rm -f libtool
+
+distclean: distclean-am
+
+maintainer-clean-am:  maintainer-clean-libLTLIBRARIES \
+		maintainer-clean-compile maintainer-clean-libtool \
+		maintainer-clean-tags maintainer-clean-generic \
+		distclean-am
+	@echo "This command is intended for maintainers to use;"
+	@echo "it deletes files that may require special tools to rebuild."
+
+maintainer-clean: maintainer-clean-am
+
+.PHONY: mostlyclean-libLTLIBRARIES distclean-libLTLIBRARIES \
+clean-libLTLIBRARIES maintainer-clean-libLTLIBRARIES \
+uninstall-libLTLIBRARIES install-libLTLIBRARIES mostlyclean-compile \
+distclean-compile clean-compile maintainer-clean-compile \
+mostlyclean-libtool distclean-libtool clean-libtool \
+maintainer-clean-libtool uninstall-pkgincludeHEADERS \
+install-pkgincludeHEADERS tags mostlyclean-tags distclean-tags \
+clean-tags maintainer-clean-tags distdir info-am info dvi-am dvi check \
+check-am installcheck-am installcheck install-exec-am install-exec \
+install-data-am install-data install-am install uninstall-am uninstall \
+all-redirect all-am all installdirs mostlyclean-generic \
+distclean-generic clean-generic maintainer-clean-generic clean \
+mostlyclean distclean maintainer-clean
+
+
+# Tell versions [3.59,3.63) of GNU make to not export all variables.
+# Otherwise a system limit (for SysV at least) may be exceeded.
+.NOEXPORT:

@@ -1,0 +1,221 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "TnAprox"=".\TnAprox\TnAprox.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name nurbslib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "nurbslib"=".\nurbslib\nurbslib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "special"=".\special\special.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "terr"=".\terr\terr.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "tint"=".\tint\tint.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name nurbslib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "tint2"=".\tint2\tint2.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "tmatrix"=".\tmatrix\tmatrix.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name nurbslib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "tmatrixMat"=".\tmatrixMat\tmatrixMat.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "tnInterp"=".\tnInterp\tnInterp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name nurbslib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "tnclosed"=".\tnclosed\tnclosed.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name nurbslib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "tnlength"=".\tnlength\tnlength.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name nurbslib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "tntess"=".\tntess\tntess.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name nurbslib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "tnurbs"=".\tnurbs\tnurbs.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name nurbslib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "tstatistic"=".\tstatistic\tstatistic.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "tvqsort"=".\tvqsort\tvqsort.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+
