@@ -1,9 +1,9 @@
-AUTOMAKE_OPTIONS = 1.4
+AUTOMAKE_OPTIONS = dist-bzip2
 ACLOCAL_AMFLAGS = -I config
 
 SUBDIRS= include matrix numerical image nurbs tests
-EXTRA_SUBDIRS = examples
-DIST_SUBDIRS = include matrix numerical image nurbs examples
+#EXTRA_SUBDIRS = examples
+DIST_SUBDIRS = include matrix numerical image nurbs examples tests config
 
 bin_SCRIPTS = nurbs++-config
 man_MANS = nurbs++-config.1
@@ -13,7 +13,7 @@ EXTRA_DIST = config_mvc.bat \
 
 dist-hook:
 	cp -pr $(top_srcdir)/examples/vc6 $(distdir)/examples
-	find $(distdir)/examples/vc6 -name CVS -exec rm -rf {} \; 
+	rm -rf `find $(distdir)/examples -name CVS`
 
 m4sources = \
 	config/has_image_magick.m4 \

@@ -347,6 +347,7 @@ AC_OUTPUT(Makefile
 		   Doxyfile 
 		   nurbs++-config 
 		   include/Makefile 
+		   config/Makefile
 		   matrix/Makefile 
 		   numerical/Makefile 
 		   image/Makefile 

@@ -123,12 +123,12 @@ option_include = @option_include@
 option_libs = @option_libs@
 packagedir = @packagedir@
 perl = @perl@
-AUTOMAKE_OPTIONS = 1.4
+AUTOMAKE_OPTIONS = dist-bzip2
 ACLOCAL_AMFLAGS = -I config
 
 SUBDIRS = include matrix numerical image nurbs tests
-EXTRA_SUBDIRS = examples
-DIST_SUBDIRS = include matrix numerical image nurbs examples
+#EXTRA_SUBDIRS = examples
+DIST_SUBDIRS = include matrix numerical image nurbs examples tests config
 
 bin_SCRIPTS = nurbs++-config
 man_MANS = nurbs++-config.1
@@ -412,8 +412,13 @@ dist-gzip: distdir
 	$(AMTAR) chof - $(distdir) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz
 	$(am__remove_distdir)
 
+dist-bzip2: distdir
+	$(AMTAR) chof - $(distdir) | bzip2 -9 -c >$(distdir).tar.bz2
+	$(am__remove_distdir)
+
 dist dist-all: distdir
 	$(AMTAR) chof - $(distdir) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz
+	$(AMTAR) chof - $(distdir) | bzip2 -9 -c >$(distdir).tar.bz2
 	$(am__remove_distdir)
 
 # This target untars the dist file and tries a VPATH configuration.  Then
@@ -529,7 +534,7 @@ uninstall-man: uninstall-man1
 
 .PHONY: $(RECURSIVE_TARGETS) GTAGS all all-am check check-am clean \
 	clean-generic clean-libtool clean-recursive dist dist-all \
-	dist-gzip distcheck distclean distclean-generic \
+	dist-bzip2 dist-gzip distcheck distclean distclean-generic \
 	distclean-libtool distclean-recursive distclean-tags \
 	distcleancheck distdir dvi dvi-am dvi-recursive info info-am \
 	info-recursive install install-am install-binSCRIPTS \
@@ -548,7 +553,7 @@ uninstall-man: uninstall-man1
 
 dist-hook:
 	cp -pr $(top_srcdir)/examples/vc6 $(distdir)/examples
-	find $(distdir)/examples/vc6 -name CVS -exec rm -rf {} \; 
+	rm -rf `find $(distdir)/examples -name CVS`
 #m4data_DATA = nurbs++.m4
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
