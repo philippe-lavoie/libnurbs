@@ -1,9 +1,25 @@
 dnl Process this file with autoconf to produce a configure script.
+AC_PREREQ(2.56)
 AC_INIT(Makefile.am)
 
+# Set version
+MAJOR_VERSION=3
+MINOR_VERSION=0
+MICRO_VERSION=12
+echo "configuring Nurbs++ $MAJOR_VERSION.$MINOR_VERSION.$MICRO_VERSION"
 AC_CANONICAL_SYSTEM
+AC_SUBST(MAJOR_VERSION)dnl
+AC_SUBST(MINOR_VERSION)dnl
+AC_SUBST(MICRO_VERSION)dnl
 
-AM_INIT_AUTOMAKE(nurbs++,3.0.11)
+# Ensure that make can run correctly
+AM_SANITY_CHECK
+
+# Generate configure header.
+AM_CONFIG_HEADER([include/plib_config.h])
+
+AM_INIT_AUTOMAKE([nurbs++],$MAJOR_VERSION.$MINOR_VERSION.$MICRO_VERSION, ' ')
+
 
 dnl
 dnl  the prefix stuff
@@ -25,7 +41,6 @@ AC_PROG_CXX
 AC_PROG_CPP
 AC_PROG_INSTALL
 
-AM_CONFIG_HEADER(include/plib_config.h)
 
 
 dnl the user can use --enable-shared to enable this
@@ -307,6 +322,16 @@ nurbs_libf='$(packagedir)/nurbs/libnurbsf.la'
 nurbs_libd='$(packagedir)/nurbs/libnurbsd.la'
 nurbs_lib="$nurbs_libf $nurbs_libd"
 
+
+dnl 
+dnl Building the library dependency for Nurbs++
+dnl
+
+NURBS_DEP_CPPFLAGS="$MAGICK_CPPFLAGS $GL_CFLAGS"
+NURBS_DEP_LIBS="$MAGICK_LIBS $GL_LIBS"
+NURBS_DEP_LDFLAGS="$MAGICK_LDFLAGS $GL_LFLAGS"
+
+
 dnl
 dnl Making the changes in the proper files
 dnl
@@ -339,6 +364,9 @@ AC_SUBST(nurbs_demo_lib)
 AC_SUBST(libs_inc)
 AC_SUBST(option_libs)
 AC_SUBST(option_cflags)
+AC_SUBST(NURBS_DEP_CPPFLAGS)
+AC_SUBST(NURBS_DEP_LIBS)
+AC_SUBST(NURBS_DEP_LDFLAGS)
 dnl AC_SUBST(CPPUNIT_CPPFLAGS)
 dnl AC_SUBST(CPPUNIT_LIBS)
 

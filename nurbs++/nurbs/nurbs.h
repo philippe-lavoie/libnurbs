@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbs.h
      Purpose:       
-    Revision: $Id: nurbs.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbs.h,v 1.3 2003-01-15 03:03:59 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -80,7 +80,7 @@ namespace PLib {
       virtual void reset(const Vector< HPoint_nD<T,N> >& P1, const Vector<T> &U1, int deg) ;
       virtual NurbsCurve& operator=(const NurbsCurve<T,N>&) ;
       
-      // Evaluattion functions
+      // Evaluation functions
       virtual HPoint_nD<T,N> operator()(T u) const;
       HPoint_nD<T,N> hpointAt(T u) const  //!< calls operator()
 	{ return operator()(u) ; }
