@@ -8,7 +8,7 @@ INCLUDES = -I../include @CPPUNIT_CPPFLAGS@
 LDADD = @CPPUNIT_LIBS@ -ldl libmatrix.la -lm -lc
 
 bin_PROGRAMS = test_matrix
-test_matrix_SOURCES = test_main.cc test_matrix.cc
+test_matrix_SOURCES = test_main.cc test_matrix.cc test_barray2d.cc
 
 lib_LTLIBRARIES = libmatrix.la
 libmatrix_la_SOURCES = error.cc   cvector.cc list.cc point_nd.cc hpoint_nd.cc coordinate.cc matrixTool.cc

@@ -133,7 +133,7 @@ INCLUDES = -I../include @CPPUNIT_CPPFLAGS@
 LDADD = @CPPUNIT_LIBS@ -ldl libmatrix.la -lm -lc
 
 bin_PROGRAMS = test_matrix
-test_matrix_SOURCES = test_main.cc test_matrix.cc SimplePlugIn.cc
+test_matrix_SOURCES = test_main.cc test_matrix.cc test_barray2d.cc
 
 lib_LTLIBRARIES = libmatrix.la
 libmatrix_la_SOURCES = error.cc   cvector.cc list.cc point_nd.cc hpoint_nd.cc coordinate.cc matrixTool.cc barray_int.cc   barray2d_int.cc  matrix_int.cc  vector_int.cc  barray_float.cc   barray2d_float.cc  matrix_float.cc  vector_float.cc  barray_double.cc   barray2d_double.cc  matrix_double.cc  vector_double.cc  barray_uchar.cc   barray2d_uchar.cc  matrix_uchar.cc  vector_uchar.cc  barray_char.cc   barray2d_char.cc  matrix_char.cc  vector_char.cc  barray_point.cc   barray2d_point.cc  matrix_point.cc  vector_point.cc  barray_hpoint.cc   barray2d_hpoint.cc  matrix_hpoint.cc  vector_hpoint.cc  barray_complex.cc   barray2d_complex.cc  matrix_complex.cc  vector_complex.cc  barray_coordinate.cc   barray2d_coordinate.cc  barray_void.cc
@@ -164,7 +164,7 @@ bin_PROGRAMS = test_matrix$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS)
 
 am_test_matrix_OBJECTS = test_main.$(OBJEXT) test_matrix.$(OBJEXT) \
-	SimplePlugIn.$(OBJEXT)
+	test_barray2d.$(OBJEXT)
 test_matrix_OBJECTS = $(am_test_matrix_OBJECTS)
 test_matrix_LDADD = $(LDADD)
 test_matrix_DEPENDENCIES = libmatrix.la
@@ -177,8 +177,7 @@ LDFLAGS = @LDFLAGS@
 LIBS = @LIBS@
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
-@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/SimplePlugIn.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/barray2d_char.Plo \
+@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/barray2d_char.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/barray2d_complex.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/barray2d_coordinate.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/barray2d_double.Plo \
@@ -208,8 +207,9 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	./$(DEPDIR)/matrix_int.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/matrix_point.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/matrix_uchar.Plo \
-@AMDEP_TRUE@	./$(DEPDIR)/point_nd.Plo ./$(DEPDIR)/test_main.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/test_matrix.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/point_nd.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/test_barray2d.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/test_main.Po ./$(DEPDIR)/test_matrix.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/vector_char.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/vector_complex.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/vector_double.Plo \
@@ -303,7 +303,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/SimplePlugIn.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/barray2d_char.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/barray2d_complex.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/barray2d_coordinate.Plo@am__quote@
@@ -338,6 +337,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/matrix_point.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/matrix_uchar.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/point_nd.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_barray2d.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_matrix.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vector_char.Plo@am__quote@

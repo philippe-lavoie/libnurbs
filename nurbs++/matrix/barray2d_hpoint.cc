@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray2d.cc
      Purpose:
-    Revision: $Id: barray2d_hpoint.cc,v 1.1.1.1 2001-11-02 01:53:26 philosophil Exp $
+    Revision: $Id: barray2d_hpoint.cc,v 1.2 2002-05-09 17:44:47 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -43,7 +43,7 @@ void initBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> >& a, const int r,const 
 	
   a.rz = r;	a.cz = c;
 
-  a.m = new HPoint_nD<T,D> [a.rz*a.cz];
+  //a.m = new HPoint_nD<T,D> [a.rz*a.cz];
   a.created = 1 ;
 #ifdef COLUMN_ORDER
   a.vm = new HPoint_nD<T,D>* [a.cz] ;
@@ -51,37 +51,31 @@ void initBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> >& a, const int r,const 
   a.vm = new HPoint_nD<T,D>* [a.rz] ;
 #endif
 
-  // we want to have all the data in a consecutive memory segment
-  // but it has to be in column order instead of row order
-  // i.e.
-  //   m1 m5 m9  m13
-  //   m2 m6 m10 m14
-  //   m3 m7 m11 m15
-  //   m4 m8 m12 m16
-  // This is done so that OpenGL can be used effectively
-  // since the data portion will now be in column order.
-  // Note that the order of the elements themselves are
-  // still defined by the COLUMN_ORDER macro
-
   T* dn ;
   dn = new T[a.rz*a.cz*(D+1)] ;
   int i ;
 
   a.m = new NoInitHPoint_nD<T,D>[a.rz*a.cz] ;
+  // At this point the elements data pointer points to null
+  // and their created status is 0.
+  // The following is done so that the data point to 
+  // their proper place inside the consecutive memory
+  // array.
 
 #ifdef COLUMN_ORDER
   const int sze = a.rz*a.cz ;
-  for(i=sze-1;i>=0;--i)
-    new((void*)&a.m[i]) HPoint_nD<T,D>(dn+i*(D+1),0) ;  
+  for(i=sze-1;i>=0;--i){
+    a.m[i].data = dn+i*(D+1) ;  
+  }
 #else
   for(i=a.rz-1;i>=0;--i){
     for(int j=a.cz-1;j>=0;--j){
-      new((void*)&a.m[i*a.cz+j]) HPoint_nD<T,D>(dn+(a.rz*j+i)*(D+1),0) ; 
+      a.m[i*a.cz+j].data = dn+(a.rz*j+i)*(D+1) ; 
     }
   }
 #endif 
 
-  a.m[0].created = 1 ;
+  //  a.m[0].created = 1 ;
   memset((void*)dn,0,(a.cz*a.rz*(D+1))*sizeof(T)) ;
 
 
@@ -122,6 +116,7 @@ void resizeKeepBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> > &a, const int nr
 
   T* dn ;
   dn = new T[nr*nc*(D+1)] ;
+  memset((void*)dn,0,(nr*nc*(D+1))*sizeof(T)) ;
 
   int i,j ;
 #ifdef COLUMN_ORDER

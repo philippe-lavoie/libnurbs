@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray2d.cc
      Purpose:
-    Revision: $Id: barray2d.cc,v 1.1.1.1 2001-11-02 01:53:30 philosophil Exp $
+    Revision: $Id: barray2d.cc,v 1.2 2002-05-09 17:44:47 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -307,12 +307,14 @@ resizeKeepBasic2DArray(Basic2DArray<T> &a,const int nr,const int nc)
     for(i=0;i<minimum(nr,a.rz);i++){
       *(++pn) = *(++p) ;
     }
+    for(i=a.rz;i<nr;i++)
+      *(++pn) = T() ;
   }
   
   for(j=a.cz;j<nc;j++){
-    pn = &mn[j*nr+a.rz]-1 ;
-    for(i=a.rz;i<nr;i++)
-      *(pn++) = T() ;
+    pn = &mn[j*nr]-1 ;
+    for(i=0;i<nr;i++)
+      *(++pn) = T() ;
   }
 #else
   for(i=0;i<minimum(nr,a.rz);i++){
@@ -321,12 +323,14 @@ resizeKeepBasic2DArray(Basic2DArray<T> &a,const int nr,const int nc)
     for(j=0;j<minimum(nc,a.cz);j++){
       *(++pn) = *(++p) ;
     }
+    for(j=a.cz;j<nc;j++)
+      *(++pn) = T() ;
   }
 
   for(i=a.rz;i<nr;i++){
-    pn = &mn[i*nc+a.cz]-1 ;
-    for(j=a.cz;j<nc;j++)
-      *(pn++) = T() ;
+    pn = &mn[i*nc]-1 ;
+    for(j=0;j<nc;j++)
+      *(++pn) = T() ;
   }
 #endif
 
