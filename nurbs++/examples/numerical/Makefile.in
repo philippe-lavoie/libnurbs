@@ -134,10 +134,10 @@ TESTS = tmatrixMat tint tint2 tstatistics
 noinst_PROGRAMS = tmatrixMat tint tint2 tstatistics
 LDADD = ../../numerical/libmatrixN.la ../../matrix/libmatrix.la $(ALLLIBS)
 
-tmatrixMat_SOURCES = tmatrixMat.C
-tint_SOURCES = tint.C
-tint2_SOURCES = tint2.C
-tstatistics_SOURCES = tstatistics.C
+tmatrixMat_SOURCES = tmatrixMat.cpp
+tint_SOURCES = tint.cpp
+tint2_SOURCES = tint2.cpp
+tstatistics_SOURCES = tstatistics.cpp
 subdir = examples/numerical
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/include/plib_config.h
@@ -198,7 +198,7 @@ SOURCES = $(tint_SOURCES) $(tint2_SOURCES) $(tmatrixMat_SOURCES) $(tstatistics_S
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .C .lo .o .obj
+.SUFFIXES: .cpp .lo .o .obj
 $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  examples/numerical/Makefile
@@ -234,19 +234,19 @@ distclean-compile:
 distclean-depend:
 	-rm -rf ./$(DEPDIR)
 
-.C.o:
+.cpp.o:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 	$(CXXCOMPILE) -c -o $@ `test -f '$<' || echo '$(srcdir)/'`$<
 
-.C.obj:
+.cpp.obj:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 	$(CXXCOMPILE) -c -o $@ `cygpath -w $<`
 
-.C.lo:
+.cpp.lo:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Plo' tmpdepfile='$(DEPDIR)/$*.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@

@@ -10,7 +10,7 @@ TESTS = tmatrixMat tint tint2 tstatistics
 noinst_PROGRAMS = tmatrixMat tint tint2 tstatistics
 LDADD = ../../numerical/libmatrixN.la ../../matrix/libmatrix.la $(ALLLIBS)
 
-tmatrixMat_SOURCES = tmatrixMat.C
-tint_SOURCES = tint.C
-tint2_SOURCES = tint2.C
-tstatistics_SOURCES = tstatistics.C
+tmatrixMat_SOURCES = tmatrixMat.cpp
+tint_SOURCES = tint.cpp
+tint2_SOURCES = tint2.cpp
+tstatistics_SOURCES = tstatistics.cpp

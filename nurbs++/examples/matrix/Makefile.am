@@ -12,6 +12,6 @@ noinst_PROGRAMS = tvqSort tmatrix terr
 LDADD = ../../matrix/libmatrix.la $(ALLLIBS)
 #LDFLAGS = $(LIBSINC)
 
-tvqSort_SOURCES = tvqSort.C
-tmatrix_SOURCES = tmatrix.C
-terr_SOURCES = terr.C 
+tvqSort_SOURCES = tvqSort.cpp
+tmatrix_SOURCES = tmatrix.cpp
+terr_SOURCES = terr.cpp 

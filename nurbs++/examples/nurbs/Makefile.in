@@ -149,25 +149,25 @@ noinst_PROGRAMS = tnurbs tnlength tnurbsS thnurbsS tnsSweep tmatrixRT tdrawAa  t
 LDADD = $(ALLLIBS)
 
 #LDFLAGS = $(LIBSINC)
-tnurbs_SOURCES = tnurbs.C
-tnlength_SOURCES = tnlength.C
-tnurbsS_SOURCES = tnurbsS.C
-thnurbsS_SOURCES = thnurbsS.C
-tnsSweep_SOURCES = tnsSweep.C
-tmatrixRT_SOURCES = tmatrixRT.C
-tdrawAa_SOURCES = tdrawAa.C
-tnInterp_SOURCES = tnInterp.C
-tnApprox_SOURCES = tnApprox.C
-tnMovePoint_SOURCES = tnMovePoint.C
-tnsMovePoint_SOURCES = tnsMovePoint.C
-tngl_SOURCES = tngl.C
-tleastS_SOURCES = tleastS.C
-tnurbs_sp_SOURCES = tnurbs_sp.C
-tnurbsS_sp_SOURCES = tnurbsS_sp.C
-tclose_SOURCES = tclose.C
-tnurbsSub_SOURCES = tnurbsSub.C
-tmeasures_SOURCES = tmeasures.C
-trispline_SOURCES = trispline.C
+tnurbs_SOURCES = tnurbs.cpp
+tnlength_SOURCES = tnlength.cpp
+tnurbsS_SOURCES = tnurbsS.cpp
+thnurbsS_SOURCES = thnurbsS.cpp
+tnsSweep_SOURCES = tnsSweep.cpp
+tmatrixRT_SOURCES = tmatrixRT.cpp
+tdrawAa_SOURCES = tdrawAa.cpp
+tnInterp_SOURCES = tnInterp.cpp
+tnApprox_SOURCES = tnApprox.cpp
+tnMovePoint_SOURCES = tnMovePoint.cpp
+tnsMovePoint_SOURCES = tnsMovePoint.cpp
+tngl_SOURCES = tngl.cpp
+tleastS_SOURCES = tleastS.cpp
+tnurbs_sp_SOURCES = tnurbs_sp.cpp
+tnurbsS_sp_SOURCES = tnurbsS_sp.cpp
+tclose_SOURCES = tclose.cpp
+tnurbsSub_SOURCES = tnurbsSub.cpp
+tmeasures_SOURCES = tmeasures.cpp
+trispline_SOURCES = trispline.cpp
 subdir = examples/nurbs
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/include/plib_config.h
@@ -316,7 +316,7 @@ SOURCES = $(tclose_SOURCES) $(tdrawAa_SOURCES) $(thnurbsS_SOURCES) $(tleastS_SOU
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .C .lo .o .obj
+.SUFFIXES: .cpp .lo .o .obj
 $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  examples/nurbs/Makefile
@@ -412,19 +412,19 @@ distclean-compile:
 distclean-depend:
 	-rm -rf ./$(DEPDIR)
 
-.C.o:
+.cpp.o:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 	$(CXXCOMPILE) -c -o $@ `test -f '$<' || echo '$(srcdir)/'`$<
 
-.C.obj:
+.cpp.obj:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 	$(CXXCOMPILE) -c -o $@ `cygpath -w $<`
 
-.C.lo:
+.cpp.lo:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Plo' tmpdepfile='$(DEPDIR)/$*.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
