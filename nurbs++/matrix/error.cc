@@ -1,7 +1,7 @@
 /*=============================================================================
         File: error.cc
      Purpose: Implementation of general error reporting class
-    Revision: $Id: error.cc,v 1.1.1.1 2001-11-02 01:53:25 philosophil Exp $
+    Revision: $Id: error.cc,v 1.2 2002-05-08 01:10:28 philosophil Exp $
   Created by:    Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -177,3 +177,11 @@ void Error::memory(const void *p)
 }
 
 }
+
+#ifdef NO_IMPLICIT_TEMPLATES
+
+template std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::_Setw);
+
+#endif
+
+

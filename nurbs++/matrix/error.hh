@@ -1,7 +1,7 @@
 /*=============================================================================
         File: error.hh
      Purpose:       
-    Revision: $Id: error.hh,v 1.1.1.1 2001-11-02 01:53:27 philosophil Exp $
+    Revision: $Id: error.hh,v 1.2 2002-05-08 01:10:28 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -33,7 +33,7 @@
 typedef std::ostringstream ErrorStream;
 #else
 #include <strstream>
-typedef ostrstream ErrorStream;
+typedef std::ostrstream ErrorStream;
 #endif
 
 

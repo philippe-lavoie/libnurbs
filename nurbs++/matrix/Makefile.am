@@ -4,9 +4,11 @@ EXTRA_DIST = barray.cc   barray2d.cc  matrix.cc  vector.cc
 
 pkginclude_HEADERS = barray.hh galloc2d.hh barray2d.hh hpoint_nd.hh matrixTool.hh coordinate.hh point_nd.hh cvector.hh specialType.hh error.hh list.hh specialVcc.hh galloc.hh matrix.hh vector.hh matrix_global.hh
 
-#pkginclude_SOURCES = barray.cc   barray2d.cc  error.cc   cvector.cc  matrix.cc  vector.cc  list.cc point_nd.cc hpoint_nd.cc coordinate.cc matrixTool.cc
+INCLUDES = -I../include @CPPUNIT_CPPFLAGS@
+LDADD = @CPPUNIT_LIBS@ -ldl libmatrix.la -lm -lc
 
-INCLUDES = -I../include
+bin_PROGRAMS = test_matrix
+test_matrix_SOURCES = test_main.cc test_matrix.cc
 
 lib_LTLIBRARIES = libmatrix.la
 libmatrix_la_SOURCES = error.cc   cvector.cc list.cc point_nd.cc hpoint_nd.cc coordinate.cc matrixTool.cc
