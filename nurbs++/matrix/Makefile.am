@@ -7,7 +7,7 @@ pkginclude_HEADERS = barray.hh galloc2d.hh barray2d.hh hpoint_nd.hh matrixTool.h
 INCLUDES = -I../include @CPPUNIT_CPPFLAGS@
 LDADD = @CPPUNIT_LIBS@ -ldl libmatrix.la -lm -lc
 
-bin_PROGRAMS = test_matrix
+noinst_PROGRAMS = test_matrix
 test_matrix_SOURCES = test_main.cc test_matrix.cc test_barray2d.cc
 
 lib_LTLIBRARIES = libmatrix.la
