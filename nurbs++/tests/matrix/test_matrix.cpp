@@ -1,9 +1,3 @@
-#include "plib_config.h"
-
-#ifdef HAS_CPPUNIT
-
-
-
 #include "matrix.h"
 #include <cppunit/TestCase.h>
 #include <cppunit/extensions/HelperMacros.h>
@@ -171,5 +165,3 @@ namespace CppUnit{
 
 #endif
 
-
-#endif // HAS_CPPUNIT
