@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray2d.h
      Purpose:       
-    Revision: $Id: barray2d.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: barray2d.h,v 1.3 2002-05-17 14:52:12 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -155,6 +155,7 @@ typedef PLib::Basic2DArray<PLib::Coordinate> Array2D_Coordinate ;
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
 #include "barray2d.cpp"
+#include "barray2d_hpoint.cpp"
 #endif
 
 
