@@ -8,9 +8,6 @@ AC_REQUIRE([AC_PROG_CXX])
 AC_CACHE_VAL(has_cppunit,
 [
  AC_CHECK_PROG([has_cppunit],[cppunit-config],[yes],[no])
- if test "$has_cppunit" = no; then
-   AC_MSG_RESULT($has_cppunit)
- fi
 
  if test x"$has_cppunit" = xyes; then
   AC_MSG_CHECKING(whether you can use cppunit)
