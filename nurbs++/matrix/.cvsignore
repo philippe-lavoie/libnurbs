@@ -1,0 +1,8 @@
+*.lo
+.cvsignore
+test_matrix
+.deps
+.libs
+Makefile
+*.la
+
