@@ -1,3 +1,5 @@
+EXTRA_DIST = nurbs.dsp
+
 INCLUDES = 	-I@top_srcdir@/matrix \
 		-I@top_srcdir@/include \
 		-I@top_srcdir@/nurbs \
