@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray_hpoint.cpp
      Purpose:       
-    Revision: $Id: barray_hpoint.cpp,v 1.3 2002-05-21 14:40:11 philosophil Exp $
+    Revision: $Id: barray_hpoint.cpp,v 1.4 2002-05-21 15:52:03 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -73,7 +73,7 @@ void resizeBasicArrayHPoint(BasicArray<HPoint_nD<T,D> >& a, int nsize){
   T* data = new T[nsize*(D+1)];
   
   for(k=nsize-1;k>=0;--k){
-    xn[k].data = data[k*(D+1)];
+    xn[k].data = data+ k*(D+1);
   }
   // The first data object will be responsible to delete the data array.
   xn[0].created = 1; 
