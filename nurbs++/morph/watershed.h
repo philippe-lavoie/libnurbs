@@ -1,7 +1,7 @@
 /*=============================================================================
         File: kernel.h
      Purpose:       
-    Revision: $Id: watershed.h,v 1.2 2003-01-27 11:44:55 philosophil Exp $
+    Revision: $Id: watershed.h,v 1.3 2003-01-29 11:20:51 philosophil Exp $
   Created by: Philippe Lavoie          (27 Jan, 2003)
  Modified by: 
 
@@ -31,7 +31,9 @@
 namespace PLib {
   namespace Morph {
     template <class T>
-      void watershed(const Basic2DArray<T>& image, Basic2DArray<T>& result);
+      void watershed(const PLib::Basic2DArray<T>& image, PLib::Basic2DArray<T>& result);
+
+    bool labelImage(const PLib::Basic2DArray<unsigned char>& image, PLib::Basic2DArray<int>& labels, unsigned char value, int& last_label);
   }
 }
 

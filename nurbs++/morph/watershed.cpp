@@ -1,7 +1,7 @@
 /*=============================================================================
         File: watershed.cpp
      Purpose:
-    Revision: $Id: watershed.cpp,v 1.1 2003-01-27 11:37:36 philosophil Exp $
+    Revision: $Id: watershed.cpp,v 1.2 2003-01-29 11:20:51 philosophil Exp $
   Created by:    Philippe Lavoie          (27 Jan, 2003)
  Modified by: 
 
@@ -27,6 +27,8 @@
 #define _PLIB_MORPH_WATERSHED_SOURCE
 
 #include "watershed.h"
+#include "../matrix/barray.h"
+#include "../matrix/barray2d.h"
 
 /*!
   \brief returns the minimum label around a point i,j
@@ -76,17 +78,18 @@ int neighbors(const PLib::Basic2DArray<int>& labels, int i, int j, PLib::BasicAr
   \author Philippe Lavoie
   \date 27 Jan 2003
 */
-void label(const PLib::Basic2DArray<unsigned char>& image, const PLib::Basic2DArray<unsigned char>& resolved_mask, PLib::Basic2DArray<int>& labels, unsigned char value, int& last_label){
+bool labelImage(const PLib::Basic2DArray<unsigned char>& image, PLib::Basic2DArray<int>& labels, unsigned char value, int& last_label){
   bool pixel_found=false;
  
-  BasicArray<int> eq_table(iamge.cols());
-  BasicArray<int> local_labels(9);
+  PLib::BasicArray<int> eq_table(image.cols());
+  PLib::BasicArray<int> local_labels(9);
   labels.resize(image.rows(),image.cols());
 
   // Top down pass
   for(int i=0;i<image.rows();++i){
     // 
     eq_table.reset(0);
+    eq_table.resize(0);
     for(int j=0;j<image.cols();++j){
       labels(i,j) = 0;
     }
@@ -94,15 +97,15 @@ void label(const PLib::Basic2DArray<unsigned char>& image, const PLib::Basic2DAr
     // Process the line
     for(int j=0;j<image.cols();++j){
       if(image(i,j)==value){
-	unsigned char a = neighborLabel(labels,i,j,local_labels);
+	unsigned char a = neighbors(labels,i,j,local_labels);
 	if(!a){	
 	  ++last_label;
 	  a = last_label;
 	}
-	label(i,j) = a;
+	labels(i,j) = a;
 	for(int k=0;k<local_labels.size();++k){
 	  // Use a hash?
-	  eq_table
+	  //eq_table
 	}
       }
     }
@@ -123,14 +126,17 @@ void label(const PLib::Basic2DArray<unsigned char>& image, const PLib::Basic2DAr
   \author Philippe Lavoie
   \date 27 Jan 2003
 */
-void PLib::Morph::watershed(const PLib::Basic2DArray<unsigned char>& image, PLib::Basic2DArray<unsigned char>& result){
+template <>
+void PLib::Morph::watershed<unsigned char> (const PLib::Basic2DArray<unsigned char>& image, PLib::Basic2DArray<unsigned char>& result){
   PLib::Basic2DArray<unsigned char> resolved_mask(image.rows(),image.cols());
-  PLib::Basic2DArray<unsigned char> labels(image.rows(),image.cols());
+  PLib::Basic2DArray<int> labels(image.rows(),image.cols());
   result.resize(image.rows(), image.cols());
+
+  int last_label = 1;
 
   int i=0;
   while(i<256){
-    if(label(image,resolved_mask,labels,i)){
+    if(labelImage(image,labels,i,last_label)){
       break;
     }
     ++i;
