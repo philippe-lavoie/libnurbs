@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: rec_filter.hh
+        File: rec_filter.h
      Purpose:       
-    Revision: $Id: filter.h,v 1.1 2002-05-13 19:32:14 philosophil Exp $
+    Revision: $Id: filter.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (18 February 1999)
  Modified by: 
 
@@ -26,7 +26,7 @@
 
 #ifndef _Matrix_Filters_h_
 #define _Matrix_Filters_h_
-#include "barray2d.hh"
+#include "barray2d.h"
 
 /*!
  */

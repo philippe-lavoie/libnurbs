@@ -1,7 +1,7 @@
 /*=====================================================================
-        File: nurbsS_sp.cc
+        File: nurbsS_sp.cpp
      Purpose:       
-    Revision: $Id: nurbsS_sp.cpp,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: nurbsS_sp.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (8 May, 1998)
  Modified by: 
 
@@ -22,7 +22,7 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =====================================================================*/
-#include <nurbsS_sp.hh>
+#include <nurbsS_sp.h>
 //#include "nan.h"
 
 /*!

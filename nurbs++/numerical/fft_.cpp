@@ -1,4 +1,4 @@
-#include "fft.cc"
+#include "fft.cpp"
 
 namespace PLib {
 

@@ -1,7 +1,7 @@
 /*=====================================================================
-        File: cvector.hh
+        File: cvector.h
      Purpose:       
-    Revision: $Id: cvector.h,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: cvector.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
   Copyright notice:
@@ -28,12 +28,12 @@
 
 
 #include <math.h>
-#include "vector.hh"
+#include "vector.h"
 
 namespace PLib {
 
   /*!
-    \class CVector cvector.hh matrix/cvector.hh
+    \class CVector cvector.h matrix/cvector.h
     \brief A circular vector class
     
     A circular vector class based on the vector class. 

@@ -8075,7 +8075,7 @@ test -z "$INSTALL_DATA" && INSTALL_DATA='${INSTALL} -m 644'
 
 # Add the stamp file to the list of files AC keeps track of,
 # along with our hook.
-ac_config_headers="$ac_config_headers include/plib_config.hh"
+ac_config_headers="$ac_config_headers include/plib_config.h"
 
 
 
@@ -10360,7 +10360,7 @@ echo "${ECHO_T}$perl" >&6
 
 
 
-ac_config_files="$ac_config_files Makefile Doxyfile include/Makefile matrix/Makefile numerical/Makefile image/Makefile nurbs/Makefile examples/Makefile examples/matrix/Makefile examples/image/Makefile examples/numerical/Makefile examples/nurbs/Makefile"
+ac_config_files="$ac_config_files Makefile Doxyfile nurbs++-config include/Makefile matrix/Makefile numerical/Makefile image/Makefile nurbs/Makefile examples/Makefile examples/matrix/Makefile examples/image/Makefile examples/numerical/Makefile examples/nurbs/Makefile"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -10872,6 +10872,7 @@ do
   # Handling of arguments.
   "Makefile" ) CONFIG_FILES="$CONFIG_FILES Makefile" ;;
   "Doxyfile" ) CONFIG_FILES="$CONFIG_FILES Doxyfile" ;;
+  "nurbs++-config" ) CONFIG_FILES="$CONFIG_FILES nurbs++-config" ;;
   "include/Makefile" ) CONFIG_FILES="$CONFIG_FILES include/Makefile" ;;
   "matrix/Makefile" ) CONFIG_FILES="$CONFIG_FILES matrix/Makefile" ;;
   "numerical/Makefile" ) CONFIG_FILES="$CONFIG_FILES numerical/Makefile" ;;
@@ -10883,7 +10884,7 @@ do
   "examples/numerical/Makefile" ) CONFIG_FILES="$CONFIG_FILES examples/numerical/Makefile" ;;
   "examples/nurbs/Makefile" ) CONFIG_FILES="$CONFIG_FILES examples/nurbs/Makefile" ;;
   "depfiles" ) CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
-  "include/plib_config.hh" ) CONFIG_HEADERS="$CONFIG_HEADERS include/plib_config.hh" ;;
+  "include/plib_config.h" ) CONFIG_HEADERS="$CONFIG_HEADERS include/plib_config.h" ;;
   *) { { echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5
 echo "$as_me: error: invalid argument: $ac_config_target" >&2;}
    { (exit 1); exit 1; }; };;
@@ -11476,8 +11477,8 @@ done; }
   fi
   # Run the commands associated with the file.
   case $ac_file in
-    include/plib_config.hh ) # update the timestamp
-echo 'timestamp for include/plib_config.hh' >"include/stamp-h1"
+    include/plib_config.h ) # update the timestamp
+echo 'timestamp for include/plib_config.h' >"include/stamp-h1"
  ;;
   esac
 done

@@ -1,7 +1,7 @@
 /*=============================================================================
         File: surface.H
      Purpose:       
-    Revision: $Id: surface.h,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: surface.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -25,10 +25,10 @@
 #ifndef _nurbs_surface_h_
 #define _nurbs_surface_h_
 
-#include "curve.hh"
+#include "curve.h"
 
-#include "matrix.hh"
-#include "color.hh"
+#include "matrix.h"
+#include "color.h"
 
 /*!
  */
@@ -54,7 +54,7 @@ struct InterPoint {
 };
 
 /*!
-  \class ParaSurface surface.hh
+  \class ParaSurface surface.h
   \brief An abstract parametric surface class
 
   This is an abstract class used as a basis for NURBS and 
@@ -107,7 +107,7 @@ void intersectSurfaces(const PLib::ParaSurface<T,N> &surfA, const PLib::ParaSurf
 
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "surface.cc"
+#include "surface.cpp"
 #endif
 
 

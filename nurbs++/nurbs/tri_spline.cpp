@@ -1,7 +1,7 @@
 /*=====================================================================
-        File: tri_spline.cc
+        File: tri_spline.cpp
      Purpose:       
-    Revision: $Id: tri_spline.cpp,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: tri_spline.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
       Author: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -23,7 +23,7 @@
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =====================================================================*/
 
-#include "tri_spline.hh"
+#include "tri_spline.h"
 
 /*!
  */

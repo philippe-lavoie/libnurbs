@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: statistic.hh
+        File: statistic.h
      Purpose:       
-    Revision: $Id: statistic.h,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: statistic.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (22 Oct, 1997)
  Modified by: 
 
@@ -25,7 +25,7 @@
 #ifndef _matrix_statistic_hh
 #define _matrix_statistic_hh
 
-#include "barray.hh"
+#include "barray.h"
 
 /*!
  */

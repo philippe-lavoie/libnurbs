@@ -2,7 +2,7 @@
 #ifndef Statistic_SOURCE
 #define Statistic_SOURCE
 
-#include "statistic.hh"
+#include "statistic.h"
 #include <cmath>
 
 /*!

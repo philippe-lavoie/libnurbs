@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: nurbs_sp.hh
+        File: nurbs_sp.h
      Purpose:       
-    Revision: $Id: nurbs_sp.h,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: nurbs_sp.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (7 May, 1998)
  Modified by: 
 
@@ -25,14 +25,14 @@
 #ifndef _nurbs_nurbs_sp_h_
 #define _nurbs_nurbs_sp_h_
 
-#include "nurbs.hh"
+#include "nurbs.h"
 
 /*!
  */
 namespace PLib {
 
 /*!
-  \class NurbsCurveSP nurbs_sp.hh
+  \class NurbsCurveSP nurbs_sp.h
   \brief A NURBS curve with surface point
 
   A Nurbs curve with surface point manipulators. This allows 

@@ -1,10 +1,10 @@
-#include "plib_config.hh"
+#include "plib_config.h"
 
 #ifdef HAS_CPPUNIT
 
 
 
-#include "matrix.hh"
+#include "matrix.h"
 #include <cppunit/TestCase.h>
 #include <cppunit/extensions/HelperMacros.h>
 

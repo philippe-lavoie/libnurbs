@@ -1,8 +1,8 @@
 /*=============================================================================
-        File: galloc.hh
+        File: galloc.h
      Purpose: There is a conflict between VC++6 and normal (i.e. egcs) C++
               compiler. This defines macros necessary to solve that problem.
-    Revision: $Id: galloc.h,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: galloc.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 

@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: nurbs.hh
+        File: nurbs.h
      Purpose:       
-    Revision: $Id: nurbs.h,v 1.1 2002-05-13 19:32:18 philosophil Exp $
+    Revision: $Id: nurbs.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -25,13 +25,13 @@
 #ifndef _nurbs_nurbs_h_
 #define _nurbs_nurbs_h_
 
-#include "matrixRT.hh"
+#include "matrixRT.h"
 
-#include "curve.hh"
-#include "matrix.hh"
-#include "matrixMat.hh"
-#include "error.hh"
-#include "image.hh"
+#include "curve.h"
+#include "matrix.h"
+#include "matrixMat.h"
+#include "error.h"
+#include "image.h"
 
 /*!
  */
@@ -375,8 +375,8 @@ typedef PLib::NurbsCurveArray<double,2> PlNurbsCurveArray_2Dd ;
 
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "nurbs.cc"
-#include "nurbsArray.cc"
+#include "nurbs.cpp"
+#include "nurbsArray.cpp"
 #endif
 
 #endif 

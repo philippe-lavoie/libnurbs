@@ -1,7 +1,7 @@
 /*=====================================================================
-        File: nurbsArray.hh
+        File: nurbsArray.h
      Purpose:       
-    Revision: $Id: nurbsArray.cpp,v 1.1 2002-05-13 19:32:18 philosophil Exp $
+    Revision: $Id: nurbsArray.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (7 Oct, 1997)
   
 
@@ -23,8 +23,8 @@
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =====================================================================*/
 
-#include <nurbs.hh>
-#include <nurbsS.hh>
+#include <nurbs.h>
+#include <nurbsS.h>
 #include <string.h>
 
 /*!
@@ -272,7 +272,7 @@ NurbsSurfaceArray<T,N>& NurbsSurfaceArray<T,N>::operator=(const NurbsSurfaceArra
 }
 
 
-// duplicating some codes from nurbs.cc
+// duplicating some codes from nurbs.cpp
 #ifndef INCLUDE_TEMPLATE_SOURCE
 
 template <class T, int N>

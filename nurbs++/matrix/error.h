@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: error.hh
+        File: error.h
      Purpose:       
-    Revision: $Id: error.h,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: error.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,7 +26,7 @@
 #define _ERROR_REP_HH_
 
 #include <stdlib.h>
-#include "matrix_global.hh"
+#include "matrix_global.h"
 
 #ifdef USING_VCC
 #include <sstream>
@@ -129,7 +129,7 @@ namespace PLib {
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
 #ifndef USING_VCC
-#include "error.cc"
+#include "error.cpp"
 #endif
 #endif
 

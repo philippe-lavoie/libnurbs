@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: matrixTool.cc
+        File: matrixTool.cpp
      Purpose:
-    Revision: $Id: matrixTool.cpp,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: matrixTool.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (26 January, 1999)
  Modified by: Martin Schuerch
 
@@ -22,7 +22,7 @@
 	  License along with this library; if not, write to the Free
 	  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
-#include "matrixTool.hh"
+#include "matrixTool.h"
 
 namespace PLib {
 

@@ -1,2 +1,2 @@
-EXTRA_DIST = plib_config.hh.in stamp-h.in stamp-h plib_config.hh.vc
-pkginclude_HEADERS = plib_config.hh
+EXTRA_DIST = plib_config.h.in stamp-h.in stamp-h plib_config.h.vc
+pkginclude_HEADERS = plib_config.h

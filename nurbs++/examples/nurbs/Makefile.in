@@ -170,7 +170,7 @@ tmeasures_SOURCES = tmeasures.C
 trispline_SOURCES = trispline.C
 subdir = examples/nurbs
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
-CONFIG_HEADER = $(top_builddir)/include/plib_config.hh
+CONFIG_HEADER = $(top_builddir)/include/plib_config.h
 CONFIG_CLEAN_FILES =
 noinst_PROGRAMS = tnurbs$(EXEEXT) tnlength$(EXEEXT) tnurbsS$(EXEEXT) \
 	thnurbsS$(EXEEXT) tnsSweep$(EXEEXT) tmatrixRT$(EXEEXT) \

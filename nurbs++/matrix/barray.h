@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: barray.hh
+        File: barray.h
      Purpose:      
-    Revision: $Id: barray.h,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: barray.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,9 +26,9 @@
 #ifndef _MATRIX_barray_h_
 #define _MATRIX_barray_h_
 
-#include "matrix_global.hh"
-#include "specialType.hh"
-#include "list.hh"
+#include "matrix_global.h"
+#include "specialType.h"
+#include "list.h"
 
 // Predefining every friend functions
 // This is required by the latest ISO C++ draft
@@ -43,7 +43,7 @@ namespace PLib {
   template <class T> istream& operator>>(istream& is, BasicArray<T>& arry);
   template <class T> ostream& operator<<(ostream& os, const BasicArray<T>& arry);
 
-#include "galloc.hh"
+#include "galloc.h"
 
 
 /*!
@@ -157,7 +157,7 @@ typedef PLib::BasicArray<void*> BasicArray_VoidPtr ;
 typedef PLib::BasicArray<PLib::Coordinate> BasicArray_Coordinate ;
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "barray.cc"
+#include "barray.cpp"
 #endif
 
 

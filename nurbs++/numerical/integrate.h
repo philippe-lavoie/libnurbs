@@ -1,7 +1,7 @@
 #ifndef MATRIX_INTEGRATE_H
 #define MATRIX_INTEGRATE_H
 
-#include "barray.hh"
+#include "barray.h"
 
 /*!
  */
@@ -58,9 +58,9 @@ namespace PLib {
 }
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "fft.cc"
-#include "chebexp.cc"
-#include "intccq.cc"
+#include "fft.cpp"
+#include "chebexp.cpp"
+#include "intccq.cpp"
 #endif
 
 #endif

@@ -1,7 +1,7 @@
 /*=====================================================================
-        File: nurbs.cc
+        File: nurbs.cpp
      Purpose:       
-    Revision: $Id: tri_spline.h,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: tri_spline.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
       Author: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -25,13 +25,13 @@
 #ifndef _TRIANGULAR_BSPLINE_H
 #define _TRIANGULAR_BSPLINE_H
 
-#include "nurbs_global.hh"
+#include "nurbs_global.h"
 
-#include "point_nd.hh"
-#include "hpoint_nd.hh"
-#include "barray.hh"
+#include "point_nd.h"
+#include "hpoint_nd.h"
+#include "barray.h"
 
-#include "nurbsS.hh"
+#include "nurbsS.h"
 
 /*!
  */

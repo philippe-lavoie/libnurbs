@@ -1,4 +1,4 @@
-#include "tri_spline.cc"
+#include "tri_spline.cpp"
 
 namespace PLib {
 

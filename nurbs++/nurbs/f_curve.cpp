@@ -1,4 +1,4 @@
-#include "curve.cc"
+#include "curve.cpp"
 
 namespace PLib {
 

@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbsGL.H
      Purpose: Describes all OpenGL related classes.
-    Revision: $Id: nurbsGL.h,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: nurbsGL.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (28 September, 1997)
  Modified by: 
 
@@ -25,15 +25,15 @@
 #ifndef _nurbs_nurbsGL_h_
 #define _nurbs_nurbsGL_h_
 
-#include "nurbs_global.hh"
+#include "nurbs_global.h"
 #include <list>
 
 #ifdef WITH_OPENGL
 
-#include "nurbs_sp.hh"
-#include "nurbsS_sp.hh"
-#include "hnurbsS_sp.hh"
-#include "nurbsSub.hh"
+#include "nurbs_sp.h"
+#include "nurbsS_sp.h"
+#include "hnurbsS_sp.h"
+#include "nurbsSub.h"
 #include <GL/gl.h>
 #include <GL/glu.h>
 
@@ -132,7 +132,7 @@ inline void colorToMaterial(const Color& color, GLfloat* c, GLfloat alpha=1.0){
 }
 
 /*!
-  \struct RGBAf nurbsGL.hh nurbs/nurbsGL.hh
+  \struct RGBAf nurbsGL.h nurbs/nurbsGL.h
   \brief a class to hold rgba floating point values
 
   This holds the red, green, blue and alpha floting point

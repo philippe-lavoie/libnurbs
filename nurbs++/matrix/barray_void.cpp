@@ -1,4 +1,4 @@
-#include "barray.cc"
+#include "barray.cpp"
 
 namespace PLib {
 

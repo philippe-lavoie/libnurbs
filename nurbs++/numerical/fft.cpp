@@ -210,7 +210,7 @@ function prototypes
 #ifndef fft_SOURCES
 #define fft_SOURCES
 
-#include "integrate.hh"
+#include "integrate.h"
 
 /*!
  */

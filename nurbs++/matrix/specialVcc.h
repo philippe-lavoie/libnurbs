@@ -1,8 +1,8 @@
 /*============================================================================
-        File: specialVcc.hh
+        File: specialVcc.h
      Purpose: Hides some of the hugly things we have to do to make VC++ happy
               when compiling.
-    Revision: $Id: specialVcc.h,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: specialVcc.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   author Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 

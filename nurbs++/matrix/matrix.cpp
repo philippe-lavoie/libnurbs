@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: matrix.cc
+        File: matrix.cpp
      Purpose:
-    Revision: $Id: matrix.cpp,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: matrix.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by:    Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,11 +26,11 @@
 #ifndef MATRIX_SOURCES_
 #define MATRIX_SOURCES_
 
-#include "matrix_global.hh"
+#include "matrix_global.h"
 #include <fstream>
 #include <string.h>
 
-#include "matrix.hh"
+#include "matrix.h"
 
 
 /*!
@@ -938,7 +938,7 @@ void Matrix<T>::qSort(){
   throw MatrixErr();
 #else
   Error error("Matrix<T>::qSort()");
-  error << "qSort is not defined for that type.\nPlease defined it in your .cc file!";
+  error << "qSort is not defined for that type.\nPlease defined it in your .cpp file!";
   error.fatal() ;
 #endif
 }

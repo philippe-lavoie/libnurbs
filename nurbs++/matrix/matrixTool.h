@@ -1,7 +1,7 @@
 /*============================================================================
-        File: matrixTool.hh
+        File: matrixTool.h
      Purpose: 
-    Revision: $Id: matrixTool.h,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: matrixTool.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (26 January, 1998)
  Modified by: 
 
@@ -26,7 +26,7 @@
 #ifndef _Matrix_matrixTool_h_
 #define _Matrix_matrixTool_h_
 
-#include "matrix_global.hh"
+#include "matrix_global.h"
 
 namespace PLib {
 
@@ -42,7 +42,7 @@ namespace PLib {
     return 0 ;
   }
 
-  // These functions are needed for qSort (in vector.hh and matrix.hh)
+  // These functions are needed for qSort (in vector.h and matrix.h)
   inline int compareInt(const void* a, const void* b){
     return compareT((int*)a,(int*)b) ;
   }

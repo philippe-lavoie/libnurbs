@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: nurbsSub.hh
+        File: nurbsSub.h
      Purpose:       
-    Revision: $Id: nurbsSub.h,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: nurbsSub.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (20 January, 1999)
  Modified by: 
 
@@ -26,7 +26,7 @@
 #ifndef _NURBS_SURFACE_SUBDIVISION_
 #define _NURBS_SURFACE_SUBDIVISION_
 
-#include "nurbsS.hh"
+#include "nurbsS.h"
 #include <vector>
 #include <iostream>
 
@@ -35,7 +35,7 @@
 namespace PLib {
   
   /*!
-    \class SurfSample nurbsSub.hh
+    \class SurfSample nurbsSub.h
     \brief A class to represent a NURBS surface sample
     
     A sample point from a surface adds information that are 
@@ -66,7 +66,7 @@ namespace PLib {
 
 
   /*!
-    \class RenderMesh nurbsSub.hh nurbs/nurbsSub.hh
+    \class RenderMesh nurbsSub.h nurbs/nurbsSub.h
     \brief a virtual mesh renderer
 
     The mesh renderer is used by the NurbsSubSurface class to
@@ -89,7 +89,7 @@ namespace PLib {
   template <class T> class NurbSurface ;
 
   /*!
-    \class NurbsSubSurface nurbsSub.hh
+    \class NurbsSubSurface nurbsSub.h
     \brief A class to represent a NURBS surface suitable for subdivision
     
     This class adds the methods and the information necessary for
@@ -135,7 +135,7 @@ namespace PLib {
   
 
   /*!
-    \class RenderMeshPS nurbsSub.hh
+    \class RenderMeshPS nurbsSub.h
     \brief a mesh renderer for PS files
 
     \author Philippe Lavoie
@@ -159,7 +159,7 @@ namespace PLib {
   //typedef deque<int> IndexSetVector ;
 
   /*!
-    \class RenderMeshVRML nurbsSub.hh
+    \class RenderMeshVRML nurbsSub.h
     \brief a mesh renderer for VRML files
 
     \author Philippe Lavoie
@@ -181,7 +181,7 @@ namespace PLib {
     };
 
   /*!
-    \class RenderMeshVRML97 nurbsSub.hh
+    \class RenderMeshVRML97 nurbsSub.h
     \brief a mesh renderer for VRML files
 
     \author Philippe Lavoie
@@ -205,7 +205,7 @@ namespace PLib {
     };
 
   /*!
-    \class RenderMeshPoints nurbsSub.hh
+    \class RenderMeshPoints nurbsSub.h
     \brief a mesh renderer to a vector of points
 
     The triangle points are written the the vector specified in the

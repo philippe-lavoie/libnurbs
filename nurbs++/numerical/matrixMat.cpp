@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: matrixMat.cc
+        File: matrixMat.cpp
      Purpose:
-    Revision: $Id: matrixMat.cpp,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: matrixMat.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (22 Oct, 1997)
  Modified by: 
 
@@ -26,7 +26,7 @@
 #ifndef matrixMat_SOURCES
 #define matrixMat_SOURCES
 
-#include "matrixMat.hh"
+#include "matrixMat.h"
 
 #include <float.h>
 

@@ -1,7 +1,7 @@
 /*============================================================================
-        File: point_nd.hh
+        File: point_nd.h
      Purpose: 
-    Revision: $Id: point_nd.h,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: point_nd.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (26 January, 1996)
  Modified by: Martin Schuerch
 
@@ -25,14 +25,14 @@
 #ifndef _Matrix_pointnD_h_
 #define _Matrix_pointnD_h_
 
-#include "matrix_global.hh"
+#include "matrix_global.h"
 #include <memory.h>
 
 
 namespace PLib {
 
   /*!
-    \class Point_nD point_nd.hh matrix/point_nd.hh
+    \class Point_nD point_nd.h matrix/point_nd.h
     \brief A point in an \a n dimemsional space
 
     Defines a point in an n dimemsional space. It is assumed

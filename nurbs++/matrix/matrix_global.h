@@ -1,8 +1,8 @@
 /*=============================================================================
-        File: global.hh
+        File: global.h
      Purpose: Define and include some general definitions valid for all 
               matrix header files
-    Revision: $Id: matrix_global.h,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: matrix_global.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -29,7 +29,7 @@
 #undef PACKAGE
 #undef VERSION
 
-#include "plib_config.hh"
+#include "plib_config.h"
 
 #undef PACKAGE
 #undef VERSION
@@ -75,6 +75,6 @@ typedef std::complex<double> Complex ;
 //#endif
 //#endif 
 
-#include "error.hh"
+#include "error.h"
 
 #endif

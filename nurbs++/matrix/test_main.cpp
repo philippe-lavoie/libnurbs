@@ -1,4 +1,4 @@
-#include "plib_config.hh"
+#include "plib_config.h"
 
 #ifdef HAS_CPPUNIT
 

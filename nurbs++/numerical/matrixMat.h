@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: matrixMat.hh
+        File: matrixMat.h
      Purpose:       
-    Revision: $Id: matrixMat.h,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: matrixMat.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (22 Oct, 1997)
  Modified by: 
 
@@ -25,14 +25,14 @@
 #ifndef _matrix_matrixMat_h_
 #define _matrix_matrixMat_h_
 
-#include "matrix.hh"
+#include "matrix.h"
 
 /*!
  */
 namespace PLib {
 
   /*!
-    \class LUMatrix matrixMat.hh matrix/matrixMat.hh
+    \class LUMatrix matrixMat.h matrix/matrixMat.h
     \brief a class for the LU decomposition of a matrix
 
     \latexonly
@@ -86,7 +86,7 @@ namespace PLib {
   
   
   /*!
-    \class SVDMatrix  matrixMat.hh matrix/matrixMat.hh
+    \class SVDMatrix  matrixMat.h matrix/matrixMat.h
     \brief A matrix for the SVD decomposition
     
     \latexonly
@@ -221,7 +221,7 @@ namespace PLib {
 
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "matrixMat.cc"
+#include "matrixMat.cpp"
 #endif
 
 

@@ -1,14 +1,14 @@
-EXTRA_DIST = nurbs.cc curve.cc hnurbs.cc hnurbsS.cc hnurbsS_sp.cc matrixRT.cc nurbs.cc nurbsArray.cc nurbsGL.cc nurbsS.cc nurbsS_sp.cc nurbsSub.cc nurbs_sp.cc surface.cc tri_spline.cc
+EXTRA_DIST = nurbs.cpp curve.cpp hnurbs.cpp hnurbsS.cpp hnurbsS_sp.cpp matrixRT.cpp nurbs.cpp nurbsArray.cpp nurbsGL.cpp nurbsS.cpp nurbsS_sp.cpp nurbsSub.cpp nurbs_sp.cpp surface.cpp tri_spline.cpp
 
 MAGICK_INCLUDE =  $(X_CFLAGS) @MAGICK_CPPFLAGS@
 
 INCLUDES = $(MAGICK_INCLUDE) -I@top_srcdir@/include @matrix_include@ $(GL_CFLAGS)
 
-pkginclude_HEADERS = curve.hh matrixRT.hh nurbsSub.hh hnurbs.hh nurbs.hh nurbs_sp.hh hnurbsS.hh nurbsGL.hh surface.hh hnurbsS_sp.hh nurbsS.hh nurbsS_sp.hh tri_spline.hh nurbs_global.hh
+pkginclude_HEADERS = curve.h matrixRT.h nurbsSub.h hnurbs.h nurbs.h nurbs_sp.h hnurbsS.h nurbsGL.h surface.h hnurbsS_sp.h nurbsS.h nurbsS_sp.h tri_spline.h nurbs_global.h
 
-float_sources = f_nurbs.cc f_nurbsS.cc f_curve.cc f_surface.cc f_hnurbsS.cc matrixRT.cc f_nurbs_sp.cc f_nurbsS_sp.cc f_hnurbsS_sp.cc nurbsGL.cc f_nurbsArray.cc f_nurbsSub.cc f_tri_spline.cc
+float_sources = f_nurbs.cpp f_nurbsS.cpp f_curve.cpp f_surface.cpp f_hnurbsS.cpp matrixRT.cpp f_nurbs_sp.cpp f_nurbsS_sp.cpp f_hnurbsS_sp.cpp nurbsGL.cpp f_nurbsArray.cpp f_nurbsSub.cpp f_tri_spline.cpp
 
-double_sources = d_nurbs.cc d_nurbsS.cc d_curve.cc d_surface.cc d_hnurbsS.cc matrixRT.cc d_nurbs_sp.cc d_nurbsS_sp.cc d_hnurbsS_sp.cc d_nurbsArray.cc  d_nurbsSub.cc d_tri_spline.cc
+double_sources = d_nurbs.cpp d_nurbsS.cpp d_curve.cpp d_surface.cpp d_hnurbsS.cpp matrixRT.cpp d_nurbs_sp.cpp d_nurbsS_sp.cpp d_hnurbsS_sp.cpp d_nurbsArray.cpp  d_nurbsSub.cpp d_tri_spline.cpp
 
 ldflags = -version-info 1:0:1
 
@@ -16,9 +16,9 @@ ldflags = -version-info 1:0:1
 #lib_LTLIBRARIES = @build_lib@
 
 
-#libnurbsf_la_SOURCES = f_nurbs.cc f_nurbsS.cc f_curve.cc f_surface.cc f_hnurbsS.cc matrixRT.cc f_nurbs_sp.cc f_nurbsS_sp.cc f_hnurbsS_sp.cc nurbsGL.cc f_nurbsArray.cc f_nurbsSub.cc
+#libnurbsf_la_SOURCES = f_nurbs.cpp f_nurbsS.cpp f_curve.cpp f_surface.cpp f_hnurbsS.cpp matrixRT.cpp f_nurbs_sp.cpp f_nurbsS_sp.cpp f_hnurbsS_sp.cpp nurbsGL.cpp f_nurbsArray.cpp f_nurbsSub.cpp
 
-#libnurbsd_la_SOURCES = d_nurbs.cc d_nurbsS.cc d_curve.cc d_surface.cc d_hnurbsS.cc matrixRT.cc d_nurbs_sp.cc d_nurbsS_sp.cc d_hnurbsS_sp.cc d_nurbsArray.cc  d_nurbsSub.cc
+#libnurbsd_la_SOURCES = d_nurbs.cpp d_nurbsS.cpp d_curve.cpp d_surface.cpp d_hnurbsS.cpp matrixRT.cpp d_nurbs_sp.cpp d_nurbsS_sp.cpp d_hnurbsS_sp.cpp d_nurbsArray.cpp  d_nurbsSub.cpp
 
 #libnurbsf_la_LDFLAGS = -version-info 0:0:0
 #libnurbsd_la_LDFLAGS = -version-info 0:0:0

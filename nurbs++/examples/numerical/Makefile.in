@@ -140,7 +140,7 @@ tint2_SOURCES = tint2.C
 tstatistics_SOURCES = tstatistics.C
 subdir = examples/numerical
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
-CONFIG_HEADER = $(top_builddir)/include/plib_config.hh
+CONFIG_HEADER = $(top_builddir)/include/plib_config.h
 CONFIG_CLEAN_FILES =
 noinst_PROGRAMS = tmatrixMat$(EXEEXT) tint$(EXEEXT) tint2$(EXEEXT) \
 	tstatistics$(EXEEXT)

@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: vector.cc
+        File: vector.cpp
      Purpose:
-    Revision: $Id: vector.cpp,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: vector.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by:    Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,9 +26,9 @@
 #ifndef VECTOR_SOURCES_
 #define VECTOR_SOURCES_
 
-#include "matrix_global.hh"
+#include "matrix_global.h"
 
-#include "vector.hh"
+#include "vector.h"
 
 /*!
  */

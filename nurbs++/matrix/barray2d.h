@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: barray2d.hh
+        File: barray2d.h
      Purpose:       
-    Revision: $Id: barray2d.h,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: barray2d.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -29,7 +29,7 @@
 
 #include <fstream>
 #include <iomanip>
-#include "specialType.hh"
+#include "specialType.h"
 
 // Predefining every friend functions 
 // This is required by latest ISO C++ draft
@@ -43,7 +43,7 @@ namespace PLib {
   template <class T> ostream& operator<<(ostream& os, const Basic2DArray<T>& ary);
 
 
-#include "galloc2d.hh"
+#include "galloc2d.h"
 
 /*!
   \brief A basic templated array class in two dimensions
@@ -154,7 +154,7 @@ typedef PLib::Basic2DArray<PLib::HPoint3Dd> Array2D_HPoint3Dd ;
 typedef PLib::Basic2DArray<PLib::Coordinate> Array2D_Coordinate ;
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "barray2d.cc"
+#include "barray2d.cpp"
 #endif
 
 

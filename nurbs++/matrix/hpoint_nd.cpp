@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: hpoint_nd.cc
+        File: hpoint_nd.cpp
      Purpose:
-    Revision: $Id: hpoint_nd.cpp,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: hpoint_nd.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (26 January, 1999)
  Modified by: Martin Schuerch
 
@@ -26,7 +26,7 @@
 #ifndef HPOINT_SOURCES
 #define HPOINT_SOURCES
 
-#include "hpoint_nd.hh"
+#include "hpoint_nd.h"
 
 namespace PLib {
 

@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: coordinate.cc
+        File: coordinate.cpp
      Purpose:
-    Revision: $Id: coordinate.cpp,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: coordinate.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (26 January, 1999)
  Modified by: Martin Schuerch
 
@@ -23,7 +23,7 @@
 	  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
 
-#include "coordinate.hh"
+#include "coordinate.h"
 
 namespace PLib {
 

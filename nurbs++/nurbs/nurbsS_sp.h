@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: nurbsS_sp.hh
+        File: nurbsS_sp.h
      Purpose:       
-    Revision: $Id: nurbsS_sp.h,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: nurbsS_sp.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (8 May, 1998)
  Modified by: 
 
@@ -25,14 +25,14 @@
 #ifndef _nurbs_nurbsS_sp_h_
 #define _nurbs_nurbsS_sp_h_
 
-#include "nurbsS.hh"
+#include "nurbsS.h"
 
 /*!
  */
 namespace PLib {
 
 /*!
-  \class NurbsSurfaceSP nurbsS_sp.hh
+  \class NurbsSurfaceSP nurbsS_sp.h
   \brief A NURBS surface with surface point
 
   A Nurbs surface with surface point manipulators. This allows 

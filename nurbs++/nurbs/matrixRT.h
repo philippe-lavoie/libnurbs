@@ -1,7 +1,7 @@
 /*============================================================================
-        File: matrixRT.hh
+        File: matrixRT.h
      Purpose: Describes a rotation-translation matrix 
-    Revision: $Id: matrixRT.h,v 1.1 2002-05-13 19:32:18 philosophil Exp $
+    Revision: $Id: matrixRT.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -25,8 +25,8 @@
 #ifndef _nurbs_matrixRT_h_
 #define _nurbs_matrixRT_h_
 
-#include "nurbs_global.hh"
-#include "matrix.hh"
+#include "nurbs_global.h"
+#include "matrix.h"
 // Predefining every friend functions
 // This is required by latest ISO C++ draft
 
@@ -39,7 +39,7 @@ namespace PLib {
 
 
 /*!
-  \class MatrixRT matrixRT.hh
+  \class MatrixRT matrixRT.h
   \brief a matrix for rotation and translation transformation
 
   This is a matrix for the rotation, translation and scaling of a point in 
@@ -133,7 +133,7 @@ typedef PLib::MatrixRT<float> MatrixRTf ;
 typedef PLib::MatrixRT<double> MatrixRTd ;
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "matrixRT.cc"
+#include "matrixRT.cpp"
 #endif
 
 

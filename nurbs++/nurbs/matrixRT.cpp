@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: matrixRT.cc
+        File: matrixRT.cpp
      Purpose:       
-    Revision: $Id: matrixRT.cpp,v 1.1 2002-05-13 19:32:18 philosophil Exp $
+    Revision: $Id: matrixRT.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (25 July, 1997)
  Modified by: 
 
@@ -23,7 +23,7 @@
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
 
-#include <matrixRT.hh>
+#include <matrixRT.h>
 
 /*!
  */

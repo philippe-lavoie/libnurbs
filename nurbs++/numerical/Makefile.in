@@ -122,18 +122,18 @@ option_include = @option_include@
 option_libs = @option_libs@
 packagedir = @packagedir@
 perl = @perl@
-EXTRA_DIST = matrixMat.cc fft.cc chebexp.cc intccq.cc statistic.cc
+EXTRA_DIST = matrixMat.cpp fft.cpp chebexp.cpp intccq.cpp statistic.cpp
 
-pkginclude_HEADERS = matrixMat.hh integrate.hh statistic.hh
+pkginclude_HEADERS = matrixMat.h integrate.h statistic.h
 
 INCLUDES = -I@top_srcdir@/include -I@top_srcdir@/matrix
 
 lib_LTLIBRARIES = libmatrixN.la
-libmatrixN_la_SOURCES = matrixMat_.cc fft_.cc chebexp_.cc intccq_.cc statistic_.cc
+libmatrixN_la_SOURCES = matrixMat_.cpp fft_.cpp chebexp_.cpp intccq_.cpp statistic_.cpp
 libmatrixN_la_LDFLAGS = -version-info 1:0:0
 subdir = numerical
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
-CONFIG_HEADER = $(top_builddir)/include/plib_config.hh
+CONFIG_HEADER = $(top_builddir)/include/plib_config.h
 CONFIG_CLEAN_FILES =
 LTLIBRARIES = $(lib_LTLIBRARIES)
 
@@ -170,7 +170,7 @@ SOURCES = $(libmatrixN_la_SOURCES)
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .cc .lo .o .obj
+.SUFFIXES: .cpp .lo .o .obj
 $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  numerical/Makefile
@@ -216,19 +216,19 @@ distclean-compile:
 distclean-depend:
 	-rm -rf ./$(DEPDIR)
 
-.cc.o:
+.cpp.o:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 	$(CXXCOMPILE) -c -o $@ `test -f '$<' || echo '$(srcdir)/'`$<
 
-.cc.obj:
+.cpp.obj:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 	$(CXXCOMPILE) -c -o $@ `cygpath -w $<`
 
-.cc.lo:
+.cpp.lo:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Plo' tmpdepfile='$(DEPDIR)/$*.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@

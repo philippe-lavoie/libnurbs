@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: image.cc
+        File: image.cpp
      Purpose:
-    Revision: $Id: image_.cpp,v 1.1 2002-05-13 19:32:14 philosophil Exp $
+    Revision: $Id: image_.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (18 February 1999)
  Modified by: 
 
@@ -23,7 +23,7 @@
 	  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
 
-#include "image.cc"
+#include "image.cpp"
 
 namespace PLib {
 

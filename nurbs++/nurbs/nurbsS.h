@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: nurbsS.hh
+        File: nurbsS.h
      Purpose:       
-    Revision: $Id: nurbsS.h,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: nurbsS.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,8 +26,8 @@
 #ifndef _nurbs_nurbsS_h_
 #define _nurbs_nurbsS_h_
 
-#include "nurbs.hh"
-#include "surface.hh"
+#include "nurbs.h"
+#include "surface.h"
 
 /*!
  */
@@ -51,7 +51,7 @@ namespace PLib{
 
 
 /*!
-  \class NurbsSurface nurbsS.hh
+  \class NurbsSurface nurbsS.h
   \brief A class to represent a NURBS surface
 
   The NURBS surface is composed of points in homogenous space. It can have 
@@ -260,7 +260,7 @@ typedef PLib::NurbsSurface<double,3> PlNurbsSurfaced ;
 namespace PLib {
 
 /*!
-  \class  NurbsSurfaceArray nurbsS.hh 
+  \class  NurbsSurfaceArray nurbsS.h 
   \brief An array of NurbsSurface
 
   This class represents an array of NurbsSurface.
@@ -305,7 +305,7 @@ inline void degreeElevateV(const PLib::NurbsSurface<T,N>& S, int tV, PLib::Nurbs
 
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "nurbsS.cc"
+#include "nurbsS.cpp"
 #endif
 
 

@@ -1,4 +1,4 @@
-/* include/plib_config.hh.in.  Generated from configure.in by autoheader.  */
+/* include/plib_config.h.in.  Generated from configure.in by autoheader.  */
 // define if you want to use exception handling
 #undef USE_EXCEPTION
 

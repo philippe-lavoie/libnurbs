@@ -1,4 +1,4 @@
-#include "nurbsS.cc"
+#include "nurbsS.cpp"
 
 #ifdef __GNUG__
 

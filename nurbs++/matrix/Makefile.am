@@ -1,27 +1,27 @@
 #CXXFLAGS = @CXXFLAGS@ -DMATRIX_TEMPLATE_INSTANTIATION
 
-EXTRA_DIST = barray.cc   barray2d.cc  matrix.cc  vector.cc  
+EXTRA_DIST = barray.cpp   barray2d.cpp  matrix.cpp  vector.cpp  
 
-pkginclude_HEADERS = barray.hh galloc2d.hh barray2d.hh hpoint_nd.hh matrixTool.hh coordinate.hh point_nd.hh cvector.hh specialType.hh error.hh list.hh specialVcc.hh galloc.hh matrix.hh vector.hh matrix_global.hh
+pkginclude_HEADERS = barray.h galloc2d.h barray2d.h hpoint_nd.h matrixTool.h coordinate.h point_nd.h cvector.h specialType.h error.h list.h specialVcc.h galloc.h matrix.h vector.h matrix_global.h
 
 INCLUDES = -I../include @CPPUNIT_CPPFLAGS@
 LDADD = @CPPUNIT_LIBS@ -ldl libmatrix.la -lm -lc
 
 noinst_PROGRAMS = test_matrix
-test_matrix_SOURCES = test_main.cc test_matrix.cc test_barray2d.cc
+test_matrix_SOURCES = test_main.cpp test_matrix.cpp test_barray2d.cpp
 
 lib_LTLIBRARIES = libmatrix.la
-libmatrix_la_SOURCES = error.cc   cvector.cc list.cc point_nd.cc hpoint_nd.cc coordinate.cc matrixTool.cc
-libmatrix_la_SOURCES +=   barray_int.cc   barray2d_int.cc  matrix_int.cc  vector_int.cc 
-libmatrix_la_SOURCES +=   barray_float.cc   barray2d_float.cc  matrix_float.cc  vector_float.cc 
-libmatrix_la_SOURCES +=   barray_double.cc   barray2d_double.cc  matrix_double.cc  vector_double.cc 
-libmatrix_la_SOURCES +=  barray_uchar.cc   barray2d_uchar.cc  matrix_uchar.cc  vector_uchar.cc 
-libmatrix_la_SOURCES +=  barray_char.cc   barray2d_char.cc  matrix_char.cc  vector_char.cc 
-libmatrix_la_SOURCES +=  barray_point.cc   barray2d_point.cc  matrix_point.cc  vector_point.cc 
-libmatrix_la_SOURCES +=  barray_hpoint.cc   barray2d_hpoint.cc  matrix_hpoint.cc  vector_hpoint.cc 
-libmatrix_la_SOURCES +=  barray_complex.cc   barray2d_complex.cc  matrix_complex.cc  vector_complex.cc 
-libmatrix_la_SOURCES +=  barray_coordinate.cc   barray2d_coordinate.cc 
-libmatrix_la_SOURCES +=  barray_void.cc
+libmatrix_la_SOURCES = error.cpp   cvector.cpp list.cpp point_nd.cpp hpoint_nd.cpp coordinate.cpp matrixTool.cpp
+libmatrix_la_SOURCES +=   barray_int.cpp   barray2d_int.cpp  matrix_int.cpp  vector_int.cpp 
+libmatrix_la_SOURCES +=   barray_float.cpp   barray2d_float.cpp  matrix_float.cpp  vector_float.cpp 
+libmatrix_la_SOURCES +=   barray_double.cpp   barray2d_double.cpp  matrix_double.cpp  vector_double.cpp 
+libmatrix_la_SOURCES +=  barray_uchar.cpp   barray2d_uchar.cpp  matrix_uchar.cpp  vector_uchar.cpp 
+libmatrix_la_SOURCES +=  barray_char.cpp   barray2d_char.cpp  matrix_char.cpp  vector_char.cpp 
+libmatrix_la_SOURCES +=  barray_point.cpp   barray2d_point.cpp  matrix_point.cpp  vector_point.cpp 
+libmatrix_la_SOURCES +=  barray_hpoint.cpp   barray2d_hpoint.cpp  matrix_hpoint.cpp  vector_hpoint.cpp 
+libmatrix_la_SOURCES +=  barray_complex.cpp   barray2d_complex.cpp  matrix_complex.cpp  vector_complex.cpp 
+libmatrix_la_SOURCES +=  barray_coordinate.cpp   barray2d_coordinate.cpp 
+libmatrix_la_SOURCES +=  barray_void.cpp
 
 
 libmatrix_la_LDFLAGS = -version-info 1:0:0

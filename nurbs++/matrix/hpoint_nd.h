@@ -1,7 +1,7 @@
 /*============================================================================
-        File: hpoint_nd.hh
+        File: hpoint_nd.h
      Purpose: 
-    Revision: $Id: hpoint_nd.h,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: hpoint_nd.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (26 January 1999)
  Modified by: Martin Schuerch
 
@@ -25,14 +25,14 @@
 #ifndef _Matrix_hpointnD_h_
 #define _Matrix_hpointnD_h_
 
-#include "matrix_global.hh"
-#include "point_nd.hh"
+#include "matrix_global.h"
+#include "point_nd.h"
 
 
 namespace PLib {
 
   /*!
-    \class HPoint_nD hpoint_nd.hh matrix/hpoint_nd.hh
+    \class HPoint_nD hpoint_nd.h matrix/hpoint_nd.h
     \brief A class for point in the homogeneous space
 
     When using B-splines, homogeneous points are used. They are 
@@ -255,7 +255,7 @@ namespace PLib {
 
 
   /*!
-    \class NoInitHPoint_3D hpoint_nd.hh matrix/hpoint_nd.hh
+    \class NoInitHPoint_3D hpoint_nd.h matrix/hpoint_nd.h
     \brief An unitialized HPoint_3D
 
     Suppose you don't want to call the default constructor
@@ -273,7 +273,7 @@ namespace PLib {
 
 
   /*!
-    \class NoInitHPoint_2D  hpoint_nd.hh matrix/hpoint_nd.hh
+    \class NoInitHPoint_2D  hpoint_nd.h matrix/hpoint_nd.h
     \brief An unitialized HPoint_3D
 
     Suppose you don't want to call the default constructor

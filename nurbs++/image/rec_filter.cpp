@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: rec_filter.cc
+        File: rec_filter.cpp
      Purpose:
-    Revision: $Id: rec_filter.cpp,v 1.1 2002-05-13 19:32:14 philosophil Exp $
+    Revision: $Id: rec_filter.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (18 February 1999)
  Modified by: 
 
@@ -26,7 +26,7 @@
 #ifndef REC_FILTER_SOURCE
 #define REC_FILTER_SOURCE
 
-#include "rec_filter.hh"
+#include "rec_filter.h"
 
 /*!
  */

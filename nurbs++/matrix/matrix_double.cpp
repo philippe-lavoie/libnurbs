@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: matrix.cc
+        File: matrix.cpp
      Purpose:       
-    Revision: $Id: matrix_double.cpp,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: matrix_double.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -23,7 +23,7 @@
 	  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
 
-#include "matrix.cc"
+#include "matrix.cpp"
 
 namespace PLib {
   

@@ -66,7 +66,7 @@ chebexp, chebeval
 #ifndef chebexp_SOURCES
 #define chebexp_SOURCES
 
-#include "integrate.hh"
+#include "integrate.h"
 #include <math.h>
 
 /*!

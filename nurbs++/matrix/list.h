@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: list.hh
+        File: list.h
      Purpose:      
-    Revision: $Id: list.h,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: list.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,7 +26,7 @@
 #ifndef _Matrix_list_h_
 #define _Matrix_list_h_
 
-#include "specialType.hh"
+#include "specialType.h"
 
 /**  **  **  **  **  **  **  **  **  **  **  **  **  **  **  **  **  **  **
         class BasicNode --- A basic node for a linked list 

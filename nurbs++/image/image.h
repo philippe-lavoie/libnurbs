@@ -1,8 +1,8 @@
 /*=============================================================================
-        File: image.hh
+        File: image.h
      Purpose: To add some basic image processing capabilities to the 
               matrix class
-    Revision: $Id: image.h,v 1.1 2002-05-13 19:32:14 philosophil Exp $
+    Revision: $Id: image.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -27,15 +27,15 @@
 #ifndef _Matrix_image_h_
 #define _Matrix_image_h_
 
-#include "matrix.hh"
-#include "color.hh"
+#include "matrix.h"
+#include "color.h"
 
 /*!
  */
 namespace PLib {
 
   /*!
-    \class MatrixImage image.hh 
+    \class MatrixImage image.h 
     \brief A basic templated image class
 
     This class allows one to draw a line or a point on a matrix 
@@ -76,7 +76,7 @@ typedef PLib::MatrixImage<PLib::Color> Image_Color ;
 namespace PLib{
 
   /*!
-    \class IM_ImageT image.hh matrix/image.hh
+    \class IM_ImageT image.h matrix/image.h
     \brief A class which uses Image Magick for the reading/saving of matrices.
     
     This class enables someone to read or write all the images 
@@ -132,7 +132,7 @@ typedef PLib::IM_ImageT<PLib::Color> IM_ColorImage ;
 #endif // WITH_IMAGE_MAGICK
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "image.cc"
+#include "image.cpp"
 #endif
 
 

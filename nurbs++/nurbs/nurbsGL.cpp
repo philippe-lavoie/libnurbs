@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: nurbsGL.cc
+        File: nurbsGL.cpp
      Purpose:       
-    Revision: $Id: nurbsGL.cpp,v 1.1 2002-05-13 19:32:18 philosophil Exp $
+    Revision: $Id: nurbsGL.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (28 September 1997)
  Modified by: 
 
@@ -22,8 +22,8 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
-#include <matrixRT.hh>
-#include <nurbsGL.hh>
+#include <matrixRT.h>
+#include <nurbsGL.h>
 #include <string.h>
 #include <stdio.h>
 #include <iostream.h> 

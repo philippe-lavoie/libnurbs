@@ -1,4 +1,4 @@
-#include "nurbs_sp.cc"
+#include "nurbs_sp.cpp"
 
 namespace PLib {
 

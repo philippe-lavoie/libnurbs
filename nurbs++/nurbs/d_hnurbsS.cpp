@@ -1,4 +1,4 @@
-#include "hnurbsS.cc"
+#include "hnurbsS.cpp"
 
 namespace PLib {
 

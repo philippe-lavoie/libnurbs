@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: list.cc
+        File: list.cpp
      Purpose:
-    Revision: $Id: list.cpp,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: list.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (28 October 1997)
  Modified by: 
 
@@ -22,7 +22,7 @@
 	  License along with this library; if not, write to the Free
 	  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
-#include "list.hh"
+#include "list.h"
 
 #ifdef NO_IMPLICIT_TEMPLATES
 

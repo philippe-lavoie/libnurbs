@@ -1,7 +1,7 @@
 /*============================================================================
-        File: color.hh
+        File: color.h
      Purpose: 
-    Revision: $Id: color.h,v 1.1 2002-05-13 19:32:14 philosophil Exp $
+    Revision: $Id: color.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (26 January 1999)
  Modified by: Martin Schuerch
 
@@ -25,8 +25,8 @@
 #ifndef _Matrix_color_h_
 #define _Matrix_color_h_
 
-#include "matrix_global.hh"
-#include "matrixTool.hh"
+#include "matrix_global.h"
+#include "matrixTool.h"
 
 /*!
  */

@@ -20,5 +20,5 @@ m4sources = \
 	config/has_cppunit.m4
 
 m4datadir = $(datadir)/aclocal
-m4data_DATA = nurbs++.m4
+#m4data_DATA = nurbs++.m4
 

@@ -1,7 +1,7 @@
 /*============================================================================
-        File: specialType.hh
+        File: specialType.h
      Purpose: 
-    Revision: $Id: specialType.h,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: specialType.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: Martin Schuerch
 
@@ -25,12 +25,12 @@
 #ifndef _Matrix_specialType_h_
 #define _Matrix_specialType_h_
 
-#include "matrix_global.hh"
+#include "matrix_global.h"
 #include <cstring>
 
-#include "matrixTool.hh"
-#include "coordinate.hh"
-#include "point_nd.hh"
-#include "hpoint_nd.hh"
+#include "matrixTool.h"
+#include "coordinate.h"
+#include "point_nd.h"
+#include "hpoint_nd.h"
 
 #endif 

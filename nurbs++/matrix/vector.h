@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: vector.hh
+        File: vector.h
      Purpose:       
-    Revision: $Id: vector.h,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: vector.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -27,8 +27,8 @@
 #define _Matrix_vector_h_
 
 #include <math.h>
-#include "barray.hh"
-#include "specialType.hh"
+#include "barray.h"
+#include "specialType.h"
 
 // Predefining every friend functions 
 // This is required by latest ISO C++ draft
@@ -183,7 +183,7 @@ typedef PLib::Vector<PLib::Point2Dd> PlVector_Point2Dd ;
 
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "vector.cc"
+#include "vector.cpp"
 #endif
 
 #endif 

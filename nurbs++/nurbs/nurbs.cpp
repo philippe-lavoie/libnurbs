@@ -1,7 +1,7 @@
 /*=====================================================================
-        File: nurbs.cc
+        File: nurbs.cpp
      Purpose:       
-    Revision: $Id: nurbs.cpp,v 1.1 2002-05-13 19:32:18 philosophil Exp $
+    Revision: $Id: nurbs.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
       Author: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,11 +22,11 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =====================================================================*/
-#include <nurbs.hh>
+#include <nurbs.h>
 #include <fstream>
 #include <string.h>
-#include <nurbsS.hh>
-#include "integrate.hh"
+#include <nurbsS.h>
+#include "integrate.h"
 
 #include <malloc.h>
 
@@ -5745,7 +5745,7 @@ T NurbsCurve<T,N>::lengthIn(T us, T ue,T eps, int n) const {
   return l ; 
 }
 
-// the definitions are in f_nurbs.cc and d_nurbs.cc
+// the definitions are in f_nurbs.cpp and d_nurbs.cpp
 
 
 /*!

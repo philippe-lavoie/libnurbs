@@ -25,7 +25,7 @@ AC_PROG_CXX
 AC_PROG_CPP
 AC_PROG_INSTALL
 
-AM_CONFIG_HEADER([include/plib_config.hh])
+AM_CONFIG_HEADER([include/plib_config.h])
 
 
 dnl the user can use --enable-shared to enable this
@@ -344,7 +344,7 @@ AC_SUBST(CPPUNIT_LIBS)
 PL_PROG_PERL
 dnl PL_PROG_SHELL
 
-AC_OUTPUT(Makefile Doxyfile include/Makefile matrix/Makefile numerical/Makefile image/Makefile nurbs/Makefile examples/Makefile examples/matrix/Makefile examples/image/Makefile examples/numerical/Makefile examples/nurbs/Makefile  )
+AC_OUTPUT(Makefile Doxyfile nurbs++-config include/Makefile matrix/Makefile numerical/Makefile image/Makefile nurbs/Makefile examples/Makefile examples/matrix/Makefile examples/image/Makefile examples/numerical/Makefile examples/nurbs/Makefile  )
 
 echo
 echo 'The package has now been configured. Type '

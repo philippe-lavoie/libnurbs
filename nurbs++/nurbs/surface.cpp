@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: surface.cc
+        File: surface.cpp
      Purpose:       
-    Revision: $Id: surface.cpp,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: surface.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -22,8 +22,8 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
-#include <surface.hh>
-#include "matrixMat.hh"
+#include <surface.h>
+#include "matrixMat.h"
 #include <math.h>
 
 /*!
@@ -431,7 +431,7 @@ inline T compare(int findMin, T a, T b){
   return maximum(a,b) ;
 }
 
-// VCC includes curve.cc which defines this function already
+// VCC includes curve.cpp which defines this function already
 #ifndef INCLUDE_TEMPLATE_SOURCE
 template <class T,int N>
 inline T coordValue(CoordinateType coord, const Point_nD<T,N>& p){

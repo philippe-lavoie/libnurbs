@@ -125,23 +125,23 @@ option_libs = @option_libs@
 packagedir = @packagedir@
 perl = @perl@
 
-EXTRA_DIST = barray.cc   barray2d.cc  matrix.cc  vector.cc  
+EXTRA_DIST = barray.cpp   barray2d.cpp  matrix.cpp  vector.cpp  
 
-pkginclude_HEADERS = barray.hh galloc2d.hh barray2d.hh hpoint_nd.hh matrixTool.hh coordinate.hh point_nd.hh cvector.hh specialType.hh error.hh list.hh specialVcc.hh galloc.hh matrix.hh vector.hh matrix_global.hh
+pkginclude_HEADERS = barray.h galloc2d.h barray2d.h hpoint_nd.h matrixTool.h coordinate.h point_nd.h cvector.h specialType.h error.h list.h specialVcc.h galloc.h matrix.h vector.h matrix_global.h
 
 INCLUDES = -I../include @CPPUNIT_CPPFLAGS@
 LDADD = @CPPUNIT_LIBS@ -ldl libmatrix.la -lm -lc
 
-bin_PROGRAMS = test_matrix
-test_matrix_SOURCES = test_main.cc test_matrix.cc test_barray2d.cc
+noinst_PROGRAMS = test_matrix
+test_matrix_SOURCES = test_main.cpp test_matrix.cpp test_barray2d.cpp
 
 lib_LTLIBRARIES = libmatrix.la
-libmatrix_la_SOURCES = error.cc   cvector.cc list.cc point_nd.cc hpoint_nd.cc coordinate.cc matrixTool.cc barray_int.cc   barray2d_int.cc  matrix_int.cc  vector_int.cc  barray_float.cc   barray2d_float.cc  matrix_float.cc  vector_float.cc  barray_double.cc   barray2d_double.cc  matrix_double.cc  vector_double.cc  barray_uchar.cc   barray2d_uchar.cc  matrix_uchar.cc  vector_uchar.cc  barray_char.cc   barray2d_char.cc  matrix_char.cc  vector_char.cc  barray_point.cc   barray2d_point.cc  matrix_point.cc  vector_point.cc  barray_hpoint.cc   barray2d_hpoint.cc  matrix_hpoint.cc  vector_hpoint.cc  barray_complex.cc   barray2d_complex.cc  matrix_complex.cc  vector_complex.cc  barray_coordinate.cc   barray2d_coordinate.cc  barray_void.cc
+libmatrix_la_SOURCES = error.cpp   cvector.cpp list.cpp point_nd.cpp hpoint_nd.cpp coordinate.cpp matrixTool.cpp barray_int.cpp   barray2d_int.cpp  matrix_int.cpp  vector_int.cpp  barray_float.cpp   barray2d_float.cpp  matrix_float.cpp  vector_float.cpp  barray_double.cpp   barray2d_double.cpp  matrix_double.cpp  vector_double.cpp  barray_uchar.cpp   barray2d_uchar.cpp  matrix_uchar.cpp  vector_uchar.cpp  barray_char.cpp   barray2d_char.cpp  matrix_char.cpp  vector_char.cpp  barray_point.cpp   barray2d_point.cpp  matrix_point.cpp  vector_point.cpp  barray_hpoint.cpp   barray2d_hpoint.cpp  matrix_hpoint.cpp  vector_hpoint.cpp  barray_complex.cpp   barray2d_complex.cpp  matrix_complex.cpp  vector_complex.cpp  barray_coordinate.cpp   barray2d_coordinate.cpp  barray_void.cpp
 
 libmatrix_la_LDFLAGS = -version-info 1:0:0
 subdir = matrix
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
-CONFIG_HEADER = $(top_builddir)/include/plib_config.hh
+CONFIG_HEADER = $(top_builddir)/include/plib_config.h
 CONFIG_CLEAN_FILES =
 LTLIBRARIES = $(lib_LTLIBRARIES)
 
@@ -160,8 +160,8 @@ am_libmatrix_la_OBJECTS = error.lo cvector.lo list.lo point_nd.lo \
 	vector_complex.lo barray_coordinate.lo barray2d_coordinate.lo \
 	barray_void.lo
 libmatrix_la_OBJECTS = $(am_libmatrix_la_OBJECTS)
-bin_PROGRAMS = test_matrix$(EXEEXT)
-PROGRAMS = $(bin_PROGRAMS)
+noinst_PROGRAMS = test_matrix$(EXEEXT)
+PROGRAMS = $(noinst_PROGRAMS)
 
 am_test_matrix_OBJECTS = test_main.$(OBJEXT) test_matrix.$(OBJEXT) \
 	test_barray2d.$(OBJEXT)
@@ -236,7 +236,7 @@ SOURCES = $(libmatrix_la_SOURCES) $(test_matrix_SOURCES)
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .cc .lo .o .obj
+.SUFFIXES: .cpp .lo .o .obj
 $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  matrix/Makefile
@@ -266,33 +266,9 @@ clean-libLTLIBRARIES:
 	-test -z "$(lib_LTLIBRARIES)" || rm -f $(lib_LTLIBRARIES)
 libmatrix.la: $(libmatrix_la_OBJECTS) $(libmatrix_la_DEPENDENCIES) 
 	$(CXXLINK) -rpath $(libdir) $(libmatrix_la_LDFLAGS) $(libmatrix_la_OBJECTS) $(libmatrix_la_LIBADD) $(LIBS)
-binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
-install-binPROGRAMS: $(bin_PROGRAMS)
-	@$(NORMAL_INSTALL)
-	$(mkinstalldirs) $(DESTDIR)$(bindir)
-	@list='$(bin_PROGRAMS)'; for p in $$list; do \
-	  p1=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
-	  if test -f $$p \
-	     || test -f $$p1 \
-	  ; then \
-	    p1=`echo "$$p1" | sed -e 's,^.*/,,'`; \
-	    f=`echo $$p1|sed '$(transform);s/$$/$(EXEEXT)/'`; \
-	   echo " $(INSTALL_PROGRAM_ENV) $(LIBTOOL) --mode=install $(binPROGRAMS_INSTALL) $$p $(DESTDIR)$(bindir)/$$f"; \
-	   $(INSTALL_PROGRAM_ENV) $(LIBTOOL) --mode=install $(binPROGRAMS_INSTALL) $$p $(DESTDIR)$(bindir)/$$f; \
-	  else :; fi; \
-	done
 
-uninstall-binPROGRAMS:
-	@$(NORMAL_UNINSTALL)
-	@list='$(bin_PROGRAMS)'; for p in $$list; do \
-	  f=`echo $$p|sed 's/$(EXEEXT)$$//;$(transform);s/$$/$(EXEEXT)/'`; \
-	  f=`echo "$$f" | sed -e 's,^.*/,,'`; \
-	  echo " rm -f $(DESTDIR)$(bindir)/$$f"; \
-	  rm -f $(DESTDIR)$(bindir)/$$f; \
-	done
-
-clean-binPROGRAMS:
-	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
+clean-noinstPROGRAMS:
+	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
 test_matrix$(EXEEXT): $(test_matrix_OBJECTS) $(test_matrix_DEPENDENCIES) 
 	@rm -f test_matrix$(EXEEXT)
 	$(CXXLINK) $(test_matrix_LDFLAGS) $(test_matrix_OBJECTS) $(test_matrix_LDADD) $(LIBS)
@@ -352,19 +328,19 @@ distclean-compile:
 distclean-depend:
 	-rm -rf ./$(DEPDIR)
 
-.cc.o:
+.cpp.o:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 	$(CXXCOMPILE) -c -o $@ `test -f '$<' || echo '$(srcdir)/'`$<
 
-.cc.obj:
+.cpp.obj:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 	$(CXXCOMPILE) -c -o $@ `cygpath -w $<`
 
-.cc.lo:
+.cpp.lo:
 @AMDEP_TRUE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@	depfile='$(DEPDIR)/$*.Plo' tmpdepfile='$(DEPDIR)/$*.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
@@ -463,11 +439,9 @@ distdir: $(DISTFILES)
 check-am: all-am
 check: check-am
 all-am: Makefile $(LTLIBRARIES) $(PROGRAMS) $(HEADERS)
-install-binPROGRAMS: install-libLTLIBRARIES
-
 
 installdirs:
-	$(mkinstalldirs) $(DESTDIR)$(libdir) $(DESTDIR)$(bindir) $(DESTDIR)$(pkgincludedir)
+	$(mkinstalldirs) $(DESTDIR)$(libdir) $(DESTDIR)$(pkgincludedir)
 
 install: install-am
 install-exec: install-exec-am
@@ -495,8 +469,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-binPROGRAMS clean-generic clean-libLTLIBRARIES \
-	clean-libtool mostlyclean-am
+clean-am: clean-generic clean-libLTLIBRARIES clean-libtool \
+	clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
 
@@ -513,7 +487,7 @@ info-am:
 
 install-data-am: install-pkgincludeHEADERS
 
-install-exec-am: install-binPROGRAMS install-libLTLIBRARIES
+install-exec-am: install-libLTLIBRARIES
 
 install-info: install-info-am
 
@@ -530,21 +504,20 @@ mostlyclean: mostlyclean-am
 mostlyclean-am: mostlyclean-compile mostlyclean-generic \
 	mostlyclean-libtool
 
-uninstall-am: uninstall-binPROGRAMS uninstall-info-am \
-	uninstall-libLTLIBRARIES uninstall-pkgincludeHEADERS
+uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES \
+	uninstall-pkgincludeHEADERS
 
-.PHONY: GTAGS all all-am check check-am clean clean-binPROGRAMS \
-	clean-generic clean-libLTLIBRARIES clean-libtool distclean \
-	distclean-compile distclean-depend distclean-generic \
+.PHONY: GTAGS all all-am check check-am clean clean-generic \
+	clean-libLTLIBRARIES clean-libtool clean-noinstPROGRAMS \
+	distclean distclean-compile distclean-depend distclean-generic \
 	distclean-libtool distclean-tags distdir dvi dvi-am info \
-	info-am install install-am install-binPROGRAMS install-data \
-	install-data-am install-exec install-exec-am install-info \
-	install-info-am install-libLTLIBRARIES install-man \
-	install-pkgincludeHEADERS install-strip installcheck \
-	installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-libtool tags uninstall \
-	uninstall-am uninstall-binPROGRAMS uninstall-info-am \
+	info-am install install-am install-data install-data-am \
+	install-exec install-exec-am install-info install-info-am \
+	install-libLTLIBRARIES install-man install-pkgincludeHEADERS \
+	install-strip installcheck installcheck-am installdirs \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
+	tags uninstall uninstall-am uninstall-info-am \
 	uninstall-libLTLIBRARIES uninstall-pkgincludeHEADERS
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

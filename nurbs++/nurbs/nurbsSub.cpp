@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: nurbsSub.cc
+        File: nurbsSub.cpp
      Purpose:       
-    Revision: $Id: nurbsSub.cpp,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: nurbsSub.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (20 Januray, 1999)
  Modified by: 
 
@@ -22,7 +22,7 @@
           License along with this library; if not, write to the Free
           Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 =============================================================================*/
-#include "nurbsSub.hh"
+#include "nurbsSub.h"
 #include <iostream>
 #include <cstdio>
 #include <stdio.h>

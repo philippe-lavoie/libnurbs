@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: nurbsS.cc
+        File: nurbsS.cpp
      Purpose:       
-    Revision: $Id: nurbsS.cpp,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: nurbsS.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -24,10 +24,10 @@
 =============================================================================*/
 
 #include <string.h>
-#include <matrixRT.hh>
+#include <matrixRT.h>
 #include <math.h>
-#include <nurbsS.hh>
-#include "integrate.hh"
+#include <nurbsS.h>
+#include "integrate.h"
 
 #ifdef USING_VCC
 #include <malloc.h>
@@ -420,7 +420,7 @@ T NurbsSurface<T,N>::areaIn(T us, T ue, T vs, T ve, T eps, int n) const {
   return a ; 
 }
 
-// the definitions are in f_nurbs.cc and d_nurbs.cc
+// the definitions are in f_nurbs.cpp and d_nurbs.cpp
 
 
 /*!

@@ -1,7 +1,7 @@
 /*=============================================================================
-        File:              curve.hh
+        File:              curve.h
      Purpose:       
-    Revision:       $Id: curve.h,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision:       $Id: curve.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by:    Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -25,9 +25,9 @@
 #ifndef _nurbs_curve_h_
 #define _nurbs_curve_h_
 
-#include "nurbs_global.hh"
+#include "nurbs_global.h"
 
-#include "vector.hh"
+#include "vector.h"
 
 /*!
  */
@@ -84,7 +84,7 @@ inline void Cder(T u,const ParaCurve<T,N>& c,int d, Vector< Point_nD<T,N> >& der
 
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "curve.cc"
+#include "curve.cpp"
 #endif
 
 #endif 

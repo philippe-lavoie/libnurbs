@@ -1,8 +1,8 @@
 /*=============================================================================
-        File: global.hh
+        File: global.h
      Purpose: Define and include some general definitions valid for all 
               matrix header files
-    Revision: $Id: nurbs_global.h,v 1.1 2002-05-13 19:32:19 philosophil Exp $
+    Revision: $Id: nurbs_global.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,7 +26,7 @@
 #ifndef _Matrix_internals_h_
 #define _Matrix_internals_h_
 
-#include "matrix_global.hh"
+#include "matrix_global.h"
 
 enum CoordinateType { coordX, coordY, coordZ } ;
 
@@ -34,7 +34,7 @@ enum CoordinateType { coordX, coordY, coordZ } ;
 #include <cstdlib>
 
 /*!
-  \class NurbsError internals.hh nurbs/internals.hh
+  \class NurbsError internals.h nurbs/internals.h
   \brief The class thrown when an error happens inside the NURBS library
 
   This is the base class for all thrown classes inside the NURBS library.
@@ -58,7 +58,7 @@ struct NurbsError {
 };
 
 /*!
-  \class NurbsInputError internals.hh nurbs/internals.hh
+  \class NurbsInputError internals.h nurbs/internals.h
   \brief An input error class
 
   This class is thrown if at least one of the input parameter isn't
@@ -83,7 +83,7 @@ struct NurbsInputError : public NurbsError {
 };
 
 /*!
-  \class NurbsSizeError internals.hh nurbs/internals.hh
+  \class NurbsSizeError internals.h nurbs/internals.h
   \brief A NURBS size error
 
   There is a relationship between the number of control points,
@@ -101,7 +101,7 @@ struct NurbsSizeError : public NurbsInputError {
 };
 
 /*!
-  \class NurbsComputationError internals.hh nurbs/internals.hh
+  \class NurbsComputationError internals.h nurbs/internals.h
   \brief Can't succesfully compute
 
   This class is thrown if a computation error occurs.
@@ -115,7 +115,7 @@ struct NurbsComputationError : public NurbsError {
 };
 
 /*!
-  \class NurbsWarning internals.hh nurbs/internals.hh
+  \class NurbsWarning internals.h nurbs/internals.h
   \brief A warning class
 
   This class is thrown if a non-critical error occurs. The user

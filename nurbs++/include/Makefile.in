@@ -122,18 +122,18 @@ option_include = @option_include@
 option_libs = @option_libs@
 packagedir = @packagedir@
 perl = @perl@
-EXTRA_DIST = plib_config.hh.in stamp-h.in stamp-h plib_config.hh.vc
-pkginclude_HEADERS = plib_config.hh
+EXTRA_DIST = plib_config.h.in stamp-h.in stamp-h plib_config.h.vc
+pkginclude_HEADERS = plib_config.h
 subdir = include
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
-CONFIG_HEADER = plib_config.hh
+CONFIG_HEADER = plib_config.h
 CONFIG_CLEAN_FILES =
 DIST_SOURCES =
 HEADERS = $(pkginclude_HEADERS)
 
 DIST_COMMON = $(pkginclude_HEADERS) Makefile.am Makefile.in \
-	plib_config.hh.in
-all: plib_config.hh
+	plib_config.h.in
+all: plib_config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
 .SUFFIXES:
@@ -143,22 +143,22 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 
-plib_config.hh: stamp-h1
+plib_config.h: stamp-h1
 	@if test ! -f $@; then \
 	  rm -f stamp-h1; \
 	  $(MAKE) stamp-h1; \
 	else :; fi
 
-stamp-h1: $(srcdir)/plib_config.hh.in $(top_builddir)/config.status
+stamp-h1: $(srcdir)/plib_config.h.in $(top_builddir)/config.status
 	@rm -f stamp-h1
-	cd $(top_builddir) && $(SHELL) ./config.status include/plib_config.hh
+	cd $(top_builddir) && $(SHELL) ./config.status include/plib_config.h
 
-$(srcdir)/plib_config.hh.in:  $(top_srcdir)/configure.in $(ACLOCAL_M4) $(top_srcdir)/acconfig.h
+$(srcdir)/plib_config.h.in:  $(top_srcdir)/configure.in $(ACLOCAL_M4) $(top_srcdir)/acconfig.h
 	cd $(top_srcdir) && $(AUTOHEADER)
-	touch $(srcdir)/plib_config.hh.in
+	touch $(srcdir)/plib_config.h.in
 
 distclean-hdr:
-	-rm -f plib_config.hh
+	-rm -f plib_config.h
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -202,11 +202,11 @@ ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	       END { for (i in files) print i; }'`; \
 	mkid -fID $$unique
 
-TAGS:  $(HEADERS) $(SOURCES) plib_config.hh.in $(TAGS_DEPENDENCIES) \
+TAGS:  $(HEADERS) $(SOURCES) plib_config.h.in $(TAGS_DEPENDENCIES) \
 		$(TAGS_FILES) $(LISP)
 	tags=; \
 	here=`pwd`; \
-	list='$(SOURCES) $(HEADERS) plib_config.hh.in $(LISP) $(TAGS_FILES)'; \
+	list='$(SOURCES) $(HEADERS) plib_config.h.in $(LISP) $(TAGS_FILES)'; \
 	unique=`for i in $$list; do \
 	    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
 	  done | \
@@ -251,7 +251,7 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(HEADERS) plib_config.hh
+all-am: Makefile $(HEADERS) plib_config.h
 
 installdirs:
 	$(mkinstalldirs) $(DESTDIR)$(pkgincludedir)

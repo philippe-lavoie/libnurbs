@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: color.cc
+        File: color.cpp
      Purpose:
-    Revision: $Id: color.cpp,v 1.1 2002-05-13 19:32:14 philosophil Exp $
+    Revision: $Id: color.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (26 January, 1999)
  Modified by: Martin Schuerch
 
@@ -26,12 +26,12 @@
 #ifndef Color_SOURCES
 #define Color_SOURCES
 
-#include "color.hh"
+#include "color.h"
 
-#include "barray.cc"
-#include "barray2d.cc"
-#include "matrix.cc"
-#include "vector.cc"
+#include "barray.cpp"
+#include "barray2d.cpp"
+#include "matrix.cpp"
+#include "vector.cpp"
 
 /*!
  */
@@ -105,14 +105,14 @@ namespace PLib {
 
 #ifdef  NO_IMPLICIT_TEMPLATES
 
-  // from barray.cc
+  // from barray.cpp
   template class BasicArray<Color>;
   template void resizeBasicArray<Color>(BasicArray<Color>&,int) ;
   template int operator==(const BasicArray<Color>&,const BasicArray<Color>&);
   template istream& operator>>(istream& is, BasicArray<Color>& ary);
   template ostream& operator<<(ostream& os, const BasicArray<Color>& ary);
 
-  // from barray2d.cc
+  // from barray2d.cpp
   template class Basic2DArray<Color> ;
   template void initBasic2DArray<Color>(Basic2DArray<Color>&,const int,const int) ;
   template void resizeKeepBasic2DArray<Color>(Basic2DArray<Color>&,const int,const int) ;

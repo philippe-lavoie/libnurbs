@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: point_nd.cc
+        File: point_nd.cpp
      Purpose:
-    Revision: $Id: point_nd.cpp,v 1.1 2002-05-13 19:32:16 philosophil Exp $
+    Revision: $Id: point_nd.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (26 January, 1999)
  Modified by: Martin Schuerch
 
@@ -27,7 +27,7 @@
 #define POINT_SOURCES
 
 
-#include "point_nd.hh"
+#include "point_nd.h"
 
 namespace PLib {
 

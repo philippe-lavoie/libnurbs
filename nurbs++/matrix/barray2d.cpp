@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: barray2d.cc
+        File: barray2d.cpp
      Purpose:
-    Revision: $Id: barray2d.cpp,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: barray2d.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -26,9 +26,9 @@
 #ifndef BARRAY2D_SOURCES_
 #define BARRAY2D_SOURCES_
 
-#include "matrix_global.hh"
+#include "matrix_global.h"
 #include <new>
-#include "barray2d.hh"
+#include "barray2d.h"
 
 /*!
  */

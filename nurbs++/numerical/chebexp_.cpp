@@ -1,4 +1,4 @@
-#include "chebexp.cc"
+#include "chebexp.cpp"
 
 namespace PLib {
 

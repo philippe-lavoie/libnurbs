@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: matrix.hh
+        File: matrix.h
      Purpose:       
-    Revision: $Id: matrix.h,v 1.1 2002-05-13 19:32:15 philosophil Exp $
+    Revision: $Id: matrix.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -29,9 +29,9 @@
 
 
 #include <iostream>
-#include "matrix_global.hh"
-#include "barray2d.hh"
-#include "vector.hh"
+#include "matrix_global.h"
+#include "barray2d.h"
+#include "vector.h"
 
 
 // Predefining every friend functions 
@@ -208,7 +208,7 @@ typedef PLib::Matrix<PLib::Point3Dd> PlMatrix_Point2Dd ;
 typedef PLib::Matrix<PLib::HPoint3Dd> PlMatrix_HPoint2Dd ;
 
 #ifdef INCLUDE_TEMPLATE_SOURCE
-#include "matrix.cc"
+#include "matrix.cpp"
 #endif
 
 #endif 

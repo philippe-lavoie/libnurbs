@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: hnurbsS.hh
+        File: hnurbsS.h
      Purpose:       
-    Revision: $Id: hnurbsS.h,v 1.1 2002-05-13 19:32:18 philosophil Exp $
+    Revision: $Id: hnurbsS.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -25,15 +25,15 @@
 #ifndef _nurbs_hnurbs_h_
 #define _nurbs_hnurbs_h_
 
-#include "nurbsS.hh"
-#include "vector.hh"
+#include "nurbsS.h"
+#include "vector.h"
 
 /*!
  */
 namespace PLib {
 
 /*!
-  \class HNurbsSurface hnurbsS.hh
+  \class HNurbsSurface hnurbsS.h
   \brief A hierarchichal NURBS surface class
 
   This class can represent and manipulate a hierarchical NURBS

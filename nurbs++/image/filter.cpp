@@ -1,7 +1,7 @@
 /*=============================================================================
-        File: filter.cc
+        File: filter.cpp
      Purpose:
-    Revision: $Id: filter.cpp,v 1.1 2002-05-13 19:32:14 philosophil Exp $
+    Revision: $Id: filter.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
   Created by: Philippe Lavoie          (18 February 1999)
  Modified by: 
 
@@ -26,8 +26,8 @@
 #ifndef FILTER_SOURCES
 #define FILTER_SOURCES
 
-#include "filter.hh"
-#include "vector.hh"
+#include "filter.h"
+#include "vector.h"
 
 /*!
  */

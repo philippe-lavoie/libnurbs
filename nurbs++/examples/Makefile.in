@@ -126,7 +126,7 @@ SUBDIRS = matrix numerical image nurbs
 DIST_SUBDIRS = matrix numerical image nurbs
 subdir = examples
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
-CONFIG_HEADER = $(top_builddir)/include/plib_config.hh
+CONFIG_HEADER = $(top_builddir)/include/plib_config.h
 CONFIG_CLEAN_FILES =
 DIST_SOURCES =
 
