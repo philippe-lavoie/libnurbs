@@ -1,7 +1,7 @@
 /*=============================================================================
         File: error.cpp
      Purpose: Implementation of general error reporting class
-    Revision: $Id: error.cpp,v 1.5 2002-05-21 15:52:03 philosophil Exp $
+    Revision: $Id: error.cpp,v 1.6 2002-05-21 22:15:30 philosophil Exp $
   Created by:    Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -180,7 +180,14 @@ void Error::memory(const void *p)
 
 #ifdef NO_IMPLICIT_TEMPLATES
 
-//template std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::_Setw);
+
+#if GNU_VERSION >= 30000
+template std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::_Setw);
+#else
+
+#endif
+
+
 
 #endif
 

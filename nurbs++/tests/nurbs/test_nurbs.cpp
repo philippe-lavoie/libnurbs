@@ -104,10 +104,21 @@ void TestNurbs::testBasisFunctions(){
 
 #ifdef NO_IMPLICIT_TEMPLATES
 
-template CppUnit::TestSuiteFactory<TestNurbs>;
-template CppUnit::TestCaller<TestNurbs, CppUnit::NoExceptionExpected>;
+namespace CppUnit {
 
-template void CppUnit::TestAssert::assertEquals<int>(int const&, int const&, CppUnit::SourceLine, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&);
+  template TestSuiteFactory<TestNurbs>;
+  template TestCaller<TestNurbs, CppUnit::NoExceptionExpected>;
+
+  namespace TestAssert {
+
+    // Test if it is GCC 3.0 or above
+    #if GNU_VERSION >= 30000
+    template void assertEquals<int>(int const&, int const&, CppUnit::SourceLine, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&);
+    #else
+    template void CppUnit::TestAssert::assertEquals<int>(int const &, int const &, CppUnit::SourceLine, basic_string<char, string_char_traits<char>, __default_alloc_template<true, 0> > const &);
+    #endif
+  }
+}
 
 #endif
 
