@@ -1,7 +1,7 @@
 /*=============================================================================
         File: hnurbsS.cpp
      Purpose:       
-    Revision: $Id: hnurbsS.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: hnurbsS.cpp,v 1.3 2002-05-17 18:24:21 philosophil Exp $
   Created by: Philippe Lavoie    (7 October 1997)
  Modified by: 
 
@@ -408,7 +408,7 @@ void HNurbsSurface<T,N>::updateSurface(int i0, int j0){
   \date 15 April 1998
 */
 template <class T, int N>
-int HNurbsSurface<T,N>::initBase(int force=0){
+int HNurbsSurface<T,N>::initBase(int force){
   if(!baseLevel_){
     return 0; // this means that the surface is the base level
   }

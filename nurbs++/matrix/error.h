@@ -1,7 +1,7 @@
 /*=============================================================================
         File: error.h
      Purpose:       
-    Revision: $Id: error.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: error.h,v 1.3 2002-05-17 18:24:21 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -28,14 +28,14 @@
 #include <stdlib.h>
 #include "matrix_global.h"
 
-#ifdef USING_VCC
 #include <sstream>
 typedef std::ostringstream ErrorStream;
+/* the standard is now sstream and not strstream
 #else
 #include <strstream>
 typedef std::ostrstream ErrorStream;
 #endif
-
+*/
 
 
 /*!

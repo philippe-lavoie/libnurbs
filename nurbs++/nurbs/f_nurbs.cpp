@@ -102,6 +102,10 @@ template void to3D(const NurbsCurve<float,2>&, NurbsCurve<float,3>&);
 template void to3D(const NurbsCurve<float,3>&, NurbsCurve<float,3>&);
 template void to2D(const NurbsCurve<float,3>&, NurbsCurve<float,2>&);
 
+
+  // The following is necessary for gcc 2.96
+  //  template std::basic_istream<char, std::char_traits<char> >::seekg(std::fpos<__mbstate_t>);
+
 #endif
 
 } // end namespace

@@ -1,7 +1,7 @@
 /*=====================================================================
         File: tri_spline.cpp
      Purpose:       
-    Revision: $Id: tri_spline.cpp,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: tri_spline.cpp,v 1.3 2002-05-17 18:24:21 philosophil Exp $
       Author: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -225,7 +225,7 @@ namespace PLib {
     }
   
   template <class T, int D>
-    int RTriangularBSpline<T,D>::writeVRML(const char* filename,  const Color& color=whiteColor, int Nu=20, int Nv=20, int Nw=20) const{
+    int RTriangularBSpline<T,D>::writeVRML(const char* filename,  const Color& color, int Nu, int Nv, int Nw) const{
     
     ofstream fout(filename) ;
     
@@ -236,7 +236,7 @@ namespace PLib {
   }
 
   template <class T, int D>
-    int RTriangularBSpline<T,D>::writeVRML(ostream &fout,  const Color& color=whiteColor, int Nu=20, int Nv=20, int Nw=20) const{
+    int RTriangularBSpline<T,D>::writeVRML(ostream &fout,  const Color& color, int Nu, int Nv, int Nw) const{
 
     
     fout << "#VRML V1.0 ascii\n" ;

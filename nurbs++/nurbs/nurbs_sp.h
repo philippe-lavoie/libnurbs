@@ -1,7 +1,7 @@
 /*=============================================================================
         File: nurbs_sp.h
      Purpose:       
-    Revision: $Id: nurbs_sp.h,v 1.2 2002-05-13 21:07:46 philosophil Exp $
+    Revision: $Id: nurbs_sp.h,v 1.3 2002-05-17 18:24:21 philosophil Exp $
   Created by: Philippe Lavoie          (7 May, 1998)
  Modified by: 
 
@@ -114,14 +114,14 @@ inline NurbsCurveSP<T,N>::NurbsCurveSP(const NurbsCurveSP<T,N>& nurb) :
 }
 
 template <class T, int N>
-inline NurbsCurveSP<T,N>::NurbsCurveSP(const Vector< HPoint_nD<T,N> >& P1, const Vector<T> &U1, int degree=3) : 
+inline NurbsCurveSP<T,N>::NurbsCurveSP(const Vector< HPoint_nD<T,N> >& P1, const Vector<T> &U1, int degree) : 
   NurbsCurve<T,N>(P1,U1,degree) 
 { 
   updateMaxU(); 
 }
 
 template <class T, int N>
-inline NurbsCurveSP<T,N>::NurbsCurveSP(const Vector< Point_nD<T,N> >& P1, const Vector<T> &W, const Vector<T> &U1, int degree=3) : 
+inline NurbsCurveSP<T,N>::NurbsCurveSP(const Vector< Point_nD<T,N> >& P1, const Vector<T> &W, const Vector<T> &U1, int degree) : 
   NurbsCurve<T,N>(P1,W,U1,degree) 
 { 
   updateMaxU(); 

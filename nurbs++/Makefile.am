@@ -17,7 +17,8 @@ dist-hook:
 
 m4sources = \
 	config/has_image_magick.m4 \
-	config/has_cppunit.m4
+	config/has_cppunit.m4 \
+	config/has_opengl.m4
 
 m4datadir = $(datadir)/aclocal
 #m4data_DATA = nurbs++.m4

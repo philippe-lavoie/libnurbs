@@ -2,7 +2,7 @@
         File: global.h
      Purpose: Define and include some general definitions valid for all 
               matrix header files
-    Revision: $Id: matrix_global.h,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: matrix_global.h,v 1.3 2002-05-17 18:24:21 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -37,7 +37,7 @@
 #include <cmath>
 #include <iostream>
 #include <complex>
-#include <strstream>
+#include <sstream>
 #include <iomanip>
 #include <fstream>
 

@@ -1,3 +1,7 @@
+3.1.0: (2002-5-13)
+      - Fixed memory leak for barray2d of HPoint
+      - Fixed compilation problems under gcc 2.96
+      - Fixed compilation problems under gcc 3.0.4
 3.0.8: (1999-6-24)
       - Fixed a bug where egcs would compile invalid code
       - Fixed a bug inside globalInterpClosed where the weights are not set
