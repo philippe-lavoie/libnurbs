@@ -1,5 +1,5 @@
-#include <nurbsS.hh>
-#include <nurbsSub.hh>
+#include <nurbsS.h>
+#include <nurbsSub.h>
 #include <math.h>
 
 int main(){

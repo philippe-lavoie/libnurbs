@@ -3,9 +3,9 @@
 // but this file is used to test the validity of the length function
 // this is bases partly on equation 6.86 from the NURBS book
 
-#include <nurbs.hh>
+#include <nurbs.h>
 #include <fstream>
-#include <matrix.hh>
+#include <matrix.h>
 
 using namespace PLib ; 
 

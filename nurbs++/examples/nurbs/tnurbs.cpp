@@ -1,4 +1,4 @@
-#include <nurbs.hh>
+#include <nurbs.h>
 
 // testing of interpolation and approximation
 

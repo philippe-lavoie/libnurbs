@@ -1,4 +1,4 @@
-#include <nurbs_sp.hh>
+#include <nurbs_sp.h>
 
 int main(){
   using namespace PLib ; 

@@ -10,7 +10,7 @@ COMPLEXLIB = @complex_lib@
 
 MATRIX_INCLUDE = @matrix_include@
 MATRIX_LIB_FLAG = @matrix_lib_flag@
-MATRIXLIB = @matrix_lib@ @complex_lib@
+MATRIXLIB = @matrix_lib_flag@ @matrix_lib@ @complex_lib@
 
 OPENGL_LIBS = $(GL_LFLAGS) $(GL_LIBS) $(X_EXTRA_LIBS)
 

@@ -1,6 +1,6 @@
-#include <nurbs.hh>
-#include <nurbsS.hh>
-#include <vector.hh>
+#include <nurbs.h>
+#include <nurbsS.h>
+#include <vector.h>
 
 int main(){
   int deg = 3 ;

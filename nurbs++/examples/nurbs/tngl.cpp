@@ -1,6 +1,6 @@
 // the code was adapted from test/glut/bigtest.c from the glut distribution
 // see that file for more details.
-#include <nurbsGL.hh>
+#include <nurbsGL.h>
 
 #ifdef WITH_OPENGL
 

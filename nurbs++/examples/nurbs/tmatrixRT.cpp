@@ -1,4 +1,4 @@
-#include <matrixRT.hh>
+#include <matrixRT.h>
 
 int main(){
   using namespace PLib ; 

@@ -1,4 +1,4 @@
-#include "nurbsSub.hh"
+#include "nurbsSub.h"
 
 namespace PLib {
 

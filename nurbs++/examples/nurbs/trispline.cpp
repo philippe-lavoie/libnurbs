@@ -1,4 +1,4 @@
-#include <tri_spline.hh>
+#include <tri_spline.h>
 
 int main(){
   using namespace PLib ;

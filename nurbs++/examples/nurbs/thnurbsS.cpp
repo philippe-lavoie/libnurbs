@@ -1,4 +1,4 @@
-#include <hnurbsS.hh>
+#include <hnurbsS.h>
 
 int main(){
   using namespace PLib ; 
