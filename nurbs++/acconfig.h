@@ -50,3 +50,7 @@
 
 // Specify if you are using Linux (assumed with egcs)
 #undef USING_LINUX
+
+// Specify if you have CppUnit installed
+#undef HAS_CPPUNIT
+
