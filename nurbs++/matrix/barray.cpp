@@ -1,7 +1,7 @@
 /*=============================================================================
         File: barray.cpp
      Purpose:       
-    Revision: $Id: barray.cpp,v 1.2 2002-05-13 21:07:45 philosophil Exp $
+    Revision: $Id: barray.cpp,v 1.3 2002-05-14 19:14:28 philosophil Exp $
   Created by: Philippe Lavoie          (3 Oct, 1996)
  Modified by: 
 
@@ -484,7 +484,7 @@ T  BasicArray<T>::operator[](const int i) const {
   \date 12 September 1999
 */
 template<class T>  
-T& BasicArray<T>::push_back(const T i, int end_buffer=10, double end_mult=-1){
+T& BasicArray<T>::push_back(const T i, int end_buffer, double end_mult){
   if(sze>=rsize){
     int n = sze ; 
     if(end_mult>1.0){

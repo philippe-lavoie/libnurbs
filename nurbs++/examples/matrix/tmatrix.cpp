@@ -1,5 +1,5 @@
-#include <matrix.hh>
-#include <matrixTool.hh>
+#include <matrix.h>
+#include <matrixTool.h>
 
 int main(){
   using namespace PLib ; 
@@ -8,7 +8,7 @@ int main(){
 
   for(i=0;i<a.rows();++i)
     for(j=0;j<a.cols();++j) 
-      a(i,j) = float(maximum(i,j)) ; //+float(i*j)/float(j+1.0) ;
+      a(i,j) = float(maximum(i,j)) ;
   
   Matrix_FLOAT b(a) ;
   Matrix_FLOAT c(a) ;
@@ -22,7 +22,7 @@ int main(){
   a.resize(5,3) ;
   for(i=0;i<a.rows();++i)
     for(j=0;j<a.cols();++j) 
-      a(i,j) = float(maximum(i,j)) ; //+float(i*j)/float(j+1.0) ;
+      a(i,j) = float(maximum(i,j)) ;
 
   cout << "b =\n" << a << endl ; 
   cout << "b^T=\n" << a.transpose() << endl ; 
