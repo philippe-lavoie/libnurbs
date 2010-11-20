@@ -25,9 +25,6 @@ namespace PLib {
   template class InterPoint<float,2> ;
   template class InterPoint<float,3> ;
   
-  template class BasicList<InterPoint<float,2> > ; 
-  template class BasicList<InterPoint<float,3> > ; 
-  
   template class ParaSurface<float,2> ;
   template class ParaSurface<float,3> ;
   
@@ -38,3 +35,8 @@ namespace PLib {
 #endif 
 
 }
+
+#ifdef NO_IMPLICIT_TEMPLATES
+template class BasicList<PLib::InterPoint<float,2> > ; 
+template class BasicList<PLib::InterPoint<float,3> > ; 
+#endif

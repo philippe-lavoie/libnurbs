@@ -123,7 +123,7 @@ INPUT            = matrix image numerical nurbs include
 # and *.h) to filter out the source-files in the directories. If left 
 # blank all files are included.
 
-FILE_PATTERNS    = *.hh *.cc
+FILE_PATTERNS    =
 
 # The EXAMPLE_PATH tag can be used to specify one or more files or 
 # directories that contain example code fragments that are included (see 

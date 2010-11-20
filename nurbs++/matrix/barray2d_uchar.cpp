@@ -33,7 +33,7 @@ namespace PLib {
   }
 
 
-ostream& 
+template <> ostream& 
 Basic2DArray<unsigned char>::print(ostream& os) const
 {
   int i, j;

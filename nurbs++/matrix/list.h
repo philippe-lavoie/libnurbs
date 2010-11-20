@@ -56,7 +56,7 @@ class BasicList: public BasicNode<T>
 {
 public:
   BasicList() ;
-  BasicList(BasicList<T>& a) ;
+  BasicList(BasicList<T> const & a) ;
   ~BasicList() { reset() ; }
 
 
@@ -125,7 +125,7 @@ BasicList<T>::BasicList():  BasicNode<T>() {
   Modified by:
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 template <class T>
-BasicList<T>::BasicList(BasicList<T>& a): BasicNode<T>() {
+BasicList<T>::BasicList(BasicList<T> const & a): BasicNode<T>() {
   first_ = last_ = 0 ;
   current = first_ ;
   *this = a ; 

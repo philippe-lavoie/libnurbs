@@ -44,7 +44,7 @@ ldflags = -version-info 1:0:1
 
 lib_LTLIBRARIES = libnurbsf.la libnurbsd.la
 libnurbsf_la_SOURCES = $(float_sources)
-libnurbsf_la_LDFLAGS = $(ldflags)
+libnurbsf_la_LDFLAGS = $(ldflags) -L../matrix/.libs -lmatrix -L../numerical/.libs -lmatrixN -L../image/.libs -lmatrixI
 libnurbsd_la_SOURCES = $(double_sources)
-libnurbsd_la_LDFLAGS = $(ldflags)
+libnurbsd_la_LDFLAGS = $(ldflags) -L../matrix/.libs -lmatrix -L../numerical/.libs -lmatrixN -L../image/.libs -lmatrixI
 

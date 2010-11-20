@@ -394,9 +394,9 @@ NurbsSurface<T,3> NurbsCurve<T,N>::drawAaImg(Image_Color& Img, const Color& colo
   T du,dv ;
   // compute a coarse distance for the curve
   Point_nD<T,N> a,b,c ;
-  a = pointAt(0.0) ;
-  b = pointAt(0.5) ;
-  c = pointAt(1.0) ;
+  a = this->pointAt(0.0) ;
+  b = this->pointAt(0.5) ;
+  c = this->pointAt(1.0) ;
 
   T distance = norm(b-a) + norm(c-b) ;
 
@@ -5271,7 +5271,7 @@ BasicList<Point_nD<T,N> > NurbsCurve<T,N>::tesselate(T tolerance,BasicList<T> *u
   }
   else{
     for(int i=0;i<ca.n();++i){
-      list2 = ca[i].tesselate(tolerance,uk) ;
+     list2 = ca[i].tesselate(tolerance,uk) ;
 
       // remove the last point from the list to elliminate
       list.erase((BasicNode<Point_nD<T,N> >*)list.last()) ;

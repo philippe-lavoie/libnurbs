@@ -10,7 +10,7 @@ Point_nD<double,2> NurbsCurve<double,2>::normal(double u, const Point_nD<double,
   return firstDn(u) ;
 }
 
-void NurbsCurve<double,2>::makeCircle(const Point_nD<double,2>& O, double r, double as, double ae){
+template <> void NurbsCurve<double,2>::makeCircle(const Point_nD<double,2>& O, double r, double as, double ae){
   makeCircle(O,Point_nD<double,2>(1,0),Point_nD<double,2>(0,1),r,as,ae) ;
 }
 
