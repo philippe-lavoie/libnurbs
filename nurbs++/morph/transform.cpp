@@ -180,18 +180,18 @@ void PLib::Morph::grayDilation(const PLib::Matrix<T>& image, const Kernel<T>& ke
 }
 
 
-unsigned char Extremum<unsigned char>::safeAdd(unsigned char a, unsigned char b){
+template <> unsigned char Extremum<unsigned char>::safeAdd(unsigned char a, unsigned char b){
   int c = a;
   c += b;
   return (unsigned char)( c % 256);
 }
 
-unsigned char Extremum<unsigned char>::maxValue() 
+template <> unsigned char Extremum<unsigned char>::maxValue() 
 {
   return 255;
 }
 
-unsigned char Extremum<unsigned char>::minValue() 
+template <> unsigned char Extremum<unsigned char>::minValue() 
 {
   return 0;
 }

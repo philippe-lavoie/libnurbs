@@ -62,7 +62,7 @@ namespace PLib {
     return 0 ;
   }
 
-  Matrix<Color>& Matrix<Color>::operator+=(double a)
+   template <> Matrix<Color>& Matrix<Color>::operator+=(double a)
   {
 #ifdef USE_EXCEPTION
     throw MatrixErr();
@@ -74,7 +74,7 @@ namespace PLib {
     return *this ;
   }
 
-  Matrix<Color>& Matrix<Color>::operator-=(double a)
+   template <> Matrix<Color>& Matrix<Color>::operator-=(double a)
   {
 #ifdef USE_EXCEPTION
     throw MatrixErr();

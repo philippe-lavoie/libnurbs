@@ -56,10 +56,10 @@ PLib::Morph::Kernel<T>::Kernel(const int r, const int c, const int center_r, con
     error.fatal();
 #endif
   }
-  resize(r,c);
+  this->resize(r,c);
   m_center_row = center_r;
   m_center_column = center_c;
-  m_mask.resize(rows(),cols());
+  m_mask.resize(this->rows(),this->cols());
   m_mask.reset(255);
 }
 
@@ -86,20 +86,20 @@ template <class T>
 PLib::Morph::Kernel<T>::Kernel(const T k00, const T k01, const T k02, 
 			       const T k10, const T k11, const T k12, 
 			       const T k20, const T k21, const T k22){
-  resize(3,3);
-  m_mask.resize(rows(),cols());
+  this->resize(3,3);
+  m_mask.resize(this->rows(),this->cols());
   m_mask.reset(255);
   m_center_row = 1;
   m_center_column = 1;
-  elem(0,0) = k00;
-  elem(0,1) = k01;
-  elem(0,2) = k02;
-  elem(1,0) = k10;
-  elem(1,1) = k11;
-  elem(1,2) = k12;
-  elem(2,0) = k20;
-  elem(2,1) = k21;
-  elem(2,2) = k22;
+  this->elem(0,0) = k00;
+  this->elem(0,1) = k01;
+  this->elem(0,2) = k02;
+  this->elem(1,0) = k10;
+  this->elem(1,1) = k11;
+  this->elem(1,2) = k12;
+  this->elem(2,0) = k20;
+  this->elem(2,1) = k21;
+  this->elem(2,2) = k22;
 }
 
 
@@ -117,12 +117,12 @@ PLib::Morph::Kernel<T>::Kernel(const T k00, const T k01, const T k02,
 */
 template <class T>
 void PLib::Morph::DiskKernel<T>::init(int r){
-  resize(2*r+1,2*r+1);
-  m_center_row = r;
-  m_center_column = r;
+  this->resize(2*r+1,2*r+1);
+  this->m_center_row = r;
+  this->m_center_column = r;
 
-  m_mask.resize(rows(),cols());
-  m_mask.reset(0); 
+  this->m_mask.resize(this->rows(),this->cols());
+  this->m_mask.reset(0); 
 
   for(int i=0;i<=r;++i){
     circleMidpoint(i,setValueAtRadius(i));
@@ -142,10 +142,10 @@ void PLib::Morph::DiskKernel<T>::init(int r){
 */
 template <class T>
 void PLib::Morph::DiskKernel<T>::setElement(int r, int c, T value){
-  elem(m_center_row + r, m_center_column + c) = value;
-  m_mask(m_center_row + r, m_center_column + c) = 255;
+  this->elem(this->m_center_row + r, this->m_center_column + c) = value;
+  this->m_mask(this->m_center_row + r, this->m_center_column + c) = 255;
 
-  if(r>1 && elem(m_center_row+r-1,m_center_column+c)==0){
+  if(r>1 && this->elem(this->m_center_row+r-1,this->m_center_column+c)==0){
     double radius = sqrt( (double)(r*r) + (double)(c*c) );
     setCirclePoints(r-1,c,setValueAtRadius(radius));
   }

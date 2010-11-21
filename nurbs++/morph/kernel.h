@@ -136,7 +136,7 @@ namespace PLib{
 	m_min = min;
 	m_max = max;
 	m_radius = radius;
-	init(radius);
+	this->init(radius);
       }
 
     protected:
@@ -165,7 +165,7 @@ namespace PLib{
 	m_min = min;
 	m_max = max;
 	m_radius = radius;
-	init(radius);
+	this->init(radius);
       }
 
     protected:
