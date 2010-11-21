@@ -29,8 +29,7 @@
 #include "watershed.h"
 #include "../matrix/barray.h"
 #include "../matrix/barray2d.h"
-#include <hash_map>
-#include <alloc.h>
+#include <tr1/unordered_map>
 
 typedef std::pair <int, int> HashPair;
 
@@ -67,11 +66,11 @@ int neighbors(const PLib::Basic2DArray<int>& labels, int i, int j, PLib::BasicAr
   }
   return min_value;
 }
-void setToEquivalentLabel(int i, std::hash_map<int,int>& eq_table, PLib::Basic2DArray<int>& labels){
-  std::hash_map<int,int>::iterator eq_table_iterator;
-  std::hash_map<int,int>::const_iterator value;
-  std::hash_map<int,int>::const_iterator last_value;
-  std::hash_map<int,int> eq_result;
+void setToEquivalentLabel(int i, std::tr1::unordered_map<int,int>& eq_table, PLib::Basic2DArray<int>& labels){
+  std::tr1::unordered_map<int,int>::iterator eq_table_iterator;
+  std::tr1::unordered_map<int,int>::const_iterator value;
+  std::tr1::unordered_map<int,int>::const_iterator last_value;
+  std::tr1::unordered_map<int,int> eq_result;
 
   PLib::BasicArray<int> equivalence_stack(labels.cols());
   equivalence_stack.resize(0);
@@ -139,7 +138,7 @@ bool PLib::Morph::labelImage(const PLib::Basic2DArray<unsigned char>& image, PLi
   PLib::BasicArray<int> local_labels(9);
   labels.resize(image.rows(),image.cols());
 
-  std::hash_map<int,int> eq_table;
+  std::tr1::unordered_map<int,int> eq_table;
 
   // Top down pass
   for(int i=0;i<image.rows();++i){
@@ -219,8 +218,11 @@ bool PLib::Morph::labelImage(const PLib::Basic2DArray<unsigned char>& image, PLi
   \author Philippe Lavoie
   \date 27 Jan 2003
 */
+namespace PLib {
+  namespace Morph {
+
 template <>
-void PLib::Morph::watershed<unsigned char> (const PLib::Basic2DArray<unsigned char>& image, PLib::Basic2DArray<unsigned char>& result){
+void watershed<unsigned char> (const PLib::Basic2DArray<unsigned char>& image, PLib::Basic2DArray<unsigned char>& result){
   PLib::Basic2DArray<unsigned char> resolved_mask(image.rows(),image.cols());
   PLib::Basic2DArray<int> labels(image.rows(),image.cols());
   result.resize(image.rows(), image.cols());
@@ -241,7 +243,9 @@ void PLib::Morph::watershed<unsigned char> (const PLib::Basic2DArray<unsigned ch
 
   
 }
-
+}
+}
+/*
 #ifdef NO_IMPLICIT_TEMPLATES
 
 namespace std {
@@ -260,7 +264,7 @@ namespace PLib{
   }
 }
 #endif
-
+*/
 
 
 
