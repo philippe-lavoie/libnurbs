@@ -1482,7 +1482,7 @@ namespace PLib {
   NurbsGL* readNurbsObject(const char* filename) {
     NurbsGL *temp ;
     // guess the type of the curve first, if that doesn't work try all of them
-    char* ext ; 
+    const char* ext ; 
     //ext = strstr(filename,".n()ca") ;
     //if(ext){
     //  openByType = OPENCURVEARRAY ;      
@@ -2646,7 +2646,7 @@ namespace PLib {
     if(!fin)
       return 0 ;
     fin.clear() ;
-    fin.seekg(0,ios::beg) ;
+    fin.seekg(0,std::ios::beg) ;
 
     char *type ;
     type = new char[3] ;
@@ -3919,13 +3919,14 @@ namespace PLib {
   public:
     RenderMeshGL(const Color& c): color(c) {;}
     virtual ~RenderMeshGL() { }
-    virtual void drawHeader() ;
+    virtual void drawHeader();
     virtual void drawTriangle( const SurfSample<T> &v0, const SurfSample<T> &v1, const SurfSample<T> & v2 );
-    virtual void drawFooter() ;
-    virtual void screenProject(const HPoint_nD<T,3> &worldPt, Point_nD<T,3> &screenPt ) ; 
+    virtual void drawFooter();
+    virtual void screenProject(const HPoint_nD<T,3> &worldPt, Point_nD<T,3> &screenPt ); 
   protected:
     Color color ; 
   };
+
 
   template <class T>
   void RenderMeshGL<T>::screenProject(const HPoint_nD<T,3> &worldPt, Point_nD<T,3> &screenPt )
@@ -3964,23 +3965,23 @@ namespace PLib {
     drawSubdivision(tolerance) ;
   }
 
+  template class RenderMeshGL<float> ;
 
 
 #ifdef NO_IMPLICIT_TEMPLATES
-
+/*
   template class std::list<NurbsCurve_2Df*> ;
   template class std::list<NurbsCurve_2Df*>::iterator ;
 
-  template class RenderMeshGL<float> ;
 
   template class std::allocator<PLib::NurbsCurve<float, 2> *>;
 
   template void  std::_List_base<PLib::NurbsCurve<float, 2> *, std::allocator<PLib::NurbsCurve<float, 2> *> >::clear(void);
 
   template void std::list<NurbsCurve_2Df*>::clear(void);
-
+  
   template void std::list<PLib::NurbsCurve<float, 2> *, std::allocator<PLib::NurbsCurve<float, 2> *> >::_M_insert_dispatch<std::_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *> >(std::_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *&, PLib::NurbsCurve<float, 2> **>, std::_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float,2> *const &, PLib::NurbsCurve<float, 2> *const *>, std::_List_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *>, __false_type);
-
+*/
   /*
     template void list<PLib::NurbsCurve<float, 2> *, __default_alloc_template<0, 0> >::insert<__list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *> >(__list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *&, PLib::NurbsCurve<float, 2> **>, __list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *>, __list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *>) ;
     template void list<PLib::NurbsCurve<float, 2> *, __default_alloc_template<1, 0> >::insert<__list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *> >(__list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *&, PLib::NurbsCurve<float, 2> **>, __list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *>, __list_iterator<PLib::NurbsCurve<float, 2> *, PLib::NurbsCurve<float, 2> *const &, PLib::NurbsCurve<float, 2> *const *>) ;
@@ -4004,7 +4005,7 @@ namespace PLib {
     template void* __default_alloc_template<false, 0>::start_free ;
     #endif
 
-  */
+*/
 
 #endif
 
