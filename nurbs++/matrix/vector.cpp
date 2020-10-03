@@ -53,7 +53,7 @@ template <class T> Vector<T>& Vector<T>::operator=(const Vector<T> &b)
 
   if ( this->n() != b.n())
     {
-      resize(b.n()) ;
+      this->resize(b.n()) ;
     }
 
   this->sze = b.n() ;
@@ -81,7 +81,7 @@ Vector<T>& Vector<T>::operator=(const BasicArray<T> &b)
 {
   if ( this->size() != b.size())
     {
-      resize(b.size()) ;
+      this->resize(b.size()) ;
     }
   T *ptr ;
   ptr = this->x - 1 ;

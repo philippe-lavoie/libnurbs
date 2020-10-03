@@ -75,7 +75,7 @@ void NurbsCurveSP<T,N>::updateMaxU() {
 	  error.fatal() ; 
 #endif
 	}
-      maxU[i] = basisFun(maxAt_[i],i,this->deg_) ;
+      maxU[i] = this->basisFun(maxAt_[i],i,this->deg_) ;
     }
     
   }
@@ -125,7 +125,7 @@ void NurbsCurveSP<T,N>::modOnlySurfCPby(int i, const HPoint_nD<T,N>& a){
   u.resize(n) ;
   pts.resize(n) ; 
 
-  movePoint(u,pts) ;
+  this->movePoint(u,pts) ;
 }
 
 } // end namespace
