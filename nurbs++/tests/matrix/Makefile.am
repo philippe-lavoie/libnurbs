@@ -1,6 +1,6 @@
 EXTRA_DIST = Matrix.dsp
 
-INCLUDES = @CPPUNIT_CPPFLAGS@ -I@top_srcdir@/matrix -I@top_srcdir@/include
+AM_CPPFLAGS = @CPPUNIT_CPPFLAGS@ -I@top_srcdir@/matrix -I@top_srcdir@/include
 LDADD = @CPPUNIT_LIBS@ -ldl @top_srcdir@/matrix/libmatrix.la -lm -lc
 
 if BUILD_CPPUNIT_TESTS

@@ -7,14 +7,14 @@ AC_REQUIRE([AC_PROG_CXX])
 
 AC_CACHE_VAL(has_cppunit,
 [
- AC_CHECK_PROG([has_cppunit],[cppunit-config],[yes],[no])
+ AC_CHECK_PROG([has_cppunit],[pkg-config --exists cppunit],[yes],[no])
 
  if test x"$has_cppunit" = xyes; then
   AC_MSG_CHECKING(whether you can use cppunit)
   AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
-  CPPUNIT_CPPFLAGS=`cppunit-config --cflags`
-  CPPUNIT_LIBS=`cppunit-config --libs`
+  CPPUNIT_CPPFLAGS=`pkg-config --cflags cppunit`
+  CPPUNIT_LIBS=`pkg-config --libs cppunit`
   SAVE_CPPFLAGS="$CPPFLAGS"
   CPPFLAGS="$CPPFLAGS $CPPUNIT_CPPFLAGS"
   SAVE_LIBS="$LIBS"

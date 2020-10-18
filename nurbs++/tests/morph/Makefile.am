@@ -1,6 +1,6 @@
 EXTRA_DIST = Morph.dsp
 
-INCLUDES = @CPPUNIT_CPPFLAGS@ @matrix_include@ @option_cflags@
+AM_CPPFLAGS = @CPPUNIT_CPPFLAGS@ @matrix_include@ @option_cflags@
 LDADD = @CPPUNIT_LIBS@ \
 	@top_srcdir@/morph/libmorph.la \
 	@top_srcdir@/image/libmatrixI.la \

@@ -1,8 +1,8 @@
 EXTRA_DIST = kernel.cpp transform.cpp watershed.cpp
 
-INCLUDES = -I@top_srcdir@/include -I@top_srcdir@
+AM_CPPFLAGS = -I@top_srcdir@/include -I@top_srcdir@
 
-CXXFLAGS = @NURBS_DEP_CPPFLAGS@ @CXXFLAGS@
+AM_CXXFLAGS = @NURBS_DEP_CPPFLAGS@ @CXXFLAGS@
 
 pkginclude_HEADERS = kernel.h transform.h watershed.h
 

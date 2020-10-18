@@ -1,7 +1,7 @@
 
 COMPLEXLIB = @complex_lib@
 
-INCLUDES = -I@top_srcdir@/matrix
+AM_CPPFLAGS = -I@top_srcdir@/matrix
 #LIBSINC = $(MAGICK_LIB) 
 
 EXTRALIBS = -lm -lc

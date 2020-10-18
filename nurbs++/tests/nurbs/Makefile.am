@@ -1,6 +1,6 @@
 EXTRA_DIST = nurbs.dsp
 
-INCLUDES = 	@matrix_include@ \
+AM_CPPFLAGS = 	@matrix_include@ \
 		@nurbs_include@ \
 		@option_cflags@ \
 		@CPPUNIT_CPPFLAGS@

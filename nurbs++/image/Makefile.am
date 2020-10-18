@@ -1,9 +1,9 @@
 EXTRA_DIST = rec_filter.cpp filter.cpp image.cpp
 
 MAGICK_INCLUDE =  @MAGICK_CPPFLAGS@
-INCLUDES = @option_cflags@ -I@top_srcdir@/include -I@top_srcdir@/matrix
+AM_CPPFLAGS = @option_cflags@ -I@top_srcdir@/include -I@top_srcdir@/matrix
 
-CXXFLAGS = @CXXFLAGS@
+AM_CXXFLAGS = @CXXFLAGS@
 
 pkginclude_HEADERS = image.h rec_filter.h color.h filter.h
 

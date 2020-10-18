@@ -110,10 +110,10 @@ AC_CACHE_VAL(cxx_have_iso_friend_decl,
 AC_LANG_SAVE
 AC_LANG_CPLUSPLUS
 AC_TRY_COMPILE([
-template <class T> void f();
+template <class T> void f(T);
 template <class T>
 class A {
-  friend void f<>() ;
+  friend void f<>(T) ;
 };
 ], [/* empty */],
 cxx_have_iso_friend_decl=yes,

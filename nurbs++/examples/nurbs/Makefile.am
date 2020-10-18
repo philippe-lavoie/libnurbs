@@ -15,7 +15,7 @@ MATRIXLIB = @matrix_lib_flag@ @matrix_lib@ @complex_lib@
 OPENGL_LIBS = -lglut $(GL_LFLAGS) $(GL_LIBS) $(X_EXTRA_LIBS)
 
 #INCLUDES = $(MAGICK_INCLUDE) $(GL_CFLAGS) @matrix_include@ @nurbs_include@
-INCLUDES = @matrix_include@ @nurbs_include@ @option_cflags@
+AM_CPPFLAGS = @matrix_include@ @nurbs_include@ @option_cflags@
 #EXTRALIBS = -lm -lc
 #ALLLIBS = @nurbs_libf@ $(MATRIXLIB) @option_libs@ $(EXTRALIBS)
 ALLLIBS = -lglut @nurbs_libf@ $(MATRIXLIB) @option_libs@

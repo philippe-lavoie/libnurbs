@@ -2,7 +2,7 @@ EXTRA_DIST = nurbs.cpp curve.cpp hnurbs.cpp hnurbsS.cpp hnurbsS_sp.cpp matrixRT.
 
 MAGICK_INCLUDE =  $(X_CFLAGS) @MAGICK_CPPFLAGS@
 
-INCLUDES = @option_cflags@ -I@top_srcdir@/include @matrix_include@
+AM_CPPFLAGS = @option_cflags@ -I@top_srcdir@/include @matrix_include@
 
 pkginclude_HEADERS = curve.h matrixRT.h nurbsSub.h hnurbs.h nurbs.h nurbs_sp.h hnurbsS.h nurbsGL.h surface.h hnurbsS_sp.h nurbsS.h nurbsS_sp.h tri_spline.h nurbs_global.h
 
