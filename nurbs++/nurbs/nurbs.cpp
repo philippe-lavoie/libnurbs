@@ -31,10 +31,6 @@
 #include <nurbsS.h>
 #include "integrate.h"
 
-#include <malloc.h>
-
-/*!
- */
 namespace PLib {
 
 /*!
@@ -2396,7 +2392,7 @@ void NurbsCurve<T,N>::projectTo(const Point_nD<T,N>& p, T guess, T& u, Point_nD<
   if(u<U[0]) u = U[0] ;
   if(u>U[U.n()-1]) u = U[U.n()-1] ;
 
-  best = pointAt(u);
+  best = this->pointAt(u);
 
   while(1) {
     ++t ;

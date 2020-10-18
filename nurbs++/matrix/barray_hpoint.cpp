@@ -32,22 +32,22 @@ namespace PLib {
 
 template <>
 void resizeBasicArray(BasicArray<HPoint_nD<float,2> >& a, int nsize){
-  resizeBasicArrayHPoint(a,nsize) ;
+  resizeBasicArrayHPoint<float,2>(a,nsize) ;
 }
 
 template <>
 void resizeBasicArray<HPoint_nD<float,3> >(BasicArray<HPoint_nD<float,3> >& a, int nsize){
-  resizeBasicArrayHPoint(a,nsize) ;
+  resizeBasicArrayHPoint<float,3>(a,nsize) ;
 }
 
 template <>
 void resizeBasicArray(BasicArray<HPoint_nD<double,2> >& a, int nsize){
-  resizeBasicArrayHPoint(a,nsize) ;
+  resizeBasicArrayHPoint<double,2>(a,nsize) ;
 }
 
 template <>
 void resizeBasicArray(BasicArray<HPoint_nD<double,3> >& a, int nsize){
-  resizeBasicArrayHPoint(a,nsize) ;
+  resizeBasicArrayHPoint<double,3>(a,nsize) ;
 }
 
 template <class T, const int D>

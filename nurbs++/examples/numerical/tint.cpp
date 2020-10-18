@@ -20,7 +20,7 @@ struct TestFcn : public ClassPO<double> {
   TestFcn(): nf(0) {;}
 };
 
-main()
+int main()
 {
     double  i, err;
     TestFcn f ;
@@ -31,5 +31,6 @@ main()
     printf("I= integral_[0,1] 4/(1+x^2) dx\n");
     printf("I= %lg\t err= %lg\t N= %d\n", i, err, f.nf);
 
+    return 0;
 }
 

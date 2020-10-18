@@ -135,7 +135,7 @@ public:
   iterator end() { return (0<sze) ? x+sze : 0; }
   const_iterator end() const { return (0<sze) ? x+sze : 0; }
 
-protected:
+//protected:
   int rsize; //!< the actual size of the array
   int wdth;  //!< the number of output columns
   int destruct ; //!< specifies if the data should be destroyed on exit

@@ -29,7 +29,7 @@
 #include "watershed.h"
 #include "../matrix/barray.h"
 #include "../matrix/barray2d.h"
-#include <tr1/unordered_map>
+#include <unordered_map>
 
 typedef std::pair <int, int> HashPair;
 
@@ -66,11 +66,11 @@ int neighbors(const PLib::Basic2DArray<int>& labels, int i, int j, PLib::BasicAr
   }
   return min_value;
 }
-void setToEquivalentLabel(int i, std::tr1::unordered_map<int,int>& eq_table, PLib::Basic2DArray<int>& labels){
-  std::tr1::unordered_map<int,int>::iterator eq_table_iterator;
-  std::tr1::unordered_map<int,int>::const_iterator value;
-  std::tr1::unordered_map<int,int>::const_iterator last_value;
-  std::tr1::unordered_map<int,int> eq_result;
+void setToEquivalentLabel(int i, std::unordered_map<int,int>& eq_table, PLib::Basic2DArray<int>& labels){
+  std::unordered_map<int,int>::iterator eq_table_iterator;
+  std::unordered_map<int,int>::const_iterator value;
+  std::unordered_map<int,int>::const_iterator last_value;
+  std::unordered_map<int,int> eq_result;
 
   PLib::BasicArray<int> equivalence_stack(labels.cols());
   equivalence_stack.resize(0);
@@ -138,7 +138,7 @@ bool PLib::Morph::labelImage(const PLib::Basic2DArray<unsigned char>& image, PLi
   PLib::BasicArray<int> local_labels(9);
   labels.resize(image.rows(),image.cols());
 
-  std::tr1::unordered_map<int,int> eq_table;
+  std::unordered_map<int,int> eq_table;
 
   // Top down pass
   for(int i=0;i<image.rows();++i){

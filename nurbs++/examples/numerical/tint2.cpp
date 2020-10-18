@@ -35,7 +35,7 @@ struct G : public ClassPO<double> {
 };
 
 
-main(){
+int main(){
     double  i, err;
     G g ;
     F f ;
@@ -51,6 +51,6 @@ main(){
     printf("I= integral_[0,Pi/2] e sin(x) dx\n");
     printf("I= %lg\t err= %lg\t N= %d\n", i, err, f.nf);
     printf("The true value is I = e = %lg \n",(exp(1)));
-
-
+    
+    return 0;
 }

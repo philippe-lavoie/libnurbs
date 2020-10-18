@@ -188,42 +188,42 @@ void resizeKeepBasic2DArrayHPoint(Basic2DArray<HPoint_nD<T,D> > &a, const int nr
 
 template<>
 void initBasic2DArray(Basic2DArray<HPoint_nD<float,2> >& a, const int nr, const int nc){
-  initBasic2DArrayHPoint(a,nr,nc) ;
+  initBasic2DArrayHPoint<float,2>(a,nr,nc) ;
 }
 
 template<>
 void initBasic2DArray(Basic2DArray<HPoint_nD<float,3> >& a, const int nr, const int nc){
-  initBasic2DArrayHPoint(a,nr,nc) ;
+  initBasic2DArrayHPoint<float,3>(a,nr,nc) ;
 }
 
 template<>
 void initBasic2DArray(Basic2DArray<HPoint_nD<double,2> >& a, const int nr, const int nc){
-  initBasic2DArrayHPoint(a,nr,nc) ;
+  initBasic2DArrayHPoint<double,2>(a,nr,nc) ;
 }
 
 template<>
 void initBasic2DArray(Basic2DArray<HPoint_nD<double,3> >& a, const int nr, const int nc){
-  initBasic2DArrayHPoint(a,nr,nc) ;
+  initBasic2DArrayHPoint<double,3>(a,nr,nc) ;
 }
 
 template<>
 void resizeKeepBasic2DArray(Basic2DArray<HPoint_nD<float,2> >& a, const int nr, const int nc){
-  resizeKeepBasic2DArrayHPoint(a,nr,nc) ;
+  resizeKeepBasic2DArrayHPoint<float,2>(a,nr,nc) ;
 }
 
 template<>
 void resizeKeepBasic2DArray(Basic2DArray<HPoint_nD<float,3> >& a, const int nr, const int nc){
-  resizeKeepBasic2DArrayHPoint(a,nr,nc) ;
+  resizeKeepBasic2DArrayHPoint<float,3>(a,nr,nc) ;
 }
 
 template<>
 void resizeKeepBasic2DArray(Basic2DArray<HPoint_nD<double,2> >& a, const int nr, const int nc){
-  resizeKeepBasic2DArrayHPoint(a,nr,nc) ;
+  resizeKeepBasic2DArrayHPoint<double,2>(a,nr,nc) ;
 }
 
 template<>
 void resizeKeepBasic2DArray(Basic2DArray<HPoint_nD<double,3> >& a, const int nr, const int nc){
-  resizeKeepBasic2DArrayHPoint(a,nr,nc) ;
+  resizeKeepBasic2DArrayHPoint<double,3>(a,nr,nc) ;
 }
 
 #ifdef NO_IMPLICIT_TEMPLATES

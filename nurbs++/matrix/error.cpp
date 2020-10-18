@@ -185,7 +185,7 @@ void Error::memory(const void *p)
 
 
 #if GCC_VERSION >= 30000
-template std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::_Setw);
+//template std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::_Setw);
 #else
 
 #endif

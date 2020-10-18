@@ -126,7 +126,7 @@ public:
 
 
   
-protected:
+//protected:
   int by_columns; //!< If the output is done by columns
   int width; //!< the size of the output columns
   int rz; //!< the number of rows
