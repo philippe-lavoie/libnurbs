@@ -1,0 +1,50 @@
+Installation instructions for libnurbs/nurbs++
+
+* Unix:
+
+To generate the configure script, you need several auxiliary
+tools.  The version numbers are minimal: later versions should
+also work.
+
+	autoconf 2.50 
+	- see http://www.gnu.org/directory/autoconf.html
+
+	automake 1.4
+	- see http://www.gnu.org/directory/automake.html
+
+	libtool 1.4
+	- see http://www.gnu.org/directory/libtool.html
+
+
+After checking the sources out from git, you need to run the script
+
+	sh autogen.sh
+
+from the top-level source directory (i.e. the one containing this
+file).  This needs only to be done once.
+
+To compile the library run:
+
+        ./configure
+        make
+
+To install the library run:
+
+        make install
+
+-----------------------------------------------------------------
+
+To generate the documentation, you need doxygen (doc generator tool),
+which can be found at: http://www.doxygen.org/
+To generate the documentation run:
+
+	doxygen Doxyfile
+
+This produces a html documentation as well as tex files.
+The html documentation can be found at /html/index.html.
+The tex files can be compiled running:
+
+	cd latex
+	make
+
+This produces a pdf manual.

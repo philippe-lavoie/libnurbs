@@ -3,6 +3,7 @@ and surfaces.
 
 The information about the library are available from the website at
 	http://yukon.genie.uottawa.ca/~lavoie/software/nurbs
+Edit (2020-11-29): The path is not valid any more.
 
 Knowing myself, I'll only have time to update information in one format.
 This is why all the documentation are available online and not in the
@@ -13,3 +14,9 @@ Sorry for any inconvenience this might cause.
 Sincerly,
 
 Philippe Lavoie (c)1997-2002
+
+-----------------------
+Installation:
+
+Please see INSTALL file for installation instructions!
+
